@@ -1,0 +1,25 @@
+{
+  "name": "php-booking-site",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "postcss css/styles.css -o build/styles.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/migueliranzo/PHP-Booking-site.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/migueliranzo/PHP-Booking-site/issues"
+  },
+  "homepage": "https://github.com/migueliranzo/PHP-Booking-site#readme",
+  "dependencies": {
+    "autoprefixer": "^10.4.0",
+    "postcss-cli": "^9.0.2",
+    "tailwindcss": "^2.2.19"
+  }
+}
