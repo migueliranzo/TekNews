@@ -1,6 +1,6 @@
 <?php 
 
-include "../classes/report.php";
+include "classes/report.php";
 
 $servername = "localhost";
 $username = "root";
@@ -35,6 +35,36 @@ $sql = "SELECT * from report";
       foreach ($array as $report) {
         echo  $report->get_id();
     }
+
+    if (!isset ($_GET['page']) ) {  
+        $page = 1;  
+    } else {  
+        $page = $_GET['page'];  
+    }  
+
+    $results_per_page = 2;  
+    $page_first_result = ($page-1) * $results_per_page;  
     
+
+    $query = "select *from report";  
+    $result = mysqli_query($con, $query);  
+    $number_of_result = mysqli_num_rows($result);  
+    
+    //determine the total number of pages available  
+    $number_of_page = ceil ($number_of_result / $results_per_page);  
+
+
+    $query = "SELECT *FROM report LIMIT " . $page_first_result . ',' . $results_per_page;  
+    $result = mysqli_query($con, $query);  
+      
+    //display the retrieved result on the webpage  
+    while ($row = mysqli_fetch_array($result)) {  
+        echo $row['id'] . ' ' . $row['title'] . '</br>';  
+            }  
+
+            for($page = 1; $page<= $number_of_page; $page++) {  
+                echo '<a href = "index.php?page=' . $page . '">' . $page . ' </a>';  
+
+            }  
 
 ?>
