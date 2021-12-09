@@ -157,21 +157,20 @@
 
     <div class="grid grid-flow-col grid-rows-2 grid-cols-3 gap-4  ">
 
-      <div class="flex flex-col transition duration-200 overflow-hidden group">
+      <div class="flex flex-col transition duration-200 overflow-hidden group cursor-pointer">
 
-        <div class="flex flex-1 transform group-hover:scale-110 transition duration-300 ease">
-          <img src="img/test.jpg" alt="">
+        <div class="flex flex-1 transform group-hover:scale-110 transition duration-300 ease-out">
+          <img src="img/test4.jpg" alt="">
         </div>
-        <div class="transform group-hover:-translate-y-5 transition duration-300 ease bg-white " >
-          &spac\
+        <div class="transform px-3 pb-1 group-hover:-translate-y-3 pt-2 transition text-xs text-blue-600 duration-300 ease-out bg-white " >
+          News
         </div>
-        <div class=" flex flex-1 border-solid border-b-2 border-r-2 rounded-b-2xl p-0 m-0 rounded-l-none bg-white
-          border-red-600  pb-3 z-10 ">
+        <div class="flex flex-1 border-solid border-b border-r rounded-b-2xl p-0 m-0 rounded-l-none bg-white
+          border-gray-400  pb-8 z-10 group-hover:border-blue-800  ">
      
-          <div  style="--tw-scale-x: 1.012;" class="container pt-2 border-red-600 border-solid border-r-2  transform group-hover:-translate-y-5 transition duration-300 ease bg-white ">
+          <div  style="--tw-scale-x: 1.006;" class="container  border-gray-400 group-hover:border-blue-800 border-solid border-r transform group-hover:-translate-y-3 transition duration-300 ease-out bg-white ">
         
-          Lorem ipsum dolor sit amet,  consectetur adipiscing elit. Curabitur ultricies varius enim laoreet laoreet. Suspendisse at eros sit amet augue ultricies eleifend.
-          In quis ultricies magna.
+          Lorem ipsum dolor sit amet,  consectetur adipiscing elit. Curabitur ultricies varius enim laoreet laoreet. Suspendisse at eros.
           </div>
         </div>
 
