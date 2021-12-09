@@ -1,4 +1,4 @@
-<html>
+<html">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,8 +15,8 @@
 	
 	<!-- Header -->
 	<header>
-		<nav class="container flex items-center py-4 mt-4 sm:mt-12">
-			<div class="py-1 flex items-baseline"> <img src="img/logo.png" alt=""> <p class="px-2 uppercase text-6xl">Omegalol</p></div>	
+		<nav class=" container flex items-center py-4 mt-4 sm:mt-12">
+			<div class="py-1 z-20 flex items-baseline"> <img src="img/logo.png" alt=""> <p class="px-2 uppercase text-6xl">Omegalol</p></div>	
 			<ul class="hidden md:flex flex-1 justify-end items-center gap-12 text-gray-700 uppercase text-xs" >
 				<li class="cursor-pointer">Items</li>
 				<li class="cursor-pointer">Items</li>
@@ -26,14 +26,15 @@
 			<div class="flex md:hidden flex-1 justify-end"> 
 				<i class="fas text-4xl fa-bars"></i>
 			</div>
+		<div class="hidden md:block overflow-hidden bg-blue-600 rounded-l-full rounded-r-full absolute h-96 w-2/6 -top-48 -left-60 z-0"></div>
 		</nav>
 	</header>
 
-	<!-- News -->
+	<!-- Landing -->
 	<section class="relative">
 		<div class="container flex flex-col-reverse lg:flex-row items-center gap-12 mt-14 lg:mt-28">
 			<!-- Content -->
-			<div class="flex flex-1 flex-col items-center lg:items-start">
+			<div class="flex flex-1 z-10 flex-col items-center lg:items-start">
 				<h2 class="text-gray-800 text-3xl md:text-4 lg:text-5xl text-center lg:text-left mb-6">
 					The Best New Feed
 				</h2>
@@ -53,12 +54,26 @@
 			</div>
 		</div>
 		<!-- epic shape-->
-		<div class="hidden md:block overflow-hidden bg-green-300 rounded-l-full absolute h-80 w-2/4 top-32 right-0"></div>
+		<div class="hidden md:block overflow-hidden bg-green-300 rounded-l-full absolute h-80 w-2/4 top-32 right-0 lg:top-20 lg:w-2/6 xl:w-5/12"></div>
 	</section>
 
-	<?php
-	include "../build/models/test.php";	
-	?>
+	<!-- news grid -->
+	<section class="py-20 mt-20">
+			<div class="sm:w-3/4 lg:w-5/12 mx-auto px-2">
+				<h1 class="text-3xl text-center text-gray-700">Tech News!</h1>
+				<p class="text-gray-400 text-center mt-4">
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ultricies varius enim laoreet laoreet. Suspendisse at eros sit amet augue ultricies eleifend. 
+				In quis ultricies magna.
+				</p>
+			</div>
+			<div class="container">
+			<?php
+			include "../build/models/test.php";	
+			?>
+			</div>
+	</section>
+
+
 
 </body>
 </html>
