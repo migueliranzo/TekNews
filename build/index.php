@@ -21,7 +21,7 @@
 				<li class="cursor-pointer">Items</li>
 				<li class="cursor-pointer">Items</li>
 				<li class="cursor-pointer">Items</li>   
-				<button type="button" class="bg-indigo-500 text-white rounded-md px-7 py-3 uppercase hover:bg-indigo-200 transition duration-300">Login</button>
+				<button type="button" class="bg-indigo-500 text-white rounded-md px-7 py-3 uppercase hover:bg-indigo-200  transition duration-300">Login</button>
 			</ul>
 			<div class="flex md:hidden flex-1 justify-end"> 
 				<i class="fas text-4xl fa-bars"></i>
@@ -36,7 +36,7 @@
 			<!-- Content -->
 			<div class="flex flex-1 z-10 flex-col items-center lg:items-start">
 				<h2 class="text-gray-800 text-3xl md:text-4 lg:text-5xl text-center lg:text-left mb-6">
-					The Best New Feed
+					The Best News Feed
 				</h2>
 				<p class="text-gray-400 text-lg text-center lg:text-left mb-6">
 				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ultricies varius enim laoreet laoreet. Suspendisse at eros sit amet augue ultricies eleifend. 
