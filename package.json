@@ -18,8 +18,11 @@
   },
   "homepage": "https://github.com/migueliranzo/PHP-Booking-site#readme",
   "dependencies": {
+    "postcss-cli": "^9.0.2"
+  },
+  "devDependencies": {
     "autoprefixer": "^10.4.0",
-    "postcss-cli": "^9.0.2",
-    "tailwindcss": "^2.2.19"
+    "postcss": "^8.4.4",
+    "tailwindcss": "^3.0.0"
   }
 }

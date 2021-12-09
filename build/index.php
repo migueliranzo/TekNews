@@ -16,12 +16,13 @@
 	<!-- Header -->
 	<header>
 		<nav class=" container flex items-center py-4 mt-4 sm:mt-12">
-			<div class="py-1 z-20 flex items-baseline"> <img src="img/logo.png" alt=""> <p class="px-2 uppercase text-6xl">Omegalol</p></div>	
+			<div class="py-1 z-20 flex items-baseline"> <img src="img/logo.png" alt=""> <p class="px-2 uppercase underline decoration-wavy decoration-indigo-500 text-6xl">Omegalol</p></div>	
 			<ul class="hidden md:flex flex-1 justify-end items-center gap-12 text-gray-700 uppercase text-xs" >
 				<li class="cursor-pointer">Items</li>
 				<li class="cursor-pointer">Items</li>
 				<li class="cursor-pointer">Items</li>   
-				<button type="button" class="bg-indigo-500 text-white rounded-md px-7 py-3 uppercase hover:bg-indigo-200  transition duration-300">Login</button>
+				
+				<button type="button" class="bg-indigo-500 text-white rounded-md px-7 py-3 uppercase hover:bg-indigo-200 shadow-lg shadow-cyan-500/50  transition duration-300">Login</button>
 			</ul>
 			<div class="flex md:hidden flex-1 justify-end"> 
 				<i class="fas text-4xl fa-bars"></i>
@@ -32,7 +33,7 @@
 
 	<!-- Landing -->
 	<section class="relative">
-		<div class="container flex flex-col-reverse lg:flex-row items-center gap-12 mt-14 lg:mt-28">
+		<div class="container flex  flex-col-reverse lg:flex-row items-center gap-12 mt-14 lg:mt-28">
 			<!-- Content -->
 			<div class="flex flex-1 z-10 flex-col items-center lg:items-start">
 				<h2 class="text-gray-800 text-3xl md:text-4 lg:text-5xl text-center lg:text-left mb-6">
@@ -43,8 +44,8 @@
 				In quis ultricies magna.
 				</p>
 				<div class="flex justify-center flex-wrap gap-6">
-				<button type="button" class="btn btn-green hover:bg-green-200">Yeeeeee</button>
-					<button type="button" class="btn btn-purple hover:bg-purple-300">Yooo</button>
+				<button type="button" class=" btn btn-green  hover:bg-green-200 ">Yeeeeee</button>
+					<button type="button" class="btn btn-purple  hover:bg-fuchsia-300 ">Yooo</button>
 					
 				</div>
 			</div>

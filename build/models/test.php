@@ -62,17 +62,17 @@
 
 
           ?>
-              <div class="flex flex-col col-span-2 row-span-2 transition duration-200 overflow-hidden group cursor-pointer">
+              <div class="flex flex-col col-span-2 row-span-2  duration-200 overflow-hidden group cursor-pointer">
 
-                <div class="flex flex-1 transform group-hover:scale-110 transition duration-300 ease-out">
+                <div class="flex flex-1 transform group-hover:scale-110  duration-300 ease-out">
                   <img src=' <?php echo $row["imgpath"]; ?> ' alt="">
                 </div>
-                <div class="transform px-3 pb-1 group-hover:-translate-y-3 pt-2 transition text-xs text-blue-600 duration-300 ease-out bg-white ">
+                <div class="transform px-3 pb-1 group-hover:-translate-y-3 pt-2  text-xs font-bold text-blue-600 duration-300 ease-out bg-white ">
                   <?php echo $row["type"]; ?>
                 </div>
                 <div class="flex flex-1 border-solid border-b border-r rounded-b-2xl p-0 m-0 rounded-l-none bg-white
                   border-gray-400  pb-8 z-10 group-hover:border-blue-800  ">
-                  <div style="--tw-scale-x: 1.006;" class="container border-gray-400 group-hover:border-blue-800 border-solid border-r transform group-hover:-translate-y-3 transition duration-300 ease-out bg-white ">
+                  <div style="--tw-scale-x: 1.006;" class="container border-gray-400 group-hover:border-blue-800 border-solid border-r transform group-hover:-translate-y-3  duration-300 ease-out bg-white ">
                     <?php echo $row["title"]; ?>
                   </div>
                 </div>
@@ -86,17 +86,17 @@
             case 2:
 
             ?>
-              <div class="flex flex-col transition duration-200 overflow-hidden group cursor-pointer">
+              <div class="flex flex-col  duration-200 overflow-hidden group cursor-pointer">
 
-                <div class="flex flex-1 transform group-hover:scale-110 transition duration-300 ease-out">
+                <div class="flex flex-1 transform group-hover:scale-110  duration-300 ease-out">
                   <img src=' <?php echo $row["imgpath"]; ?> ' alt="">
                 </div>
-                <div class="transform px-3 pb-1 group-hover:-translate-y-3 pt-2 transition text-xs text-blue-600 duration-300 ease-out bg-white ">
+                <div class="transform px-3 pb-1 group-hover:-translate-y-3 pt-2  text-xs font-bold text-blue-600 duration-300 ease-out bg-white ">
                   <?php echo $row["type"]; ?>
                 </div>
                 <div class="flex flex-1 border-solid border-b border-r rounded-b-2xl p-0 m-0 rounded-l-none bg-white
                   border-gray-400  pb-8 z-10 group-hover:border-blue-800  ">
-                  <div style="--tw-scale-x: 1.006;" class="container border-gray-400 group-hover:border-blue-800 border-solid border-r transform group-hover:-translate-y-3 transition duration-300 ease-out bg-white ">
+                  <div style="--tw-scale-x: 1.006;" class="container border-gray-400 group-hover:border-blue-800 border-solid border-r transform group-hover:-translate-y-3  duration-300 ease-out bg-white ">
                     <?php echo $row["title"]; ?>
                   </div>
                 </div>
@@ -109,17 +109,17 @@
 
             case 3:
             ?>
-              <div class="flex flex-col transition duration-200 overflow-hidden group cursor-pointer">
+              <div class="flex flex-col  duration-200 overflow-hidden group cursor-pointer">
 
-                <div class="flex flex-1 transform group-hover:scale-110 transition duration-300 ease-out">
+                <div class="flex flex-1 transform group-hover:scale-110  duration-300 ease-out">
                   <img src=' <?php echo $row["imgpath"]; ?> ' alt="">
                 </div>
-                <div class="transform px-3 pb-1 group-hover:-translate-y-3 pt-2 transition text-xs text-blue-600 duration-300 ease-out bg-white ">
+                <div class="transform px-3 pb-1 group-hover:-translate-y-3 pt-2  text-xs font-bold text-blue-600 duration-300 ease-out bg-white ">
                   <?php echo $row["type"]; ?>
                 </div>
                 <div class="flex flex-1 border-solid border-b border-r rounded-b-2xl p-0 m-0 rounded-l-none bg-white
                   border-gray-400  pb-8 z-10 group-hover:border-blue-800  ">
-                  <div style="--tw-scale-x: 1.006;" class="container border-gray-400 group-hover:border-blue-800 border-solid border-r transform group-hover:-translate-y-3 transition duration-300 ease-out bg-white ">
+                  <div style="--tw-scale-x: 1.006;" class="container border-gray-400 group-hover:border-blue-800 border-solid border-r transform group-hover:-translate-y-3  duration-300 ease-out bg-white ">
                     <?php echo $row["title"]; ?>
                   </div>
                 </div>
@@ -132,17 +132,17 @@
 
             case 4:
             ?>
-              <div class="flex flex-col transition duration-200 overflow-hidden group cursor-pointer">
+              <div class="flex flex-col  duration-200 overflow-hidden group cursor-pointer">
 
-                <div class="flex flex-1 transform group-hover:scale-110 transition duration-300 ease-out">
+                <div class="flex flex-1 transform group-hover:scale-110  duration-300 ease-out">
                   <img src=' <?php echo $row["imgpath"]; ?> ' alt="">
                 </div>
-                <div class="transform px-3 pb-1 group-hover:-translate-y-3 pt-2 transition text-xs text-blue-600 duration-300 ease-out bg-white ">
+                <div class="transform px-3 pb-1 group-hover:-translate-y-3 pt-2  text-xs font-bold text-blue-600 duration-300 ease-out bg-white ">
                   <?php echo $row["type"]; ?>
                 </div>
                 <div class="flex flex-1 border-solid border-b border-r rounded-b-2xl p-0 m-0 rounded-l-none bg-white
                   border-gray-400  pb-8 z-10 group-hover:border-blue-800  ">
-                  <div style="--tw-scale-x: 1.006;" class="container border-gray-400 group-hover:border-blue-800 border-solid border-r transform group-hover:-translate-y-3 transition duration-300 ease-out bg-white ">
+                  <div style="--tw-scale-x: 1.006;" class="container border-gray-400 group-hover:border-blue-800 border-solid border-r transform group-hover:-translate-y-3  duration-300 ease-out bg-white ">
                     <?php echo $row["title"]; ?>
                   </div>
                 </div>
@@ -155,17 +155,17 @@
 
             case 5:
             ?>
-              <div class="flex flex-col transition duration-200 overflow-hidden group cursor-pointer">
+              <div class="flex flex-col  duration-200 overflow-hidden group cursor-pointer">
 
-                <div class="flex flex-1 transform group-hover:scale-110 transition duration-300 ease-out">
+                <div class="flex flex-1 transform group-hover:scale-110  duration-300 ease-out">
                   <img src=' <?php echo $row["imgpath"]; ?> ' alt="">
                 </div>
-                <div class="transform px-3 pb-1 group-hover:-translate-y-3 pt-2 transition text-xs text-blue-600 duration-300 ease-out bg-white ">
+                <div class="transform px-3 pb-1 group-hover:-translate-y-3 pt-2  text-xs font-bold text-blue-600 duration-300 ease-out bg-white ">
                   <?php echo $row["type"]; ?>
                 </div>
                 <div class="flex flex-1 border-solid border-b border-r rounded-b-2xl p-0 m-0 rounded-l-none bg-white
                   border-gray-400  pb-8 z-10 group-hover:border-blue-800  ">
-                  <div style="--tw-scale-x: 1.006;" class="container border-gray-400 group-hover:border-blue-800 border-solid border-r transform group-hover:-translate-y-3 transition duration-300 ease-out bg-white ">
+                  <div style="--tw-scale-x: 1.006;" class="container border-gray-400 group-hover:border-blue-800 border-solid border-r transform group-hover:-translate-y-3  duration-300 ease-out bg-white ">
                     <?php echo $row["title"]; ?>
                   </div>
                 </div>
@@ -188,92 +188,92 @@
 
     <div class="grid pt-28 grid-flow-col grid-rows-2 grid-cols-4 gap-4">
 
-      <div class="flex flex-col transition duration-200 overflow-hidden group cursor-pointer col-span-2 row-span-2">
+      <div class="flex flex-col  duration-200 overflow-hidden group cursor-pointer col-span-2 row-span-2">
 
-          <div class="transform px-3 pb-1  pt-2 transition text-xs text-blue-600 duration-300 ease-out bg-white ">
-              News
-            </div>
+        <div class=" px-0 font-bold pb-1  pt-2  text-xs text-blue-600 duration-300 ease-out bg-white ">
+          News
+        </div>
 
-            <div class="flex p-0 m-0 bg-white pb-8 z-10  ">
+        <div class="flex p-0 m-0 bg-white pb-8 z-10  ">
 
-              <div  class="container transition duration-300 ease-out bg-white ">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ultricies varius enim laoreet laoreet. Suspendisse at eros.
-              </div>
+          <div class="  duration-300 ease-out font-bold bg-white text-4xl ">
+            One race to go but at the end of a blockbuster season, who will be crowned champion in Abu Dhabi?
+          </div>
 
-            </div>
+        </div>
 
-            <div class="flex  transform group-hover:scale-110 transition duration-300 ease-out">
-              <img src="img/test4.jpg" alt="">
-            </div>
+        <div class="flex   group-hover:scale-110  duration-300 ease-out">
+          <img src="img/test4.jpg" alt="">
+        </div>
 
       </div>
 
-      <div class="flex flex-col transition duration-200 overflow-hidden group cursor-pointer">
+      <div class="flex flex-col  duration-200 overflow-hidden group cursor-pointer">
 
-        <div class="flex flex-1 transform group-hover:scale-110 transition duration-300 ease-out">
+        <div class="flex flex-1 transform group-hover:scale-110  duration-300 ease-out">
           <img src="img/test4.jpg" alt="">
         </div>
-        <div class="transform px-3 pb-1 group-hover:-translate-y-3 pt-2 transition text-xs text-blue-600 duration-300 ease-out bg-white ">
+        <div class="transform px-3 pb-1 group-hover:-translate-y-3 pt-2   text-xs font-bold text-blue-600 duration-300 ease-out bg-white ">
           News
         </div>
         <div class="flex flex-1 border-solid border-b border-r rounded-b-2xl p-0 m-0 rounded-l-none bg-white
           border-gray-400  pb-8 z-10 group-hover:border-blue-800  ">
 
-          <div style="--tw-scale-x: 1.006;" class="container  border-gray-400 group-hover:border-blue-800 border-solid border-r transform group-hover:-translate-y-3 transition duration-300 ease-out bg-white ">
+          <div style="--tw-scale-x: 1.006;" class="container  border-gray-400 group-hover:border-blue-800 border-solid border-r transform group-hover:-translate-y-3  duration-300 ease-out bg-white ">
 
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ultricies varius enim laoreet laoreet. Suspendisse at eros.
           </div>
         </div>
 
       </div>
-      <div class="flex flex-col transition duration-200 overflow-hidden group cursor-pointer">
+      <div class="flex flex-col  duration-200 overflow-hidden group cursor-pointer">
 
-        <div class="flex flex-1 transform group-hover:scale-110 transition duration-300 ease-out">
+        <div class="flex flex-1 transform group-hover:scale-110  duration-300 ease-out">
           <img src="img/test4.jpg" alt="">
         </div>
-        <div class="transform px-3 pb-1 group-hover:-translate-y-3 pt-2 transition text-xs text-blue-600 duration-300 ease-out bg-white ">
+        <div class="transform px-3 pb-1 group-hover:-translate-y-3 pt-2  text-xs  font-bold text-blue-600 duration-300 ease-out bg-white ">
           News
         </div>
         <div class="flex flex-1 border-solid border-b border-r rounded-b-2xl p-0 m-0 rounded-l-none bg-white
   border-gray-400  pb-8 z-10 group-hover:border-blue-800  ">
 
-          <div style="--tw-scale-x: 1.006;" class="container  border-gray-400 group-hover:border-blue-800 border-solid border-r transform group-hover:-translate-y-3 transition duration-300 ease-out bg-white ">
+          <div style="--tw-scale-x: 1.006;" class="container  border-gray-400 group-hover:border-blue-800 border-solid border-r transform group-hover:-translate-y-3  duration-300 ease-out bg-white ">
 
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ultricies varius enim laoreet laoreet. Suspendisse at eros.
           </div>
         </div>
 
       </div>
-      <div class="flex flex-col transition duration-200 overflow-hidden group cursor-pointer">
+      <div class="flex flex-col  duration-200 overflow-hidden group cursor-pointer">
 
-        <div class="flex flex-1 transform group-hover:scale-110 transition duration-300 ease-out">
+        <div class="flex flex-1 transform group-hover:scale-110  duration-300 ease-out">
           <img src="img/test4.jpg" alt="">
         </div>
-        <div class="transform px-3 pb-1 group-hover:-translate-y-3 pt-2 transition text-xs text-blue-600 duration-300 ease-out bg-white ">
+        <div class="transform px-3 pb-1 group-hover:-translate-y-3 pt-2  text-xs text-blue-600 duration-300 ease-out bg-white ">
           News
         </div>
         <div class="flex flex-1 border-solid border-b border-r rounded-b-2xl p-0 m-0 rounded-l-none bg-white
   border-gray-400  pb-8 z-10 group-hover:border-blue-800  ">
 
-          <div style="--tw-scale-x: 1.006;" class="container  border-gray-400 group-hover:border-blue-800 border-solid border-r transform group-hover:-translate-y-3 transition duration-300 ease-out bg-white ">
+          <div style="--tw-scale-x: 1.006;" class="container  border-gray-400 group-hover:border-blue-800 border-solid border-r transform group-hover:-translate-y-3  duration-300 ease-out bg-white ">
 
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ultricies varius enim laoreet laoreet. Suspendisse at eros.
           </div>
         </div>
 
       </div>
-      <div class="flex flex-col transition duration-200 overflow-hidden group cursor-pointer">
+      <div class="flex flex-col  duration-200 overflow-hidden group cursor-pointer">
 
-        <div class="flex flex-1 transform group-hover:scale-110 transition duration-300 ease-out">
+        <div class="flex flex-1 transform group-hover:scale-110  duration-300 ease-out">
           <img src="img/test4.jpg" alt="">
         </div>
-        <div class="transform px-3 pb-1 group-hover:-translate-y-3 pt-2 transition text-xs text-blue-600 duration-300 ease-out bg-white ">
+        <div class="transform px-3 pb-1 group-hover:-translate-y-3 pt-2  text-xs text-blue-600 duration-300 ease-out bg-white ">
           News
         </div>
         <div class="flex flex-1 border-solid border-b border-r rounded-b-2xl p-0 m-0 rounded-l-none bg-white
   border-gray-400  pb-8 z-10 group-hover:border-blue-800  ">
 
-          <div style="--tw-scale-x: 1.006;" class="container  border-gray-400 group-hover:border-blue-800 border-solid border-r transform group-hover:-translate-y-3 transition duration-300 ease-out bg-white ">
+          <div style="--tw-scale-x: 1.006;" class="container  border-gray-400 group-hover:border-blue-800 border-solid border-r transform group-hover:-translate-y-3  duration-300 ease-out bg-white ">
 
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ultricies varius enim laoreet laoreet. Suspendisse at eros.
           </div>

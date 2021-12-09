@@ -8,9 +8,9 @@
 }
 
 .btn-purple{
-    @apply bg-purple-400 text-white
+    @apply bg-fuchsia-400  shadow-lg  shadow-fuchsia-500/50 text-white
 }
 
 .btn-green{
-    @apply bg-green-500 text-white
+    @apply bg-green-500 shadow-lg shadow-green-500/50 text-white
 }
