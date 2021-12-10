@@ -44,7 +44,7 @@
 				In quis ultricies magna.
 				</p>
 				<div class="flex justify-center flex-wrap gap-6">
-				<button type="button" class=" btn btn-green  hover:bg-green-200 ">Yeeeeee</button>
+				<button type="button" class=" btn btn-green  hover:bg-green-300 ">Yeeeeee</button>
 					<button type="button" class="btn btn-purple  hover:bg-fuchsia-300 ">Yooo</button>
 					
 				</div>

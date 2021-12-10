@@ -1,7 +1,9 @@
 
 module.exports = {
-  purge: {enabled:false, content: ['./build/**/*.php']},
-  darkMode: false, // or 'media' or 'class'
+  mode: 'jit',
+  content : [
+    './build/**/*.php',
+  ],
   theme: {
     extend: {},
     fontFamily:{
