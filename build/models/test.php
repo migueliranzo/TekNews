@@ -3,31 +3,7 @@
 <head>
   <title>Pagination</title>
   <style>
-    .half-a-border-on-top {
-      z-index: 100;
-      position: relative;
-      width: 100%;
-      
-    }
-
-    .half-a-border-on-top:hover::after {
-      height: 53%;
-    }
-
-    .half-a-border-on-top:after {
-      
-      transition-timing-function: cubic-bezier(0, 0, 0.2, 1) !important;
-      padding: 0;
-      margin: 0;
-      transition: 0.3s;
-      content: "";
-      width: 2px;
-      height: 57%;
-      background-color: white;
-      position: absolute;
-      right: -2px;
-      top: 0px;
-    }
+   
   </style>
 </head>
 
@@ -68,7 +44,7 @@
     <br>
     <div>
 
-      <div class="grid grid-flow-col grid-rows-2 grid-cols-4 gap-4">
+      <div class="grid grid-flow-col grid-rows-2 grid-cols-4 gap-4 lg:m-0 sm:m-16 sm:bg-red-400 md:bg-amber-400 lg:bg-emerald-400 xl:to-blue-500 2xl:bg-fuchsia-400"">
 
 
         <?php
@@ -86,22 +62,26 @@
 
 
           ?>
-              <div class="flex flex-col col-span-2 row-span-2  duration-200 overflow-hidden group cursor-pointer">
+             <div class=" container flex flex-col duration-200 overflow-hidden group cursor-pointer border-r-4 border-t-4 border-b-4 rounded-r-2xl border-dashed  border-blue-600 col-span-2 row-span-2">
+        <div class="overflow-hidden pb-4">
+        <div class=" uppercase px-0 font-bold pb-1  pt-4  text-xs text-blue-600 duration-300 ease-out bg-white ">
+        <?php echo $row["type"]; ?>
+        </div>
 
-                <div class="flex flex-1 transform group-hover:scale-110  duration-300 ease-out">
-                  <img src=' <?php echo $row["imgpath"]; ?> ' alt="">
-                </div>
-                <div class="transform px-3 pb-1 group-hover:-translate-y-3 pt-2  text-xs font-bold text-blue-600 duration-300 ease-out bg-white ">
-                  <?php echo $row["type"]; ?>
-                </div>
-                <div class="flex flex-1 border-solid border-b border-r rounded-b-2xl p-0 m-0 rounded-l-none bg-white
-                  border-gray-400  pb-8 z-10 group-hover:border-blue-800  ">
-                  <div style="--tw-scale-x: 1.006;" class="container border-gray-400 group-hover:border-blue-800 border-solid border-r transform group-hover:-translate-y-3  duration-300 ease-out bg-white ">
-                    <?php echo $row["title"]; ?>
-                  </div>
-                </div>
+        <div class="flex flex-1 p-0 m-0 bg-white pb-8   ">
 
-              </div>
+          <div class="   group-hover:not-italic italic duration-300 ease-out font-bold bg-white text-4xl  ">
+          <?php echo $row["title"]; ?>
+          
+          </div>
+
+        </div>
+
+        <div class="flex flex-1 pb-1 group-hover:-skew-y-2  group-hover:scale-110  duration-300 ease-out">
+        <img src=' <?php echo $row["imgpath"]; ?> ' alt="">
+        </div>
+        </div>
+      </div>
 
             <?php
 
@@ -110,22 +90,23 @@
             case 2:
 
             ?>
-              <div class="flex flex-col  duration-200 overflow-hidden group cursor-pointer">
+             <div class="  flex flex-col  duration-200 group cursor-pointer border-gray-400 border-solid border-b border-r rounded-b-2xl rounded-l-none hover:border-blue-800
+      news-card-effect after:ease-out">
+        <div class="overflow-hidden">
+          <div class="flex flex-1  transform group-hover:scale-110 ease-out  duration-300">
+          <img src=' <?php echo $row["imgpath"]; ?> ' alt="">
+          </div>
+          <div class="transform uppercase px-3 pb-1 group-hover:-translate-y-3 pt-3  text-xs  font-bold text-blue-600 duration-300 ease-out bg-white ">
+          <?php echo $row["type"]; ?>
+          </div>
+          <div class="flex flex-1 border-solid  m-0 pb-8 ">
 
-                <div class="flex flex-1 transform group-hover:scale-110  duration-300 ease-out">
-                  <img src=' <?php echo $row["imgpath"]; ?> ' alt="">
-                </div>
-                <div class="transform px-3 pb-1 group-hover:-translate-y-3 pt-2  text-xs font-bold text-blue-600 duration-300 ease-out bg-white ">
-                  <?php echo $row["type"]; ?>
-                </div>
-                <div class="flex flex-1 border-solid border-b border-r rounded-b-2xl p-0 m-0 rounded-l-none bg-white
-                  border-gray-400  pb-8 z-10 group-hover:border-blue-800  ">
-                  <div style="--tw-scale-x: 1.006;" class="container border-gray-400 group-hover:border-blue-800 border-solid border-r transform group-hover:-translate-y-3  duration-300 ease-out bg-white ">
-                    <?php echo $row["title"]; ?>
-                  </div>
-                </div>
+            <div class="container h-24  px-[1.12rem] border-gray-400 group-hover:border-blue-800 border-solid  transform group-hover:-translate-y-3  duration-300 ease-out bg-white ">
 
-              </div>
+            <?php echo $row["title"]; ?></div>
+          </div>
+        </div>
+      </div>
 
             <?php
 
@@ -209,31 +190,32 @@
     </div>
 
 
-    <div class="grid pt-28 grid-flow-col grid-rows-2 grid-cols-4 gap-4">
+    <div class="grid pt-28 auto-cols-max m-0 bg-white  lg:grid-cols-4 gap-4  grid-cols-2  sm:grid-cols-2 lg:m-0 sm:m-8 md:m-16">
 
-      <div class="flex flex-col  duration-200 overflow-hidden group cursor-pointer col-span-2 row-span-2">
-
-        <div class=" px-0 font-bold pb-1  pt-2  text-xs text-blue-600 duration-300 ease-out bg-white ">
-          News
+      <div class=" container  flex flex-col duration-200 overflow-hidden group cursor-pointer sm:border-l-4 sm:rounded-l-2xl lg:rounded-l-none lg:border-l-0 border-r-4 border-t-4 border-b-4 rounded-r-2xl border-dashed  border-blue-600 col-span-2 lg:row-span-2 sm:row-span-1">
+        
+        <div class=" uppercase px-0  md:text-center lg:text-left font-bold pb-1  pt-4  text-xs text-blue-600 duration-300 ease-out bg-white ">
+          Newss
         </div>
 
-        <div class="flex p-0 m-0 bg-white pb-8   ">
+        <div class="flex p-0 m-0 bg-white">
 
-          <div class="  duration-300 ease-out font-bold bg-white text-4xl  ">
+          <div class="group-hover:not-italic italic md:text-center lg:text-left duration-300 ease-out font-bold bg-white text-4xl  ">
             One race to go but at the end of a blockbuster season, who will be crowned champion in Abu Dhabi?
+          
           </div>
 
         </div>
-
-        <div class="flex   group-hover:scale-110  duration-300 ease-out">
+        <div class="overflow-hidden  my-4">
+        <div class="flex flex-1 justify-center pb-1 group-hover:-skew-y-2  group-hover:scale-110  duration-300 ease-out">
           <img src="img/test4.jpg" alt="">
         </div>
-
+        </div>
       </div>
 
 
-      <div class="  flex flex-col  duration-200 group cursor-pointer border-gray-400 border-solid border-b border-r rounded-b-2xl rounded-l-none hover:border-blue-800
-      half-a-border-on-top after:ease-out">
+      <div class="  flex flex-col   duration-200 group cursor-pointer border-gray-400 border-solid border-b border-r rounded-b-2xl rounded-l-none hover:border-blue-800
+      news-card-effect after:ease-out">
         <div class="overflow-hidden">
           <div class="flex flex-1  transform group-hover:scale-110 ease-out  duration-300">
             <img src="img/test5.jpg" alt="">
@@ -241,55 +223,64 @@
           <div class="transform uppercase px-3 pb-1 group-hover:-translate-y-3 pt-3  text-xs  font-bold text-blue-600 duration-300 ease-out bg-white ">
             News
           </div>
-          <div class="flex flex-1 border-solid  m-0 pb-0">
+          <div class="flex flex-1 border-solid  m-0 pb-8 ">
+
+            <div class="container h-24 px-[1.12rem] border-gray-400 group-hover:border-blue-800 border-solid  transform group-hover:-translate-y-3  duration-300 ease-out bg-white ">
+            Defending champion Hamilton says he 'feels great' after dominating FP2 in Abu Dhabi ahead of title showdown
+           </div>
+          </div>
+        </div>
+      </div>
+      <div class="  flex flex-col  duration-200 group cursor-pointer border-gray-400 border-solid border-b border-r rounded-b-2xl rounded-l-none hover:border-blue-800
+      news-card-effect after:ease-out">
+        <div class="overflow-hidden">
+          <div class="flex flex-1  transform group-hover:scale-110 ease-out  duration-300">
+            <img src="img/test5.jpg" alt="">
+          </div>
+          <div class="transform uppercase px-3 pb-1 group-hover:-translate-y-3 pt-3  text-xs  font-bold text-blue-600 duration-300 ease-out bg-white ">
+            News
+          </div>
+          <div class="flex flex-1 border-solid  m-0 pb-8 ">
 
             <div class="container  px-[1.12rem] border-gray-400 group-hover:border-blue-800 border-solid  transform group-hover:-translate-y-3  duration-300 ease-out bg-white ">
-
-            Defending champion Hamilton says he 'feels great' after dominating FP2 in Abu Dhabi ahead of title showdown</div>
+            Defending champion Hamilton says he 'feels great' after dominating FP2 in Abu Dhabi ahead of title showdown
+          </div>
           </div>
         </div>
       </div>
-      <div class="half-a-border-on-top">Hello world!
-        <p>Hello world!</p>
-        <p>Hello world!</p>
-        <p>Hello world!</p>
-        <p>Hello world!</p>
-      </div>
-      <div class="flex flex-col  duration-200 overflow-hidden group cursor-pointer">
+      <div class="  flex flex-col  duration-200 group cursor-pointer border-gray-400 border-solid border-b border-r rounded-b-2xl rounded-l-none hover:border-blue-800
+      news-card-effect after:ease-out">
+        <div class="overflow-hidden">
+          <div class="flex flex-1  transform group-hover:scale-110 ease-out  duration-300">
+            <img src="img/test5.jpg" alt="">
+          </div>
+          <div class="transform uppercase px-3 pb-1 group-hover:-translate-y-3 pt-3  text-xs  font-bold text-blue-600 duration-300 ease-out bg-white ">
+            News
+          </div>
+          <div class="flex flex-1 border-solid  m-0 pb-8 ">
 
-        <div class="flex flex-1 transform group-hover:scale-110  duration-300 ease-out">
-          <img src="img/test4.jpg" alt="">
-        </div>
-        <div class="transform px-3 pb-1 group-hover:-translate-y-3 pt-2  text-xs  font-bold text-blue-600 duration-300 ease-out bg-white ">
-          News
-        </div>
-        <div class="flex flex-1 border-solid  p-0 m-0 rounded-l-none bg-white
-border-gray-400  pb-8  group-hover:border-blue-800 duration-300 ">
-
-          <div class="container scale-[1.001] border-gray-400 group-hover:border-blue-800 border-solid border-r transform group-hover:-translate-y-3  duration-300 ease-out bg-white ">
-
-          Defending champion Hamilton says he 'feels great' after dominating FP2 in Abu Dhabi ahead of title showdown
+            <div class="container  px-[1.12rem] border-gray-400 group-hover:border-blue-800 border-solid  transform group-hover:-translate-y-3  duration-300 ease-out bg-white ">
+            Defending champion Hamilton says he 'feels great' after dominating FP2 in Abu Dhabi ahead of title showdown
+            </div>
           </div>
         </div>
-
       </div>
-      <div class="flex flex-col  duration-200 overflow-hidden group cursor-pointer">
+      <div class="  flex flex-col  duration-200 group cursor-pointer border-gray-400 border-solid border-b border-r rounded-b-2xl rounded-l-none hover:border-blue-800
+      news-card-effect after:ease-out">
+        <div class="overflow-hidden">
+          <div class="flex flex-1  transform group-hover:scale-110 ease-out  duration-300">
+            <img src="img/test5.jpg" alt="">
+          </div>
+          <div class="transform uppercase px-3 group-hover:-translate-y-3 pt-3  text-xs  font-bold text-blue-600 duration-300 ease-out bg-white ">
+            News
+          </div>
+          <div class="flex flex-1 border-solid  m-0 pb-8 ">
 
-        <div class="flex flex-1 transform group-hover:scale-110  duration-300 ease-out">
-          <img src="img/test4.jpg" alt="">
-        </div>
-        <div class="transform px-3 pb-1 group-hover:-translate-y-3 pt-2  text-xs  font-bold text-blue-600 duration-300 ease-out bg-white ">
-          News
-        </div>
-        <div class="flex flex-1 border-solid border-b border-r rounded-b-2xl p-0 m-0 rounded-l-none bg-white
-border-gray-400  pb-8  group-hover:border-blue-800 duration-300 ">
-
-          <div class="container scale-[1.001] border-gray-400 group-hover:border-blue-800 border-solid border-r transform group-hover:-translate-y-3  duration-300 ease-out bg-white ">
-
-          Defending champion Hamilton says he 'feels great' after dominating FP2 in Abu Dhabi ahead of title showdown
+            <div class="container  px-[1.12rem] border-gray-400 group-hover:border-blue-800 border-solid  transform group-hover:-translate-y-3  duration-300 ease-out bg-white ">
+            Defending champion Hamilton says he 'feels great' after dominating FP2 in Abu Dhabi ahead of title showdown
+          </div>
           </div>
         </div>
-
       </div>
     </div>
 
