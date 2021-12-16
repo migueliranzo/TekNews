@@ -26,7 +26,7 @@
   }
 
 
-  $per_page_record = 1;  // Number of entries to show in a page.   
+  $per_page_record = 5;  // Number of entries to show in a page.   
   // Look for a GET variable page if not found default is 1.        
   if (isset($_GET["page"])) {
     $page  = $_GET["page"];
@@ -48,6 +48,27 @@
 
 
         <?php
+
+        function typeToText($arg_1)
+        {
+
+          switch ($arg_1) {
+            case 0:
+              return "Tech News";
+              break;
+            case 1:
+              return "Cryto World";
+              break;
+            case 2:
+              return "Virtual reality";
+              break;
+            case 3:
+              return "Biotechnology";
+              break;
+          }
+
+        }
+
         $i = 0;
         while ($row = mysqli_fetch_array($rs_result)) {
           $i++;
@@ -66,7 +87,7 @@
       lg:border-l-0 border-r-4 border-t-4 border-b-4 rounded-r-2xl border-dotted  border-blue-600 col-span-2 lg:row-span-2 sm:row-span-1">
 
                 <div class=" uppercase px-0  md:text-center lg:text-left font-bold pb-1  pt-4  text-xs text-blue-600 duration-300 ease-out bg-white ">
-                  <?php echo $row["type"]; ?>
+                  <?php echo typeToText($row["type"]); ?>
                 </div>
 
                 <div class="flex p-0 m-0 bg-white">
@@ -97,7 +118,7 @@
                     <img src=' <?php echo $row["imgpath"]; ?> ' alt="">
                   </div>
                   <div class="transform uppercase px-3 pb-1 group-hover:-translate-y-3 pt-3  text-xs  font-bold text-blue-600 duration-300 ease-out bg-white ">
-                    <?php echo $row["type"]; ?>
+                    <?php echo typeToText($row["type"]); ?>
                   </div>
                   <div class="flex flex-1 border-solid  m-0 pb-8 ">
 
@@ -121,7 +142,7 @@
                     <img src=' <?php echo $row["imgpath"]; ?> ' alt="">
                   </div>
                   <div class="transform uppercase px-3 pb-1 group-hover:-translate-y-3 pt-3  text-xs  font-bold text-blue-600 duration-300 ease-out bg-white ">
-                    <?php echo $row["type"]; ?>
+                    <?php echo typeToText($row["type"]); ?>
                   </div>
                   <div class="flex flex-1 border-solid  m-0 pb-8 ">
 
@@ -145,7 +166,7 @@
                     <img src=' <?php echo $row["imgpath"]; ?> ' alt="">
                   </div>
                   <div class="transform uppercase px-3 pb-1 group-hover:-translate-y-3 pt-3  text-xs  font-bold text-blue-600 duration-300 ease-out bg-white ">
-                    <?php echo $row["type"]; ?>
+                    <?php echo typeToText($row["type"]); ?>
                   </div>
                   <div class="flex flex-1 border-solid  m-0 pb-8 ">
 
@@ -169,7 +190,7 @@
                     <img src=' <?php echo $row["imgpath"]; ?> ' alt="">
                   </div>
                   <div class="transform uppercase px-3 pb-1 group-hover:-translate-y-3 pt-3  text-xs  font-bold text-blue-600 duration-300 ease-out bg-white ">
-                    <?php echo $row["type"]; ?>
+                    <?php echo typeToText($row["type"]); ?>
                   </div>
                   <div class="flex flex-1 border-solid  m-0 pb-8 ">
 
@@ -296,9 +317,9 @@ top: 36px;
     transform: rotate(
 45deg);
 -->
-   
+
     <div class=" text-center  pt-6">
-<!-- 
+      <!-- 
     <div class="bg-indigo-500 shadow-lg text-white shadow-cyan-500/50 inline-block pt-2 pb-3 px-4 rounded-2xl overflow-hidden"> 
 
         <a  class="px-2 inline-block z-20 after:-z-10 after:w-[150px] hover: transition duration-300 after:h-[150px]  
@@ -313,10 +334,13 @@ top: 36px;
         after:bg-blue-500 after:'' relative after:absolute after:block inline-block after:top-20 after:duration-300
         after:rotate-45 after:hover:top-7 after:-left-[62px]" href="">2</a>
         </div>
+        px-3 z-20 after:-z-10 after:w-[150px] hover: transition duration-300 after:h-[150px]  
+            after:bg-blue-500 after:`` relative after:absolute after:block inline-block after:-top-[200px] after:duration-300
+            after:rotate-45 after:hover:-top-[154px] after:-left-[58px]
         -->
-       
-        <br>
-        <div class="bg-indigo-500 shadow-lg text-white shadow-cyan-500/50 inline-block pt-2 pb-3 px-4 rounded-2xl overflow-hidden"> 
+
+      <br>
+      <div class="bg-blue-500 shadow-lg text-white shadow-cyan-500/50 inline-block pt-2 pb-3 px-4 rounded-2xl overflow-hidden">
 
         <?php //Calculation of pages needed to paginate and display of page numbers
         $query = "SELECT COUNT(*) FROM report";
@@ -327,34 +351,51 @@ top: 36px;
         $total_pages = ceil($total_records / $per_page_record);  // Number of pages required.
         $pagLink = "";
 
+
+        echo "<a class='px-3 z-20 after:-z-10 after:w-[150px] hover: transition duration-300 after:h-[150px]  
+        after:bg-blue-600 after:`` relative after:absolute after:block inline-block after:hover:top-[0.20] after:duration-300
+        after:rotate-45 after:top-20 after:-left-16' href='index.php?page=";
+
         if ($page >= 2) {
-          echo "<a class='px-3 z-20 after:-z-10 after:w-[150px] hover: transition duration-300 after:h-[150px]  
-        after:bg-blue-500 after:`` relative after:absolute after:block inline-block after:hover:top-[0.20] after:duration-300
-        after:rotate-45 after:top-20 after:-left-16' href='index.php?page=" . ($page - 1) . "'>  Prev </a>";
+          echo ($page - 1);
+        } else {
+          echo 1;
         }
+
+        echo "'>  Prev </a>";
+
 
         for ($i = 1; $i <= $total_pages; $i++) {
           if ($i == $page) {
             $pagLink .= "<a class='px-3 z-20 after:-z-10 after:w-[150px] hover: transition duration-300 after:h-[150px]  
-            after:bg-blue-500 after:`` relative after:absolute after:block inline-block after:top-20 after:duration-300
-            after:rotate-45 after:hover:top-7 after:-left-[59px]' href='index.php?page="
+            after:bg-pink-500 after:`` relative after:absolute after:block inline-block after:-top-[178px] after:duration-300
+            after:rotate-45 after:hover:-top-[178px] after:-left-[58px]' href='index.php?page="
               . $i . "'>" . $i . " </a>";
           } else {
             $pagLink .= "<a class='px-3 z-20 after:-z-10 after:w-[150px] hover: transition duration-300 after:h-[150px]  
-            after:bg-blue-500 after:`` relative after:absolute after:block inline-block after:-top-[200px] after:duration-300
-            after:rotate-45 after:hover:-top-[154px] after:-left-[59px]' href='index.php?page=" . $i . "'>" . $i . " </a>";
+            after:bg-blue-700 after:`` relative after:absolute after:block inline-block after:top-20 after:duration-300
+            after:rotate-45 after:hover:top-7 after:-left-[58px]' href='index.php?page=" . $i . "'>" . $i . " </a>";
           }
         };
         echo $pagLink;
 
+
+        echo "<a class='px-3 z-20 after:-z-10 after:w-[150px] hover: transition duration-300 after:h-[150px]  
+          after:bg-blue-700 after:`` relative after:absolute after:block inline-block after:hover:top-[0.20] after:duration-300
+          after:rotate-45 after:top-20 after:-left-7' href='index.php?page=";
+
         if ($page < $total_pages) {
-          echo "<a class='px-3 z-20 after:-z-10 after:w-[150px] hover: transition duration-300 after:h-[150px]  
-          after:bg-blue-500 after:`` relative after:absolute after:block inline-block after:hover:top-[0.20] after:duration-300
-          after:rotate-45 after:top-20 after:-left-7' href='index.php?page=" . ($page + 1) . "'>  Next </a>";
+
+          echo ($page + 1);
+        } else {
+          echo $total_pages;
         }
 
+        echo "'>  Next </a>";
+
+
         ?>
-        </div>
+      </div>
     </div>
 
   </div>

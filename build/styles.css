@@ -323,7 +323,7 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-scale-y: 1;
   --tw-transform: translateX(var(--tw-translate-x)) translateY(var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
-.border, .border-l-4, .border-r-4, .border-t-4, .border-b-4, .border-b, .border-r, .lg\:border-l-0{
+.border-l-4, .border-r-4, .border-t-4, .border-b-4, .border-b, .border-r, .lg\:border-l-0{
   --tw-border-opacity: 1;
   border-color: rgb(229 231 235 / var(--tw-border-opacity));
 }
@@ -513,9 +513,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   border-top-left-radius: 0px;
   border-bottom-left-radius: 0px;
 }
-.border{
-  border-width: 1px;
-}
 .border-l-4{
   border-left-width: 4px;
 }
@@ -566,6 +563,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 .bg-white{
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+.bg-blue-500{
+  --tw-bg-opacity: 1;
+  background-color: rgb(59 130 246 / var(--tw-bg-opacity));
 }
 .p-0{
   padding: 0px;
@@ -801,69 +802,133 @@ Ensure the default browser behavior of the `hidden` attribute.
   content: var(--tw-content);
   left: -62px;
 }
-.after\:top-2::after{
+.after\:-left-\[58px\]::after{
   content: var(--tw-content);
-  top: 0.5rem;
+  left: -58px;
 }
-.after\:-top-2::after{
+.after\:-top-\[139px\]::after{
   content: var(--tw-content);
-  top: -0.5rem;
-}
-.after\:-top-20::after{
-  content: var(--tw-content);
-  top: -5rem;
-}
-.after\:-top-1::after{
-  content: var(--tw-content);
-  top: -0.25rem;
-}
-.after\:top-1::after{
-  content: var(--tw-content);
-  top: 0.25rem;
-}
-.after\:top-10::after{
-  content: var(--tw-content);
-  top: 2.5rem;
-}
-.after\:-left-10::after{
-  content: var(--tw-content);
-  left: -2.5rem;
-}
-.after\:-left-1::after{
-  content: var(--tw-content);
-  left: -0.25rem;
-}
-.after\:-left-2::after{
-  content: var(--tw-content);
-  left: -0.5rem;
-}
-.after\:-left-3::after{
-  content: var(--tw-content);
-  left: -0.75rem;
-}
-.after\:-left-6::after{
-  content: var(--tw-content);
-  left: -1.5rem;
+  top: -139px;
 }
 .after\:-left-7::after{
   content: var(--tw-content);
   left: -1.75rem;
 }
-.after\:-left-12::after{
+.after\:-top-\[129px\]::after{
   content: var(--tw-content);
-  left: -3rem;
+  top: -129px;
+}
+.after\:-top-\[169px\]::after{
+  content: var(--tw-content);
+  top: -169px;
+}
+.after\:-top-\[179px\]::after{
+  content: var(--tw-content);
+  top: -179px;
+}
+.after\:-top-\[159px\]::after{
+  content: var(--tw-content);
+  top: -159px;
+}
+.after\:-top-\[149px\]::after{
+  content: var(--tw-content);
+  top: -149px;
+}
+.after\:-left-\[58\.5px\]::after{
+  content: var(--tw-content);
+  left: -58.5px;
+}
+.after\:-left-\[58\.4px\]::after{
+  content: var(--tw-content);
+  left: -58.4px;
+}
+.after\:-left-\[58\.3px\]::after{
+  content: var(--tw-content);
+  left: -58.3px;
+}
+.after\:-left-\[58\.1px\]::after{
+  content: var(--tw-content);
+  left: -58.1px;
+}
+.after\:-left-\[58\.8px\]::after{
+  content: var(--tw-content);
+  left: -58.8px;
+}
+.after\:-left-\[58\.2px\]::after{
+  content: var(--tw-content);
+  left: -58.2px;
+}
+.after\:-left-\[59px\]::after{
+  content: var(--tw-content);
+  left: -59px;
 }
 .after\:-left-\[56px\]::after{
   content: var(--tw-content);
   left: -56px;
 }
-.after\:-left-\[58px\]::after{
+.after\:-left-\[58\.6px\]::after{
   content: var(--tw-content);
-  left: -58px;
+  left: -58.6px;
 }
-.after\:-left-\[59px\]::after{
+.after\:-left-\[58\.7px\]::after{
   content: var(--tw-content);
-  left: -59px;
+  left: -58.7px;
+}
+.after\:-left-\[-57\.32px\]::after{
+  content: var(--tw-content);
+  left: 57.32px;
+}
+.after\:-left-\[-58\.32px\]::after{
+  content: var(--tw-content);
+  left: 58.32px;
+}
+.after\:-left-\[-58px\]::after{
+  content: var(--tw-content);
+  left: 58px;
+}
+.after\:-top-\[189px\]::after{
+  content: var(--tw-content);
+  top: -189px;
+}
+.after\:-top-\[180px\]::after{
+  content: var(--tw-content);
+  top: -180px;
+}
+.after\:-top-\[170px\]::after{
+  content: var(--tw-content);
+  top: -170px;
+}
+.after\:-top-\[166px\]::after{
+  content: var(--tw-content);
+  top: -166px;
+}
+.after\:-top-\[162px\]::after{
+  content: var(--tw-content);
+  top: -162px;
+}
+.after\:-top-\[155px\]::after{
+  content: var(--tw-content);
+  top: -155px;
+}
+.after\:-top-\[150px\]::after{
+  content: var(--tw-content);
+  top: -150px;
+}
+.after\:-top-\[140px\]::after{
+  content: var(--tw-content);
+  top: -140px;
+}
+.after\:-top-\[120px\]::after{
+  content: var(--tw-content);
+  top: -120px;
+}
+.after\:-top-\[175px\]::after{
+  content: var(--tw-content);
+  top: -175px;
+}
+.after\:-top-\[178px\]::after{
+  content: var(--tw-content);
+  top: -178px;
 }
 .after\:-z-10::after{
   content: var(--tw-content);
@@ -890,6 +955,21 @@ Ensure the default browser behavior of the `hidden` attribute.
   content: var(--tw-content);
   --tw-bg-opacity: 1;
   background-color: rgb(59 130 246 / var(--tw-bg-opacity));
+}
+.after\:bg-blue-600::after{
+  content: var(--tw-content);
+  --tw-bg-opacity: 1;
+  background-color: rgb(37 99 235 / var(--tw-bg-opacity));
+}
+.after\:bg-pink-500::after{
+  content: var(--tw-content);
+  --tw-bg-opacity: 1;
+  background-color: rgb(236 72 153 / var(--tw-bg-opacity));
+}
+.after\:bg-blue-700::after{
+  content: var(--tw-content);
+  --tw-bg-opacity: 1;
+  background-color: rgb(29 78 216 / var(--tw-bg-opacity));
 }
 .after\:duration-300::after{
   content: var(--tw-content);
@@ -926,6 +1006,18 @@ Ensure the default browser behavior of the `hidden` attribute.
 .after\:hover\:top-7:hover::after{
   content: var(--tw-content);
   top: 1.75rem;
+}
+.after\:hover\:-top-\[179px\]:hover::after{
+  content: var(--tw-content);
+  top: -179px;
+}
+.after\:hover\:-top-\[159px\]:hover::after{
+  content: var(--tw-content);
+  top: -159px;
+}
+.after\:hover\:-top-\[178px\]:hover::after{
+  content: var(--tw-content);
+  top: -178px;
 }
 .group:hover .group-hover\:-translate-y-3{
   --tw-translate-y: -0.75rem;
