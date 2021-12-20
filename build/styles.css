@@ -806,129 +806,13 @@ Ensure the default browser behavior of the `hidden` attribute.
   content: var(--tw-content);
   left: -58px;
 }
-.after\:-top-\[139px\]::after{
+.after\:-top-\[178px\]::after{
   content: var(--tw-content);
-  top: -139px;
+  top: -178px;
 }
 .after\:-left-7::after{
   content: var(--tw-content);
   left: -1.75rem;
-}
-.after\:-top-\[129px\]::after{
-  content: var(--tw-content);
-  top: -129px;
-}
-.after\:-top-\[169px\]::after{
-  content: var(--tw-content);
-  top: -169px;
-}
-.after\:-top-\[179px\]::after{
-  content: var(--tw-content);
-  top: -179px;
-}
-.after\:-top-\[159px\]::after{
-  content: var(--tw-content);
-  top: -159px;
-}
-.after\:-top-\[149px\]::after{
-  content: var(--tw-content);
-  top: -149px;
-}
-.after\:-left-\[58\.5px\]::after{
-  content: var(--tw-content);
-  left: -58.5px;
-}
-.after\:-left-\[58\.4px\]::after{
-  content: var(--tw-content);
-  left: -58.4px;
-}
-.after\:-left-\[58\.3px\]::after{
-  content: var(--tw-content);
-  left: -58.3px;
-}
-.after\:-left-\[58\.1px\]::after{
-  content: var(--tw-content);
-  left: -58.1px;
-}
-.after\:-left-\[58\.8px\]::after{
-  content: var(--tw-content);
-  left: -58.8px;
-}
-.after\:-left-\[58\.2px\]::after{
-  content: var(--tw-content);
-  left: -58.2px;
-}
-.after\:-left-\[59px\]::after{
-  content: var(--tw-content);
-  left: -59px;
-}
-.after\:-left-\[56px\]::after{
-  content: var(--tw-content);
-  left: -56px;
-}
-.after\:-left-\[58\.6px\]::after{
-  content: var(--tw-content);
-  left: -58.6px;
-}
-.after\:-left-\[58\.7px\]::after{
-  content: var(--tw-content);
-  left: -58.7px;
-}
-.after\:-left-\[-57\.32px\]::after{
-  content: var(--tw-content);
-  left: 57.32px;
-}
-.after\:-left-\[-58\.32px\]::after{
-  content: var(--tw-content);
-  left: 58.32px;
-}
-.after\:-left-\[-58px\]::after{
-  content: var(--tw-content);
-  left: 58px;
-}
-.after\:-top-\[189px\]::after{
-  content: var(--tw-content);
-  top: -189px;
-}
-.after\:-top-\[180px\]::after{
-  content: var(--tw-content);
-  top: -180px;
-}
-.after\:-top-\[170px\]::after{
-  content: var(--tw-content);
-  top: -170px;
-}
-.after\:-top-\[166px\]::after{
-  content: var(--tw-content);
-  top: -166px;
-}
-.after\:-top-\[162px\]::after{
-  content: var(--tw-content);
-  top: -162px;
-}
-.after\:-top-\[155px\]::after{
-  content: var(--tw-content);
-  top: -155px;
-}
-.after\:-top-\[150px\]::after{
-  content: var(--tw-content);
-  top: -150px;
-}
-.after\:-top-\[140px\]::after{
-  content: var(--tw-content);
-  top: -140px;
-}
-.after\:-top-\[120px\]::after{
-  content: var(--tw-content);
-  top: -120px;
-}
-.after\:-top-\[175px\]::after{
-  content: var(--tw-content);
-  top: -175px;
-}
-.after\:-top-\[178px\]::after{
-  content: var(--tw-content);
-  top: -178px;
 }
 .after\:-z-10::after{
   content: var(--tw-content);
@@ -1006,14 +890,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .after\:hover\:top-7:hover::after{
   content: var(--tw-content);
   top: 1.75rem;
-}
-.after\:hover\:-top-\[179px\]:hover::after{
-  content: var(--tw-content);
-  top: -179px;
-}
-.after\:hover\:-top-\[159px\]:hover::after{
-  content: var(--tw-content);
-  top: -159px;
 }
 .after\:hover\:-top-\[178px\]:hover::after{
   content: var(--tw-content);

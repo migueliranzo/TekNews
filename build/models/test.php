@@ -79,12 +79,10 @@
 
           switch ($i) {
             case 1:
-
-
-
+              
           ?>
-              <div class=" container  flex flex-col duration-200 overflow-hidden group cursor-pointer border-l-4 rounded-l-2xl lg:rounded-l-none 
-      lg:border-l-0 border-r-4 border-t-4 border-b-4 rounded-r-2xl border-dotted  border-blue-600 col-span-2 lg:row-span-2 sm:row-span-1">
+              <a href="models/articleDets.php?article= <?php echo $row["id"] ?> " class=" container  flex flex-col duration-200 overflow-hidden group cursor-pointer border-l-4 rounded-l-2xl lg:rounded-l-none 
+      lg:border-l-0 border-r-4 border-t-4 border-b-4 rounded-r-2xl border-dotted  border-blue-600 col-span-2 lg:row-span-2 sm:row-span-1" >
 
                 <div class=" uppercase px-0  md:text-center lg:text-left font-bold pb-1  pt-4  text-xs text-blue-600 duration-300 ease-out bg-white ">
                   <?php echo typeToText($row["type"]); ?>
@@ -102,8 +100,8 @@
                     <img src=' <?php echo $row["imgpath"]; ?> ' alt="">
                   </div>
                 </div>
-              </div>
-
+            </a>
+          
             <?php
 
               break;
@@ -111,6 +109,7 @@
             case 2:
 
             ?>
+             <a href="models/articleDets.php?article= <?php echo $row["id"] ?> ">
               <div class="  flex flex-col   duration-200 group cursor-pointer border-gray-400 border-solid border-b border-r rounded-b-2xl rounded-l-none hover:border-blue-800
       news-card-effect after:ease-out">
                 <div class="overflow-hidden">
@@ -128,13 +127,14 @@
                   </div>
                 </div>
               </div>
-
+              </a>
             <?php
 
               break;
 
             case 3:
             ?>
+             <a href="models/articleDets.php?article= <?php echo $row["id"] ?> ">
               <div class="  flex flex-col   duration-200 group cursor-pointer border-gray-400 border-solid border-b border-r rounded-b-2xl rounded-l-none hover:border-blue-800
       news-card-effect after:ease-out">
                 <div class="overflow-hidden">
@@ -152,13 +152,14 @@
                   </div>
                 </div>
               </div>
-
+              </a>
             <?php
               break;
 
 
             case 4:
             ?>
+            <a href="models/articleDets.php?article= <?php echo $row["id"] ?> ">
               <div class="  flex flex-col   duration-200 group cursor-pointer border-gray-400 border-solid border-b border-r rounded-b-2xl rounded-l-none hover:border-blue-800
       news-card-effect after:ease-out">
                 <div class="overflow-hidden">
@@ -174,15 +175,17 @@
                       <?php echo $row["title"]; ?>
                     </div>
                   </div>
+                  
                 </div>
               </div>
-
+              </a>
             <?php
               break;
 
 
             case 5:
             ?>
+             <a href="models/articleDets.php?article= <?php echo $row["id"] ?> ">
               <div class="  flex flex-col   duration-200 group cursor-pointer border-gray-400 border-solid border-b border-r rounded-b-2xl rounded-l-none hover:border-blue-800
       news-card-effect after:ease-out">
                 <div class="overflow-hidden">
@@ -200,7 +203,7 @@
                   </div>
                 </div>
               </div>
-
+              </a>
           <?php
               break;
           }
@@ -319,25 +322,6 @@ top: 36px;
 -->
 
     <div class=" text-center  pt-6">
-      <!-- 
-    <div class="bg-indigo-500 shadow-lg text-white shadow-cyan-500/50 inline-block pt-2 pb-3 px-4 rounded-2xl overflow-hidden"> 
-
-        <a  class="px-2 inline-block z-20 after:-z-10 after:w-[150px] hover: transition duration-300 after:h-[150px]  
-        after:bg-blue-500 after:'' relative after:absolute after:block inline-block after:hover:top-[0.20] after:duration-300
-        after:rotate-45 after:top-20 after:-left-16" href="">Prev</a>
-
-        <a  class="px-2 z-20 after:-z-10 after:w-[150px] hover: transition duration-300 after:h-[150px]  
-        after:bg-blue-500 after:'' relative after:absolute after:block inline-block after:-top-[200px] after:duration-300
-        after:rotate-45 after:hover:-top-[154px] after:-left-[62px]" href="">1</a>
-        
-        <a  class="px-2 z-20 after:-z-10 after:w-[150px] hover: transition duration-300 after:h-[150px]  
-        after:bg-blue-500 after:'' relative after:absolute after:block inline-block after:top-20 after:duration-300
-        after:rotate-45 after:hover:top-7 after:-left-[62px]" href="">2</a>
-        </div>
-        px-3 z-20 after:-z-10 after:w-[150px] hover: transition duration-300 after:h-[150px]  
-            after:bg-blue-500 after:`` relative after:absolute after:block inline-block after:-top-[200px] after:duration-300
-            after:rotate-45 after:hover:-top-[154px] after:-left-[58px]
-        -->
 
       <br>
       <div class="bg-blue-500 shadow-lg text-white shadow-cyan-500/50 inline-block pt-2 pb-3 px-4 rounded-2xl overflow-hidden">
