@@ -80,8 +80,8 @@
           switch ($i) {
             case 1:
               
-          ?>
-              <a href="models/articleDets.php?article= <?php echo $row["id"] ?> " class=" container  flex flex-col duration-200 overflow-hidden group cursor-pointer border-l-4 rounded-l-2xl lg:rounded-l-none 
+          ?> 
+              <a href="article.php?article= <?php echo $row["id"] ?>" class=" container  flex flex-col duration-200 overflow-hidden group cursor-pointer border-l-4 rounded-l-2xl lg:rounded-l-none 
       lg:border-l-0 border-r-4 border-t-4 border-b-4 rounded-r-2xl border-dotted  border-blue-600 col-span-2 lg:row-span-2 sm:row-span-1" >
 
                 <div class=" uppercase px-0  md:text-center lg:text-left font-bold pb-1  pt-4  text-xs text-blue-600 duration-300 ease-out bg-white ">
@@ -109,7 +109,7 @@
             case 2:
 
             ?>
-             <a href="models/articleDets.php?article= <?php echo $row["id"] ?> ">
+             <a href="article.php?article= <?php echo $row["id"] ?> ">
               <div class="  flex flex-col   duration-200 group cursor-pointer border-gray-400 border-solid border-b border-r rounded-b-2xl rounded-l-none hover:border-blue-800
       news-card-effect after:ease-out">
                 <div class="overflow-hidden">
@@ -134,7 +134,7 @@
 
             case 3:
             ?>
-             <a href="models/articleDets.php?article= <?php echo $row["id"] ?> ">
+             <a href="article.php?article= <?php echo $row["id"] ?> ">
               <div class="  flex flex-col   duration-200 group cursor-pointer border-gray-400 border-solid border-b border-r rounded-b-2xl rounded-l-none hover:border-blue-800
       news-card-effect after:ease-out">
                 <div class="overflow-hidden">
@@ -159,7 +159,7 @@
 
             case 4:
             ?>
-            <a href="models/articleDets.php?article= <?php echo $row["id"] ?> ">
+              <a href="article.php?article= <?php echo $row["id"] ?> ">
               <div class="  flex flex-col   duration-200 group cursor-pointer border-gray-400 border-solid border-b border-r rounded-b-2xl rounded-l-none hover:border-blue-800
       news-card-effect after:ease-out">
                 <div class="overflow-hidden">
@@ -185,7 +185,7 @@
 
             case 5:
             ?>
-             <a href="models/articleDets.php?article= <?php echo $row["id"] ?> ">
+               <a href="article.php?article= <?php echo $row["id"] ?> ">
               <div class="  flex flex-col   duration-200 group cursor-pointer border-gray-400 border-solid border-b border-r rounded-b-2xl rounded-l-none hover:border-blue-800
       news-card-effect after:ease-out">
                 <div class="overflow-hidden">

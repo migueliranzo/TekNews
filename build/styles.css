@@ -323,7 +323,7 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-scale-y: 1;
   --tw-transform: translateX(var(--tw-translate-x)) translateY(var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
-.border-l-4, .border-r-4, .border-t-4, .border-b-4, .border-b, .border-r, .lg\:border-l-0{
+.border-2, .border-l-4, .border-r-4, .border-t-4, .border-b-4, .border-b, .border-r, .lg\:border-l-0{
   --tw-border-opacity: 1;
   border-color: rgb(229 231 235 / var(--tw-border-opacity));
 }
@@ -382,12 +382,19 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-left: auto;
   margin-right: auto;
 }
+.my-2{
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
 .my-4{
   margin-top: 1rem;
   margin-bottom: 1rem;
 }
 .mt-4{
   margin-top: 1rem;
+}
+.mt-20{
+  margin-top: 5rem;
 }
 .mt-14{
   margin-top: 3.5rem;
@@ -397,9 +404,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .mb-10{
   margin-bottom: 2.5rem;
-}
-.mt-20{
-  margin-top: 5rem;
 }
 .inline-block{
   display: inline-block;
@@ -513,6 +517,9 @@ Ensure the default browser behavior of the `hidden` attribute.
   border-top-left-radius: 0px;
   border-bottom-left-radius: 0px;
 }
+.border-2{
+  border-width: 2px;
+}
 .border-l-4{
   border-left-width: 4px;
 }
@@ -540,6 +547,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 .border-dotted{
   border-style: dotted;
 }
+.border-black{
+  --tw-border-opacity: 1;
+  border-color: rgb(0 0 0 / var(--tw-border-opacity));
+}
 .border-blue-600{
   --tw-border-opacity: 1;
   border-color: rgb(37 99 235 / var(--tw-border-opacity));
@@ -560,6 +571,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-bg-opacity: 1;
   background-color: rgb(134 239 172 / var(--tw-bg-opacity));
 }
+.bg-yellow-50{
+  --tw-bg-opacity: 1;
+  background-color: rgb(254 252 232 / var(--tw-bg-opacity));
+}
 .bg-white{
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
@@ -567,6 +582,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .bg-blue-500{
   --tw-bg-opacity: 1;
   background-color: rgb(59 130 246 / var(--tw-bg-opacity));
+}
+.p-2{
+  padding: 0.5rem;
 }
 .p-0{
   padding: 0px;
@@ -678,13 +696,13 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
-.text-gray-800{
-  --tw-text-opacity: 1;
-  color: rgb(31 41 55 / var(--tw-text-opacity));
-}
 .text-gray-400{
   --tw-text-opacity: 1;
   color: rgb(156 163 175 / var(--tw-text-opacity));
+}
+.text-gray-800{
+  --tw-text-opacity: 1;
+  color: rgb(31 41 55 / var(--tw-text-opacity));
 }
 .text-blue-600{
   --tw-text-opacity: 1;
@@ -794,21 +812,13 @@ Ensure the default browser behavior of the `hidden` attribute.
   content: var(--tw-content);
   left: -4rem;
 }
-.after\:-top-\[200px\]::after{
+.after\:-top-\[178px\]::after{
   content: var(--tw-content);
-  top: -200px;
-}
-.after\:-left-\[62px\]::after{
-  content: var(--tw-content);
-  left: -62px;
+  top: -178px;
 }
 .after\:-left-\[58px\]::after{
   content: var(--tw-content);
   left: -58px;
-}
-.after\:-top-\[178px\]::after{
-  content: var(--tw-content);
-  top: -178px;
 }
 .after\:-left-7::after{
   content: var(--tw-content);
@@ -834,11 +844,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   content: var(--tw-content);
   --tw-rotate: 45deg;
   transform: var(--tw-transform);
-}
-.after\:bg-blue-500::after{
-  content: var(--tw-content);
-  --tw-bg-opacity: 1;
-  background-color: rgb(59 130 246 / var(--tw-bg-opacity));
 }
 .after\:bg-blue-600::after{
   content: var(--tw-content);
@@ -883,17 +888,13 @@ Ensure the default browser behavior of the `hidden` attribute.
   content: var(--tw-content);
   top: 0.20;
 }
-.after\:hover\:-top-\[154px\]:hover::after{
+.after\:hover\:-top-\[178px\]:hover::after{
   content: var(--tw-content);
-  top: -154px;
+  top: -178px;
 }
 .after\:hover\:top-7:hover::after{
   content: var(--tw-content);
   top: 1.75rem;
-}
-.after\:hover\:-top-\[178px\]:hover::after{
-  content: var(--tw-content);
-  top: -178px;
 }
 .group:hover .group-hover\:-translate-y-3{
   --tw-translate-y: -0.75rem;
@@ -974,14 +975,14 @@ Ensure the default browser behavior of the `hidden` attribute.
   .lg\:h-full{
     height: 100%;
   }
+  .lg\:w-5\/12{
+    width: 41.666667%;
+  }
   .lg\:w-full{
     width: 100%;
   }
   .lg\:w-2\/6{
     width: 33.333333%;
-  }
-  .lg\:w-5\/12{
-    width: 41.666667%;
   }
   .lg\:grid-cols-4{
     grid-template-columns: repeat(4, minmax(0, 1fr));

@@ -1,5 +1,5 @@
 <?php
-include "../vendor/erusev/parsedown/Parsedown.php";
+include "../../vendor/erusev/parsedown/Parsedown.php";
 
 $articleID = $_GET['article'];
 $title;
@@ -29,21 +29,14 @@ while ($row = mysqli_fetch_array($rs_result)) {
   $title = $row["title"];
   $content = $row["description"];
   $type = $row["type"];
+
 }
 
-
+echo $title;
+echo $content;
+echo $type;
 
 $Parsedown = new Parsedown();
 
+echo $Parsedown->text('Hello _Parsedown_!'); # prints: <p>Hello <em>Parsedown</em>!</p>
 ?>
-
-<?php echo $Parsedown->text($content); ?>
-
-<form action="articleDets.php">
-
-  <textarea class="bg-yellow-50 my-2 border-2 border-black rounded-2xl p-2" id="contentInput" rows="16" cols="70">
-<?php echo ($content); ?>
-</textarea>
-<br>
-  <button class="btn btn-green  hover:bg-green-300 " type="submit">Save Changes!</button>
-</form>
