@@ -45,14 +45,14 @@
 				</p>
 			</div>
             <br>
-			
-		</section>
-
-        <div class="">
+            <div class="container">
 				<?php
 				include "../build/models/articleDets.php";
 				?>
 			</div>
+		</section>
+
+       
 
 	</body>
 

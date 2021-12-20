@@ -36,14 +36,14 @@ while ($row = mysqli_fetch_array($rs_result)) {
 $Parsedown = new Parsedown();
 
 ?>
-
+<article class="prose">
 <?php echo $Parsedown->text($content); ?>
-
+</article>
 <form action="articleDets.php">
 
-  <textarea class="bg-yellow-50 my-2 border-2 border-black rounded-2xl p-2" id="contentInput" rows="16" cols="70">
+  <textarea class="bg-blue-50 my-2 border-2 border-black rounded-2xl p-2" id="contentInput" rows="16" cols="70">
 <?php echo ($content); ?>
 </textarea>
 <br>
-  <button class="btn btn-green  hover:bg-green-300 " type="submit">Save Changes!</button>
+  <button class="btn bg-blue-500 text-white hover:bg-blue-300 " type="submit">Save Changes!</button>
 </form>
