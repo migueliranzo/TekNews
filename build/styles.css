@@ -323,7 +323,7 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-scale-y: 1;
   --tw-transform: translateX(var(--tw-translate-x)) translateY(var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
-.border-2, .border-l-4, .border-r-4, .border-t-4, .border-b-4, .border-b, .border-r, .lg\:border-l-0{
+.border, .border-2, .border-l-4, .border-r-4, .border-t-4, .border-b-4, .border-b, .border-r, .lg\:border-l-0{
   --tw-border-opacity: 1;
   border-color: rgb(229 231 235 / var(--tw-border-opacity));
 }
@@ -742,6 +742,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .mb-10{
   margin-bottom: 2.5rem;
 }
+.mt-6{
+  margin-top: 1.5rem;
+}
 .inline-block{
   display: inline-block;
 }
@@ -763,8 +766,14 @@ Ensure the default browser behavior of the `hidden` attribute.
 .h-80{
   height: 20rem;
 }
+.h-\[500px\]{
+  height: 500px;
+}
 .h-24{
   height: 6rem;
+}
+.h-\[100\%\]{
+  height: 100%;
 }
 .w-2\/6{
   width: 33.333333%;
@@ -793,9 +802,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .auto-cols-max{
   grid-auto-columns: -webkit-max-content;
   grid-auto-columns: max-content;
-}
-.grid-flow-col{
-  grid-auto-flow: column;
 }
 .grid-cols-2{
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -830,17 +836,26 @@ Ensure the default browser behavior of the `hidden` attribute.
 .gap-6{
   gap: 1.5rem;
 }
+.gap-8{
+  gap: 2rem;
+}
 .gap-4{
   gap: 1rem;
 }
 .overflow-hidden{
   overflow: hidden;
 }
+.break-all{
+  word-break: break-all;
+}
 .rounded-md{
   border-radius: 0.375rem;
 }
 .rounded-2xl{
   border-radius: 1rem;
+}
+.rounded{
+  border-radius: 0.25rem;
 }
 .rounded-l-full{
   border-top-left-radius: 9999px;
@@ -865,6 +880,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .rounded-l-none{
   border-top-left-radius: 0px;
   border-bottom-left-radius: 0px;
+}
+.border{
+  border-width: 1px;
 }
 .border-2{
   border-width: 2px;
@@ -1007,6 +1025,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .text-right{
   text-align: right;
+}
+.text-justify{
+  text-align: justify;
 }
 .font-Readex{
   font-family: Readex Pro, sans-serif;
@@ -1381,6 +1402,12 @@ Ensure the default browser behavior of the `hidden` attribute.
   }
   .xl\:w-5\/12{
     width: 41.666667%;
+  }
+  .xl\:flex-row{
+    flex-direction: row;
+  }
+  .xl\:items-start{
+    align-items: flex-start;
   }
 }
 @media (min-width: 1536px){
