@@ -818,6 +818,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .place-content-center{
   place-content: center;
 }
+.items-start{
+  align-items: flex-start;
+}
 .items-center{
   align-items: center;
 }
@@ -844,6 +847,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .overflow-hidden{
   overflow: hidden;
+}
+.break-words{
+  overflow-wrap: break-word;
 }
 .break-all{
   word-break: break-all;
@@ -1357,6 +1363,9 @@ Ensure the default browser behavior of the `hidden` attribute.
   .lg\:mb-0{
     margin-bottom: 0px;
   }
+  .lg\:block{
+    display: block;
+  }
   .lg\:h-full{
     height: 100%;
   }
@@ -1394,6 +1403,9 @@ Ensure the default browser behavior of the `hidden` attribute.
   }
 }
 @media (min-width: 1280px){
+  .xl\:block{
+    display: block;
+  }
   .xl\:h-full{
     height: 100%;
   }
@@ -1408,6 +1420,9 @@ Ensure the default browser behavior of the `hidden` attribute.
   }
   .xl\:items-start{
     align-items: flex-start;
+  }
+  .xl\:items-center{
+    align-items: center;
   }
 }
 @media (min-width: 1536px){
