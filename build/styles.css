@@ -683,6 +683,12 @@ Ensure the default browser behavior of the `hidden` attribute.
 .prose > :where(:last-child):not(:where([class~="not-prose"] *)){
   margin-bottom: 0;
 }
+.visible{
+  visibility: visible;
+}
+.fixed{
+  position: fixed;
+}
 .absolute{
   position: absolute;
 }
@@ -700,6 +706,21 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .right-0{
   right: 0px;
+}
+.bottom-3{
+  bottom: 0.75rem;
+}
+.right-2{
+  right: 0.5rem;
+}
+.bottom-12{
+  bottom: 3rem;
+}
+.bottom-24{
+  bottom: 6rem;
+}
+.bottom-32{
+  bottom: 8rem;
 }
 .z-20{
   z-index: 20;
@@ -742,6 +763,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .mt-6{
   margin-top: 1.5rem;
 }
+.block{
+  display: block;
+}
 .inline-block{
   display: inline-block;
 }
@@ -783,9 +807,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .max-w-\[75ch\]{
   max-width: 75ch;
-}
-.max-w-\[80ch\]{
-  max-width: 80ch;
 }
 .flex-1{
   flex: 1 1 0%;
@@ -838,6 +859,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .overflow-hidden{
   overflow: hidden;
+}
+.scroll-smooth{
+  scroll-behavior: smooth;
 }
 .break-words{
   overflow-wrap: break-word;
@@ -937,9 +961,17 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-bg-opacity: 1;
   background-color: rgb(59 130 246 / var(--tw-bg-opacity));
 }
+.bg-red-300{
+  --tw-bg-opacity: 1;
+  background-color: rgb(252 165 165 / var(--tw-bg-opacity));
+}
 .bg-white{
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+.bg-orange-300{
+  --tw-bg-opacity: 1;
+  background-color: rgb(253 186 116 / var(--tw-bg-opacity));
 }
 .p-2{
   padding: 0.5rem;
@@ -1106,11 +1138,19 @@ Ensure the default browser behavior of the `hidden` attribute.
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 }
+.transition-all{
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
 .duration-300{
   transition-duration: 300ms;
 }
 .duration-200{
   transition-duration: 200ms;
+}
+.duration-150{
+  transition-duration: 150ms;
 }
 .ease-out{
   transition-timing-function: cubic-bezier(0, 0, 0.2, 1);

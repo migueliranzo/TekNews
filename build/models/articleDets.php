@@ -56,7 +56,6 @@ $Parsedown = new Parsedown();
       document.getElementById("switchView").setAttribute("style", "display:none");
       document.getElementById("editBtn").innerHTML = "Edit";
       
-    // document.getElementById("viewContainer").setAttribute("style", " align-items: center ");
       display = false;
     } else {
       document.getElementById("contentPanel").setAttribute("style", "display:block");
@@ -76,13 +75,11 @@ $Parsedown = new Parsedown();
 
      document.getElementById("mainContainer").style.flexDirection = "column";
      document.getElementById("mainContainer").style.alignItems = "center";
-
      
       orientation = false;
     }else{
     document.getElementById("mainContainer").style.flexDirection = "";
     document.getElementById("mainContainer").style.alignItems = "";
-  
    
      
 
@@ -101,13 +98,14 @@ $Parsedown = new Parsedown();
 
 <div class="text-right">
   <div id="switchView" class="hidden">
-  <button onclick="switchView()"    class="btn bg-pink-600 hover:bg-pink-300 text-white hidden xl:block"><i class="fas text-lg fa-random"></i></button>
-  </div>
+    <a id="goBottom" href="#contentPanel">
+  <button onclick="switchView()"   class="btn bg-pink-600 hover:bg-pink-300 text-white hidden xl:block"><i class="fas text-lg fa-random"></i></button>
+  </a>  
+</div>
   <button onclick="enableEdit()" id="editBtn" class="btn bg-pink-600 hover:bg-pink-300 text-white">Edit</button>
-
+  
 
 </div>
-
 
 
 
@@ -126,9 +124,40 @@ $Parsedown = new Parsedown();
         <?php echo ($content); ?>
       </textarea>
       <br>
-      <button class="btn bg-blue-500 text-white hover:bg-blue-300 mt-6 " type="submit">Save Changes!</button>
+      <!-- <button class="btn bg-blue-500 text-white fixed bottom-3 right-2 hover:bg-blue-300 mt-6 " type="submit">Save Changes!</button> -->
     </form>
   </div>
+</div>
+</div>
+
+<script>
+var up = false;
+function showMenu(){
+if (up) {
+  
+  document.getElementById("up").style.bottom = "6rem";
+  
+  document.getElementById("up").style.visibility = "visible";
+  up = false;
+}else{
+  up = true;
+  document.getElementById("up").style.bottom = "3rem";
+  
+  document.getElementById("up").style.visibility = "hidden";
+  
+}
+}
+  
+</script>
+
+<button id="fire" onclick="showMenu()" class="btn bg-red-300 text-white fixed bottom-3 right-2 hover:bg-blue-300 mt-6 " type="submit">Save Changes!</button>
+  
+<div  id="up" class="fixed bottom-12 right-2 transition-all duration-150  ">
+  <div class="flex flex-col">
+<button class="btn bg-blue-500 text-white relative  hover:bg-blue-300 mt-6 " type="submit">Save Changes!1</button>
+  
+<button class="btn bg-blue-500 text-white relative  hover:bg-blue-300 mt-6 " type="submit">Save Changes!2</button>
+<button class="btn bg-blue-500 text-white relative  hover:bg-blue-300 mt-6 " type="submit">Save Changes!3</button>
 </div>
 </div>
 
