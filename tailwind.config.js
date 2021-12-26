@@ -8,6 +8,7 @@ module.exports = {
     extend: {},
     fontFamily:{
       Readex: ["Readex Pro, sans-serif"],
+      IBMMONO: ["IBM Plex Mono, monospace"],
     },
     container: {
       center: true,

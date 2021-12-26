@@ -70,14 +70,22 @@ $Parsedown = new Parsedown();
 
   function switchView() {
 
+   
+
     if(orientation){
 
-      document.getElementById("mainContainer").style.flexDirection = "column";
-      document.getElementById("mainContainer").style.alignItems = "center";
+     document.getElementById("mainContainer").style.flexDirection = "column";
+     document.getElementById("mainContainer").style.alignItems = "center";
+
+     
       orientation = false;
     }else{
-      document.getElementById("mainContainer").style.flexDirection = "row";
-      document.getElementById("mainContainer").style.alignItems = "flex-start";
+    document.getElementById("mainContainer").style.flexDirection = "";
+    document.getElementById("mainContainer").style.alignItems = "";
+  
+   
+     
+
       orientation = true;
     }
     
@@ -111,8 +119,8 @@ $Parsedown = new Parsedown();
     </article>
 
   </div>
-  <!-- IMG -->
-  <div id="contentPanel" class=" flex-1  max-w-[75ch] w-[100%] flex-col hidden">
+  <!-- Edit view -->
+  <div id="contentPanel" class=" flex-1 font-IBMMONO  max-w-[75ch] w-[100%] flex-col hidden">
     <form action="articleDets.php" class="w-[100%]">
       <textarea id="contentEdit" oninput="auto_grow(this)" onkeyup="mrkToHtml()" class="w-[100%] h-[500px] border border-black rounded p-2">
         <?php echo ($content); ?>
