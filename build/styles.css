@@ -719,29 +719,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 .bottom-1{
   bottom: 0.25rem;
 }
-.bottom-8{
-  bottom: 2rem;
-}
-.right-3{
-  right: 0.75rem;
-}
-.right-4{
-  right: 1rem;
-}
-.right-1{
-  right: 0.25rem;
-}
-.right-\[2px\]{
-  right: 2px;
-}
-.right-\[1px\]{
-  right: 1px;
-}
-.right-\[0px\]{
-  right: 0px;
-}
 .right-\[-1px\]{
   right: -1px;
+}
+.bottom-8{
+  bottom: 2rem;
 }
 .z-20{
   z-index: 20;
@@ -784,17 +766,14 @@ Ensure the default browser behavior of the `hidden` attribute.
 .mr-3{
   margin-right: 0.75rem;
 }
-.ml-\[7px\]{
-  margin-left: 7px;
+.ml-\[6px\]{
+  margin-left: 6px;
 }
 .mt-6{
   margin-top: 1.5rem;
 }
 .mt-3{
   margin-top: 0.75rem;
-}
-.ml-\[6px\]{
-  margin-left: 6px;
 }
 .inline-block{
   display: inline-block;
@@ -857,6 +836,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .grid-cols-2{
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
+.flex-row{
+  flex-direction: row;
+}
 .flex-col{
   flex-direction: column;
 }
@@ -901,6 +883,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .rounded{
   border-radius: 0.25rem;
+}
+.rounded-sm{
+  border-radius: 0.125rem;
 }
 .rounded-full{
   border-radius: 9999px;
@@ -969,6 +954,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-border-opacity: 1;
   border-color: rgb(0 0 0 / var(--tw-border-opacity));
 }
+.border-gray-700{
+  --tw-border-opacity: 1;
+  border-color: rgb(55 65 81 / var(--tw-border-opacity));
+}
 .border-blue-600{
   --tw-border-opacity: 1;
   border-color: rgb(37 99 235 / var(--tw-border-opacity));
@@ -976,6 +965,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 .border-gray-400{
   --tw-border-opacity: 1;
   border-color: rgb(156 163 175 / var(--tw-border-opacity));
+}
+.border-gray-500{
+  --tw-border-opacity: 1;
+  border-color: rgb(107 114 128 / var(--tw-border-opacity));
 }
 .bg-indigo-500{
   --tw-bg-opacity: 1;
@@ -1002,6 +995,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .p-2{
   padding: 0.5rem;
+}
+.p-1{
+  padding: 0.25rem;
 }
 .p-4{
   padding: 1rem;
@@ -1147,6 +1143,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 .text-blue-600{
   --tw-text-opacity: 1;
   color: rgb(37 99 235 / var(--tw-text-opacity));
+}
+.text-gray-500{
+  --tw-text-opacity: 1;
+  color: rgb(107 114 128 / var(--tw-text-opacity));
 }
 .underline{
   text-decoration: underline;
