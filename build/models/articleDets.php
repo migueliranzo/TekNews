@@ -52,16 +52,22 @@ $Parsedown = new Parsedown();
  
   function enableEdit() {
 
+    hideMenu();
+
     if (display == true) {
       document.getElementById("contentPanel").setAttribute("style", "display:none");
       document.getElementById("switchBtn").setAttribute("style", "display:none");
       var element = document.getElementById("articleTitle");
+      document.getElementById("editBtn").innerHTML = "<i class='far fa-edit text-left text-xl mr-3'></i> Edit article";
+     
       element.scrollIntoView({behavior: "smooth"});
-      display = false;
+      display = false; 
     } else {
       document.getElementById("contentPanel").setAttribute("style", "display:block");
       document.getElementById("switchBtn").setAttribute("style", "display:block");
-      var element1 = document.getElementById("contentPanel");
+       var element1 = document.getElementById("contentPanel");
+      document.getElementById("editBtn").innerHTML = "<i class='fas fa-times text-left text-xl ml-[6px] mr-3'></i> Close editor";
+     
       element1.scrollIntoView({behavior: "smooth"});
 
       display = true;
@@ -70,6 +76,8 @@ $Parsedown = new Parsedown();
   }
 
   function switchView() {
+
+    hideMenu();
 
     if(orientation){
 
@@ -128,14 +136,13 @@ $Parsedown = new Parsedown();
 function showMenu(){
   
   document.getElementById("up").style.bottom = "5rem";
-  
   document.getElementById("up").style.visibility = "visible";
   document.getElementById("up").style.opacity = "1";
   document.getElementById("fire").style.transform = "rotate(180deg)";
 }
 
-function testMouse(){
-  up = true;
+
+function hideMenu(){
   document.getElementById("up").style.bottom = "3rem";
   document.getElementById("up").style.opacity = "0.0";
   document.getElementById("fire").style.transform = "rotate(0deg)";
@@ -144,20 +151,20 @@ function testMouse(){
   
 </script>
 
-<div id="editMenu" class=" fixed bottom-1 right-2 p-5"  onmouseleave="testMouse()">
+<div id="editMenu" class=" fixed bottom-1 right-[-1px] p-4 rounded-full "  onmouseleave="hideMenu()">
 
-<button id="fire" onmouseover="showMenu()" class=" transition-all duration-150 text-5xl rounded-full bg-white text-pink-600 relative  hover:text-pink-300 mt-6 " type="submit"><i class="fas fa-chevron-circle-down"></i></button>
+<button id="fire" onmouseover="showMenu()"   class=" p-4 transition-all duration-200 text-5xl rounded-full  text-blue-600 relative  hover:text-blue-300" type="submit"><i class="fas fa-chevron-circle-down"></i></button>
   
-<div onmouseleave="testMouse()" id="up" class="p-5  fixed bottom-2 opacity-0 right-2 transition-all  duration-300  ">
+<div   id="up" class="p-5 fixed bottom-8 invisible opacity-0 right-2 transition-all duration-300    ">
   <div class="flex flex-col">
-  <button class="text-3xl p-2 border-2 transition-all duration-300 text-pink-500 relative rounded-full bg-white hover:border-pink-500  mt-6 " type="submit"><i class="far fa-save"></i></button> 
+  <button class="py-1 px-4 border-2 transition-all text-left duration-300 text-white relative rounded-full  bg-blue-500 hover:border-blue-500  mt-3 " type="submit"><i class="far text-xl  text-left fa-save mr-3"> </i>Save changes</button> 
   
   
-  <button id="editBtn" onclick="enableEdit()" class=" text-3xl p-2 border-2 hover:border-pink-500   rounded-full bg-white text-pink-500 transition-all duration-300  relative   mt-6 " type="submit"><i class="far fa-edit"></i></button>
+  <button id="editBtn" onclick="enableEdit()" class=" text-left py-1 px-4 border-2 hover:border-blue-500    rounded-full  bg-blue-500 text-white transition-all duration-300  relative   mt-3 " type="submit"><i class="far fa-edit text-left text-xl mr-3"></i>Edit article</button>
   
 
   <div id="switchBtn" class="hidden">
-<button id="switchBtn" onclick="switchView()" class="text-3xl p-2 border-2 xl:block hover:border-pink-500   hidden stroke-1 rounded-full bg-white text-pink-500 relative transition-all duration-300    mt-6 " type="submit"><i class="fas fa-sync-alt"></i></button>
+<button id="switchBtn" onclick="switchView()" class="min-w-[180px] text-left py-1 px-4 border-2 xl:block hover:border-blue-500   hidden stroke-1 rounded-full bg-blue-500 text-white relative transition-all duration-300    mt-3 " type="submit"><i class="fas fa-random text-xl mr-3"></i>Change view</button>
 
 </div> 
 
