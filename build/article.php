@@ -1,4 +1,4 @@
-<html class="scroll-smooth">
+<html>
 
 	<head>
 		<style>

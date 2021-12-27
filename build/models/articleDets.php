@@ -56,11 +56,13 @@ $Parsedown = new Parsedown();
       document.getElementById("contentPanel").setAttribute("style", "display:none");
       document.getElementById("switchBtn").setAttribute("style", "display:none");
       var element = document.getElementById("articleTitle");
-      element.scrollIntoView();
+      element.scrollIntoView({behavior: "smooth"});
       display = false;
     } else {
       document.getElementById("contentPanel").setAttribute("style", "display:block");
       document.getElementById("switchBtn").setAttribute("style", "display:block");
+      var element1 = document.getElementById("contentPanel");
+      element1.scrollIntoView({behavior: "smooth"});
 
       display = true;
 
@@ -73,11 +75,15 @@ $Parsedown = new Parsedown();
 
      document.getElementById("mainContainer").style.flexDirection = "column";
      document.getElementById("mainContainer").style.alignItems = "center";
+     var element1 = document.getElementById("contentPanel");
+      element1.scrollIntoView({behavior: "smooth"});
      
       orientation = false;
     }else{
     document.getElementById("mainContainer").style.flexDirection = "";
     document.getElementById("mainContainer").style.alignItems = "";
+    var element3 = document.getElementById("contentPanel");
+      element3.scrollIntoView({behavior: "smooth"});
    
      
 
@@ -86,10 +92,7 @@ $Parsedown = new Parsedown();
     
   }
 
-  function auto_grow(element) {
-    element.style.height = "5px";
-    element.style.height = (element.scrollHeight+10)+"px";
-}
+
 
 
 </script>
@@ -111,7 +114,7 @@ $Parsedown = new Parsedown();
   <!-- Edit view -->
   <div id="contentPanel" class=" flex-1 font-IBMMONO  max-w-[75ch] w-[100%] flex-col hidden">
     <form action="articleDets.php" class="w-[100%]">
-      <textarea id="contentEdit" oninput="auto_grow(this)" onkeyup="mrkToHtml()" class="w-[100%] h-[500px] border border-black rounded p-2">
+      <textarea id="contentEdit"  onkeyup="mrkToHtml()" class="w-[100%] h-[500px] border border-black rounded p-2">
         <?php echo ($content); ?>
       </textarea>
       <br>
@@ -141,22 +144,21 @@ function testMouse(){
   
 </script>
 
-<div id="editMenu" class=" fixed bottom-1 right-4 p-5"  onmouseleave="testMouse()">
+<div id="editMenu" class=" fixed bottom-1 right-2 p-5"  onmouseleave="testMouse()">
 
 <button id="fire" onmouseover="showMenu()" class=" transition-all duration-150 text-5xl rounded-full bg-white text-pink-600 relative  hover:text-pink-300 mt-6 " type="submit"><i class="fas fa-chevron-circle-down"></i></button>
   
-<div onmouseleave="testMouse()" id="up" class="p-5  fixed bottom-2 opacity-0 right-4 transition-all  duration-300  ">
+<div onmouseleave="testMouse()" id="up" class="p-5  fixed bottom-2 opacity-0 right-2 transition-all  duration-300  ">
   <div class="flex flex-col">
   <button class="text-3xl p-2 border-2 transition-all duration-300 text-pink-500 relative rounded-full bg-white hover:border-pink-500  mt-6 " type="submit"><i class="far fa-save"></i></button> 
   
-  <a id="goBottom" href="#contentPanel">
+  
   <button id="editBtn" onclick="enableEdit()" class=" text-3xl p-2 border-2 hover:border-pink-500   rounded-full bg-white text-pink-500 transition-all duration-300  relative   mt-6 " type="submit"><i class="far fa-edit"></i></button>
-  </a>
+  
 
   <div id="switchBtn" class="hidden">
-  <a id="goBottom" href="#contentPanel">
 <button id="switchBtn" onclick="switchView()" class="text-3xl p-2 border-2 xl:block hover:border-pink-500   hidden stroke-1 rounded-full bg-white text-pink-500 relative transition-all duration-300    mt-6 " type="submit"><i class="fas fa-sync-alt"></i></button>
-</a>
+
 </div> 
 
 

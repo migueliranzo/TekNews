@@ -722,6 +722,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .bottom-2{
   bottom: 0.5rem;
 }
+.right-3{
+  right: 0.75rem;
+}
 .z-20{
   z-index: 20;
 }
