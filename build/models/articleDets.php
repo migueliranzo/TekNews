@@ -118,14 +118,27 @@ $Parsedown = new Parsedown();
           }
 }
 
-  function txtBold() {
-    var textarea = document.getElementById("contentEdit");
-    var selection = (textarea.value).substring(textarea.selectionStart, textarea.selectionEnd).trim();
-    var bold = " **" + selection + "** ";
+function setSelectedText(string, end, addEnd){
 
-    insertAtCursor(textarea,bold);
+  var textarea = document.getElementById("contentEdit");
+  var selection = (textarea.value).substring(textarea.selectionStart, textarea.selectionEnd).trim();
+  var bold = "";
+  if (end) {
+    bold = " " + string + selection + string +" ";
+  }else{
+    if(addEnd){
+      bold = " " + string + selection + addEnd + " ";
+    }else{
+      bold = " " + string + selection + " ";
+    }
     
   }
+  
+  insertAtCursor(textarea,bold);
+}
+
+  
+
 </script>
 
 
@@ -143,17 +156,21 @@ $Parsedown = new Parsedown();
 
   </div>
   <!-- Edit view -->
-  <div id="contentPanel" class=" flex-1 font-IBMMONO  max-w-[75ch] w-[100%] flex-col hidden">
+  <div id="contentPanel" class=" flex-1  max-w-[75ch] w-[100%] flex-col hidden">
+  <div class="flex flex-row border  rounded-sm rounded-bl-none rounded-br-none border-black">
+  <button class="p-2 hover:bg-slate-200 bg-white text-gray-500" onclick="setSelectedText('**',true)"><i class="fas fa-bold"></i></button>
+  <button class="p-2 hover:bg-slate-200 bg-white text-gray-500" onclick="setSelectedText('\n ## ',false, '\n')"><i class="fas fa-heading"></i></button>
+  <button class="p-2 hover:bg-slate-200 bg-white text-gray-500" onclick="setSelectedText('*',true)"><i class="fas fa-italic"></i></button>
+  <button class="p-2 hover:bg-slate-200 bg-white text-gray-500" onclick="setSelectedText('\n >',false, '\n\n')"><i class="fas fa-quote-left"></i></button>
+</div>
     <form action="articleDets.php" class="w-[100%]">
-      <textarea id="contentEdit" onkeyup="mrkToHtml()" class="w-[100%] h-[500px] border border-black rounded p-2">
+      <textarea id="contentEdit" onkeyup="mrkToHtml()" class="w-[100%] h-[500px] border border-black rounded rounded-tr-none rounded-tl-none p-2">
         <?php echo ($content); ?>
       </textarea>
       
       <!-- <button class="btn bg-blue-500 text-white fixed bottom-3 right-2 hover:bg-blue-300 mt-6 " type="submit">Save Changes!</button> -->
     </form>
-    <div class="flex flex-row">
-  <button class="border rounded-sm text-xl border-gray-500 p-1 bg-white text-gray-500" onclick="txtBold()"><i class="fas fa-bold"></i></button>
-  </div>
+ 
   </div>
   
 </div>
@@ -162,7 +179,7 @@ $Parsedown = new Parsedown();
 <script>
   function showMenu() {
 
-    document.getElementById("up").style.bottom = "5rem";
+    document.getElementById("up").style.bottom = "4.4rem";
     document.getElementById("up").style.visibility = "visible";
     document.getElementById("up").style.opacity = "1";
     document.getElementById("fire").style.transform = "rotate(180deg)";
@@ -170,30 +187,30 @@ $Parsedown = new Parsedown();
 
 
   function hideMenu() {
-    document.getElementById("up").style.bottom = "3rem";
+    document.getElementById("up").style.bottom = "2.4rem";
     document.getElementById("up").style.opacity = "0.0";
     document.getElementById("fire").style.transform = "rotate(0deg)";
     document.getElementById("up").style.visibility = "hidden";
   }
 </script>
 
-<div id="editMenu" class=" fixed bottom-1 right-[-1px] p-4 rounded-full " onmouseleave="hideMenu()">
+<div id="editMenu" class=" fixed bottom-1 right-[1px] p-1 rounded-full " onmouseleave="hideMenu()">
 
-  <button id="fire" onmouseover="showMenu()" class=" p-4 transition-all duration-200 text-5xl rounded-full  text-blue-600 relative  hover:text-blue-300" type="submit"><i class="fas fa-chevron-circle-down"></i></button>
+  <button id="fire" onmouseover="showMenu()" class=" p-4 right-3 transition-all duration-200 text-5xl rounded-full  text-blue-600 relative  hover:text-blue-300" type="submit"><i class="fas fa-chevron-circle-down"></i></button>
 
   <div id="up" class="p-5 fixed bottom-8 invisible opacity-0 right-2 transition-all duration-300    ">
     <div class="flex flex-col">
       <button class="py-1 px-4 border-2 transition-all text-left duration-300 text-white relative rounded-full  bg-blue-500 hover:border-blue-500  mt-3 " type="submit"><i class="far text-xl  text-left fa-save mr-3"> </i>Save changes</button>
-
-
-      <button id="editBtn" onclick="enableEdit()" class=" text-left py-1 px-4 border-2 hover:border-blue-500    rounded-full  bg-blue-500 text-white transition-all duration-300  relative   mt-3 " type="submit"><i class="far fa-edit text-left text-xl mr-3"></i>Edit article</button>
-
 
       <div id="switchBtn" class="hidden">
         <button id="switchBtn" onclick="switchView()" class="min-w-[180px] text-left py-1 px-4 border-2 xl:block hover:border-blue-500   hidden stroke-1 rounded-full bg-blue-500 text-white relative transition-all duration-300    mt-3 " type="submit"><i class="fas fa-random text-xl mr-3"></i>Change view</button>
 
       </div>
 
+      <button id="editBtn" onclick="enableEdit()" class=" text-left py-1 px-4 border-2 hover:border-blue-500    rounded-full  bg-blue-500 text-white transition-all duration-300  relative   mt-3 " type="submit"><i class="far fa-edit text-left text-xl mr-3"></i>Edit article</button>
+
+
+     
 
     </div>
   </div>
