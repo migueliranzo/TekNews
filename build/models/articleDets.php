@@ -5,6 +5,7 @@ $articleID = $_GET['article'];
 $title;
 $content;
 $type;
+$image;
 
 $servername = "localhost";
 $username = "root";
@@ -29,6 +30,7 @@ while ($row = mysqli_fetch_array($rs_result)) {
   $title = $row["title"];
   $content = $row["description"];
   $type = $row["type"];
+  $image = $row["imgpath"];
 }
 
 
@@ -49,6 +51,26 @@ $Parsedown = new Parsedown();
     //  document.getElementById("contentEdit").style.height = attribute+20;
   }
 
+
+  function editTitle(){
+//<i class="fas fa-check"></i>
+    var title =  document.getElementById("title");
+
+    if (title.contentEditable == "true") {
+      title.setAttribute("contenteditable", "false");
+      document.getElementById("titleEditIcon").className = "fas fa-pencil-alt hover:bg-gray-300 p-2 rounded-full transition-all mb-2";
+      //title.style.textDecoration = "none";
+      title.style.border = "none";
+    }else{
+
+      title.setAttribute("contenteditable", "true");
+      title.focus();
+      document.getElementById("titleEditIcon").className = "fas fa-check bg-blue-500 text-white hover:bg-blue-200 p-2 rounded-full transition-all mb-2";
+      //title.style.textDecoration = "underline";
+      title.style.border  = " solid";
+    }
+
+  }
 
   function enableEdit() {
 
@@ -143,8 +165,15 @@ function setSelectedText(string, end, addEnd){
 
 
 
-<div id="articleTitle" class="text-center">
-  <h2>Epic title</h2>
+<div id="articleTitle" class="text-center container p-0 max-w-[75ch] mb-6 ">
+  <div class="flex justify-end">
+  <button onclick="editTitle()"><i id="titleEditIcon" class="fas fa-pencil-alt hover:bg-gray-300 p-2 rounded-full transition-all mb-2"></i></button>
+  </div>
+  <p id="title" class="focus-within:outline-none text-4xl"><?php echo $title ?> </p>
+</div>
+
+<div class="max-w-[75ch] max-h-[30ch] text-center container p-0 mb-4">
+  <img class="m-auto max-w-[75ch] max-h-[30ch]" src= <?php echo "'" . $image . "'" ?> alt="">
 </div>
 
 <div id="mainContainer" class="flex  flex-col xl:flex-row  xl:items-start items-center mt-6  gap-8">
@@ -196,7 +225,7 @@ function setSelectedText(string, end, addEnd){
 
 <div id="editMenu" class=" fixed bottom-1 right-[1px] p-1 rounded-full " onmouseleave="hideMenu()">
 
-  <button id="fire" onmouseover="showMenu()" class=" p-4 right-3 transition-all duration-200 text-5xl rounded-full  text-blue-600 relative  hover:text-blue-300" type="submit"><i class="fas fa-chevron-circle-down"></i></button>
+  <button id="fire" onmouseover="showMenu()" style="-webkit-text-stroke-width: 3px;" class=" p-4 right-3 transition-all duration-200 text-5xl rounded-full  text-blue-600 relative  hover:text-blue-300" type="submit"><i class="fas fa-chevron-circle-down rounded-full bg-white"></i></button>
 
   <div id="up" class="p-5 fixed bottom-8 invisible opacity-0 right-2 transition-all duration-300    ">
     <div class="flex flex-col">

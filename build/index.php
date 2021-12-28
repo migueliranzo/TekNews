@@ -1,9 +1,21 @@
-<html">
+<html>
 
 	<head>
-		<style>
-			
-		</style>
+	<style>
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+::-webkit-scrollbar-thumb {
+  background: rgb(52 118 227 / 70%); 
+  border-radius: 999px;
+}
+
+</style>
 		<meta charset="UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,8 +29,8 @@
 		<!-- Header -->
 		<header>
 			<nav class=" container flex items-center py-4 mt-4 sm:mt-12">
-				<div class="py-1 z-20 flex items-baseline"> <img src="img/logo.png" alt="">
-					<p class="px-2 uppercase underline decoration-wavy decoration-indigo-500 text-6xl">Omegalol</p>
+				<div class="py-1 z-20 flex items-baseline"> <i class="text-7xl fas fa-microchip"></i>
+					<p class="px-2 uppercase underline decoration-wavy decoration-indigo-500 text-6xl">TechyNews</p>
 				</div>
 				<ul class="hidden md:flex flex-1 justify-end items-center gap-12 text-gray-700 uppercase text-xs">
 					<li class="cursor-pointer">Items</li>
