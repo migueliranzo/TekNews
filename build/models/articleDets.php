@@ -37,6 +37,26 @@ while ($row = mysqli_fetch_array($rs_result)) {
 
 $Parsedown = new Parsedown();
 
+function typeToText($arg_1)
+{
+
+  switch ($arg_1) {
+    case 0:
+      return "Tech News";
+      break;
+    case 1:
+      return "Cryto World";
+      break;
+    case 2:
+      return "Virtual reality";
+      break;
+    case 3:
+      return "Biotechnology";
+      break;
+  }
+
+}
+
 ?>
 <script src="https://cdn.jsdelivr.net/remarkable/1.7.1/remarkable.min.js"></script>
 <script>
@@ -51,23 +71,34 @@ $Parsedown = new Parsedown();
     //  document.getElementById("contentEdit").style.height = attribute+20;
   }
 
-
-  function editTitle(){
-//<i class="fas fa-check"></i>
-    var title =  document.getElementById("title");
+  var hidden = true;
+  function editTitle() {
+    var title = document.getElementById("title");
+    var typeEdit = document.getElementById("typeEdit");
+  
+    if (hidden) {
+      hidden = false;
+      typeEdit.disabled = false;
+      typeEdit.setAttribute("style", "appearance: auto");
+    }else{
+      typeEdit.disabled = true;
+      typeEdit.setAttribute("style", "appearance: none");
+      hidden = true;
+   
+    }
 
     if (title.contentEditable == "true") {
       title.setAttribute("contenteditable", "false");
       document.getElementById("titleEditIcon").className = "fas fa-pencil-alt hover:bg-gray-300 p-2 rounded-full transition-all mb-2";
       //title.style.textDecoration = "none";
       title.style.border = "none";
-    }else{
+    } else {
 
       title.setAttribute("contenteditable", "true");
       title.focus();
       document.getElementById("titleEditIcon").className = "fas fa-check bg-blue-500 text-white hover:bg-blue-200 p-2 rounded-full transition-all mb-2";
       //title.style.textDecoration = "underline";
-      title.style.border  = " solid";
+      title.style.border = " solid";
     }
 
   }
@@ -123,7 +154,7 @@ $Parsedown = new Parsedown();
         behavior: "smooth"
       });
 
-  
+
 
       orientation = true;
     }
@@ -132,48 +163,59 @@ $Parsedown = new Parsedown();
 
   function insertAtCursor(textArea, myValue) {
 
-    if(textArea.selectionStart != textArea.selectionEnd){
-        var start = textArea.selectionStart;
-        var end = textArea.selectionEnd;
-        textArea.value = textArea.value.substring(0, start) + myValue + textArea.value.substring(end, textArea.value.length);
-        mrkToHtml();
-          }
-}
-
-function setSelectedText(string, end, addEnd){
-
-  var textarea = document.getElementById("contentEdit");
-  var selection = (textarea.value).substring(textarea.selectionStart, textarea.selectionEnd).trim();
-  var bold = "";
-  if (end) {
-    bold = " " + string + selection + string +" ";
-  }else{
-    if(addEnd){
-      bold = " " + string + selection + addEnd + " ";
-    }else{
-      bold = " " + string + selection + " ";
+    if (textArea.selectionStart != textArea.selectionEnd) {
+      var start = textArea.selectionStart;
+      var end = textArea.selectionEnd;
+      textArea.value = textArea.value.substring(0, start) + myValue + textArea.value.substring(end, textArea.value.length);
+      mrkToHtml();
     }
-    
   }
-  
-  insertAtCursor(textarea,bold);
-}
 
-  
+  function setSelectedText(string, end, addEnd) {
 
+    var textarea = document.getElementById("contentEdit");
+    var selection = (textarea.value).substring(textarea.selectionStart, textarea.selectionEnd).trim();
+    var bold = "";
+    if (end) {
+      bold = " " + string + selection + string + " ";
+    } else {
+      if (addEnd) {
+        bold = " " + string + selection + addEnd + " ";
+      } else {
+        bold = " " + string + selection + " ";
+      }
+
+    }
+
+    insertAtCursor(textarea, bold);
+  }
 </script>
 
 
 
-<div id="articleTitle" class="text-center container p-0 max-w-[75ch] mb-6 ">
-  <div class="flex justify-end">
-  <button onclick="editTitle()"><i id="titleEditIcon" class="fas fa-pencil-alt hover:bg-gray-300 p-2 rounded-full transition-all mb-2"></i></button>
+<div id="articleTitle" class=" container p-0 max-w-[90ch] mb-10 ">
+ 
+<div class="flex"> 
+ 
+  <div class="flex flex-1 text-2xl font-bold text-blue-500"> 
+  <select id="typeEdit" disabled class="disabled:text-blue-700 font-bold  focus-visible:outline-none mb-3 appearance-none">
+    <option value="<?php echo $type?>" selected disabled hidden> <?php echo typeToText($type); ?></option>
+    <option value="0">Tech News</option>
+    <option value="1">Cryto World</option>
+    <option value="2">Virtual reality</option>
+    <option value="3">Biotechnology</option>
+  </select>
   </div>
-  <p id="title" class="focus-within:outline-none text-4xl"><?php echo $title ?> </p>
+  <div class="flex justify-end flex-1">
+    <button onclick="editTitle()"><i id="titleEditIcon" class="fas fa-pencil-alt hover:bg-gray-300 p-2 rounded-full transition-all mb-2"></i></button>
+  </div>
+</div>
+  <p id="title" class="focus-within:outline-none font-bold text-5xl"><?php echo $title ?> </p>
+  <div class="bg-blue-500 h-1 m-auto mt-4"> </div>
 </div>
 
-<div class="max-w-[75ch] max-h-[30ch] text-center container p-0 mb-4">
-  <img class="m-auto max-w-[75ch] max-h-[30ch]" src= <?php echo "'" . $image . "'" ?> alt="">
+<div class="max-w-[80ch] text-center container p-0 mb-4">
+  <img class="m-auto max-w-[80ch] " src=<?php echo "'" . $image . "'" ?> alt="">
 </div>
 
 <div id="mainContainer" class="flex  flex-col xl:flex-row  xl:items-start items-center mt-6  gap-8">
@@ -186,22 +228,22 @@ function setSelectedText(string, end, addEnd){
   </div>
   <!-- Edit view -->
   <div id="contentPanel" class=" flex-1  max-w-[75ch] w-[100%] flex-col hidden">
-  <div class="flex flex-row border  rounded-sm rounded-bl-none rounded-br-none border-black">
-  <button class="p-2 hover:bg-slate-200 bg-white text-gray-500" onclick="setSelectedText('**',true)"><i class="fas fa-bold"></i></button>
-  <button class="p-2 hover:bg-slate-200 bg-white text-gray-500" onclick="setSelectedText('\n ## ',false, '\n')"><i class="fas fa-heading"></i></button>
-  <button class="p-2 hover:bg-slate-200 bg-white text-gray-500" onclick="setSelectedText('*',true)"><i class="fas fa-italic"></i></button>
-  <button class="p-2 hover:bg-slate-200 bg-white text-gray-500" onclick="setSelectedText('\n >',false, '\n\n')"><i class="fas fa-quote-left"></i></button>
-</div>
+    <div class="flex flex-row border  rounded-sm rounded-bl-none rounded-br-none border-black">
+      <button class="p-2 hover:bg-slate-200 bg-white text-gray-500" onclick="setSelectedText('**',true)"><i class="fas fa-bold"></i></button>
+      <button class="p-2 hover:bg-slate-200 bg-white text-gray-500" onclick="setSelectedText('\n ## ',false, '\n')"><i class="fas fa-heading"></i></button>
+      <button class="p-2 hover:bg-slate-200 bg-white text-gray-500" onclick="setSelectedText('*',true)"><i class="fas fa-italic"></i></button>
+      <button class="p-2 hover:bg-slate-200 bg-white text-gray-500" onclick="setSelectedText('\n >',false, '\n\n')"><i class="fas fa-quote-left"></i></button>
+    </div>
     <form action="articleDets.php" class="w-[100%]">
       <textarea id="contentEdit" onkeyup="mrkToHtml()" class="w-[100%] h-[500px] border border-black rounded rounded-tr-none rounded-tl-none p-2">
         <?php echo ($content); ?>
       </textarea>
-      
+
       <!-- <button class="btn bg-blue-500 text-white fixed bottom-3 right-2 hover:bg-blue-300 mt-6 " type="submit">Save Changes!</button> -->
     </form>
- 
+
   </div>
-  
+
 </div>
 </div>
 
@@ -239,7 +281,7 @@ function setSelectedText(string, end, addEnd){
       <button id="editBtn" onclick="enableEdit()" class=" text-left py-1 px-4 border-2 hover:border-blue-500    rounded-full  bg-blue-500 text-white transition-all duration-300  relative   mt-3 " type="submit"><i class="far fa-edit text-left text-xl mr-3"></i>Edit article</button>
 
 
-     
+
 
     </div>
   </div>

@@ -51,7 +51,7 @@
 
 
 		<!-- news grid -->
-		<section class="py-20 ">
+		<section class="py-10 ">
             <div class="container">
 				<?php
 				include "../build/models/articleDets.php";
