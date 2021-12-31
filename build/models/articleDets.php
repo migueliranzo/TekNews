@@ -12,9 +12,9 @@ $username = "root";
 $password = "";
 $dbname = "technews";
 
-// Creamos conexion
+
 $con = new mysqli($servername, $username, $password, $dbname);
-// Verificamos conexion
+
 if ($con->connect_error) {
   die("Connection failed: " . $con->connect_error);
 }
@@ -59,6 +59,7 @@ function typeToText($arg_1)
 
 ?>
 <script src="https://cdn.jsdelivr.net/remarkable/1.7.1/remarkable.min.js"></script>
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <script>
   var display = false;
   var orientation = true;
@@ -189,17 +190,55 @@ function typeToText($arg_1)
 
     insertAtCursor(textarea, bold);
   }
+
+  function showMenu() {
+
+document.getElementById("up").style.bottom = "4.4rem";
+document.getElementById("up").style.visibility = "visible";
+document.getElementById("up").style.opacity = "1";
+document.getElementById("fire").style.transform = "rotate(180deg)";
+}
+
+
+function hideMenu() {
+document.getElementById("up").style.bottom = "2.4rem";
+document.getElementById("up").style.opacity = "0.0";
+document.getElementById("fire").style.transform = "rotate(0deg)";
+document.getElementById("up").style.visibility = "hidden";
+}
+
+$(function () {
+
+$('form').on('submit', function (e) {
+  //alert("eee");
+  e.preventDefault();
+  var type = $('[name="type"]').val();
+  var title = $('[name="title"]').text();
+  var content = $('[name="articleContent"]').val();
+  $.ajax({
+    type: 'post',
+    url: 'models/editArticle.php',
+    data:"type=" + type + '&title=' + title + '&content=' + content + "&articleID=" + <?php echo $articleID ?>,
+    success: function (data) {
+     console.log(data);
+    }
+  });
+
+});
+
+});
+
 </script>
 
 
-
+<form> 
 <div id="articleTitle" class=" container p-0 max-w-[90ch] mb-10 ">
- 
+
 <div class="flex"> 
  
   <div class="flex flex-1 text-2xl font-bold text-blue-500"> 
-  <select id="typeEdit" disabled class="disabled:text-blue-700 font-bold  focus-visible:outline-none mb-3 appearance-none">
-    <option value="<?php echo $type?>" selected disabled hidden> <?php echo typeToText($type); ?></option>
+  <select name="type" id="typeEdit" disabled class="disabled:text-blue-700 font-bold  focus-visible:outline-none mb-3 appearance-none">
+    <option value="<?php echo $type?>" selected hidden> <?php echo typeToText($type); ?></option>
     <option value="0">Tech News</option>
     <option value="1">Cryto World</option>
     <option value="2">Virtual reality</option>
@@ -207,10 +246,10 @@ function typeToText($arg_1)
   </select>
   </div>
   <div class="flex justify-end flex-1">
-    <button onclick="editTitle()"><i id="titleEditIcon" class="fas fa-pencil-alt hover:bg-gray-300 p-2 rounded-full transition-all mb-2"></i></button>
+    <button type="button" onclick="editTitle()"><i id="titleEditIcon" class="fas fa-pencil-alt hover:bg-gray-300 p-2 rounded-full transition-all mb-2"></i></button>
   </div>
 </div>
-  <p id="title" class="focus-within:outline-none font-bold text-5xl"><?php echo $title ?> </p>
+  <p name="title" id="title" class="focus-within:outline-none font-bold text-5xl"><?php echo $title ?> </p>
   <div class="bg-blue-500 h-1 m-auto mt-4"> </div>
 </div>
 
@@ -229,59 +268,39 @@ function typeToText($arg_1)
   <!-- Edit view -->
   <div id="contentPanel" class=" flex-1  max-w-[75ch] w-[100%] flex-col hidden">
     <div class="flex flex-row border  rounded-sm rounded-bl-none rounded-br-none border-black">
-      <button class="p-2 hover:bg-slate-200 bg-white text-gray-500" onclick="setSelectedText('**',true)"><i class="fas fa-bold"></i></button>
-      <button class="p-2 hover:bg-slate-200 bg-white text-gray-500" onclick="setSelectedText('\n ## ',false, '\n')"><i class="fas fa-heading"></i></button>
-      <button class="p-2 hover:bg-slate-200 bg-white text-gray-500" onclick="setSelectedText('*',true)"><i class="fas fa-italic"></i></button>
-      <button class="p-2 hover:bg-slate-200 bg-white text-gray-500" onclick="setSelectedText('\n >',false, '\n\n')"><i class="fas fa-quote-left"></i></button>
+      <button type="button" class="p-2 hover:bg-slate-200 bg-white text-gray-500" onclick="setSelectedText('**',true)"><i class="fas fa-bold"></i></button>
+      <button type="button" class="p-2 hover:bg-slate-200 bg-white text-gray-500" onclick="setSelectedText('\n ## ',false, '\n')"><i class="fas fa-heading"></i></button>
+      <button type="button" class="p-2 hover:bg-slate-200 bg-white text-gray-500" onclick="setSelectedText('*',true)"><i class="fas fa-italic"></i></button>
+      <button type="button" class="p-2 hover:bg-slate-200 bg-white text-gray-500" onclick="setSelectedText('\n >',false, '\n\n')"><i class="fas fa-quote-left"></i></button>
     </div>
-    <form action="articleDets.php" class="w-[100%]">
-      <textarea id="contentEdit" onkeyup="mrkToHtml()" class="w-[100%] h-[500px] border border-black rounded rounded-tr-none rounded-tl-none p-2">
-        <?php echo ($content); ?>
-      </textarea>
-
-      <!-- <button class="btn bg-blue-500 text-white fixed bottom-3 right-2 hover:bg-blue-300 mt-6 " type="submit">Save Changes!</button> -->
-    </form>
+    <div  class="w-[100%]">
+      <textarea name="articleContent" id="contentEdit" onkeyup="mrkToHtml()" class="w-[100%] h-[500px] border border-black rounded rounded-tr-none rounded-tl-none p-2"><?php echo $content; ?></textarea>
 
   </div>
 
+  </div>
+ 
 </div>
 </div>
 
-<script>
-  function showMenu() {
-
-    document.getElementById("up").style.bottom = "4.4rem";
-    document.getElementById("up").style.visibility = "visible";
-    document.getElementById("up").style.opacity = "1";
-    document.getElementById("fire").style.transform = "rotate(180deg)";
-  }
-
-
-  function hideMenu() {
-    document.getElementById("up").style.bottom = "2.4rem";
-    document.getElementById("up").style.opacity = "0.0";
-    document.getElementById("fire").style.transform = "rotate(0deg)";
-    document.getElementById("up").style.visibility = "hidden";
-  }
-</script>
 
 <div id="editMenu" class=" fixed bottom-1 right-[1px] p-1 rounded-full " onmouseleave="hideMenu()">
 
-  <button id="fire" onmouseover="showMenu()" style="-webkit-text-stroke-width: 3px;" class=" p-4 right-3 transition-all duration-200 text-5xl rounded-full  text-blue-600 relative  hover:text-blue-300" type="submit"><i class="fas fa-chevron-circle-down rounded-full bg-white"></i></button>
+  <button id="fire" onmouseover="showMenu()" style="-webkit-text-stroke-width: 3px;" class=" p-4 right-3 transition-all duration-200 text-5xl rounded-full  text-blue-600 relative  hover:text-blue-300" type="button"><i class="fas fa-chevron-circle-down rounded-full bg-white"></i></button>
 
   <div id="up" class="p-5 fixed bottom-8 invisible opacity-0 right-2 transition-all duration-300    ">
     <div class="flex flex-col">
       <button class="py-1 px-4 border-2 transition-all text-left duration-300 text-white relative rounded-full  bg-blue-500 hover:border-blue-500  mt-3 " type="submit"><i class="far text-xl  text-left fa-save mr-3"> </i>Save changes</button>
 
       <div id="switchBtn" class="hidden">
-        <button id="switchBtn" onclick="switchView()" class="min-w-[180px] text-left py-1 px-4 border-2 xl:block hover:border-blue-500   hidden stroke-1 rounded-full bg-blue-500 text-white relative transition-all duration-300    mt-3 " type="submit"><i class="fas fa-random text-xl mr-3"></i>Change view</button>
+        <button id="switchBtn" onclick="switchView()" class="min-w-[180px] text-left py-1 px-4 border-2 xl:block hover:border-blue-500   hidden stroke-1 rounded-full bg-blue-500 text-white relative transition-all duration-300    mt-3 " type="button"><i class="fas fa-random text-xl mr-3"></i>Change view</button>
 
       </div>
 
-      <button id="editBtn" onclick="enableEdit()" class=" text-left py-1 px-4 border-2 hover:border-blue-500    rounded-full  bg-blue-500 text-white transition-all duration-300  relative   mt-3 " type="submit"><i class="far fa-edit text-left text-xl mr-3"></i>Edit article</button>
+      <button id="editBtn" onclick="enableEdit()" class=" text-left py-1 px-4 border-2 hover:border-blue-500    rounded-full  bg-blue-500 text-white transition-all duration-300  relative   mt-3 " type="button"><i class="far fa-edit text-left text-xl mr-3"></i>Edit article</button>
 
 
-
+      </form>
 
     </div>
   </div>

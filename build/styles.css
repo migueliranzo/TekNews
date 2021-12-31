@@ -710,12 +710,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .right-0{
   right: 0px;
 }
-.bottom-3{
-  bottom: 0.75rem;
-}
-.right-2{
-  right: 0.5rem;
-}
 .bottom-1{
   bottom: 0.25rem;
 }
@@ -727,6 +721,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .bottom-8{
   bottom: 2rem;
+}
+.right-2{
+  right: 0.5rem;
 }
 .z-20{
   z-index: 20;
@@ -1061,10 +1058,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
 }
-.py-10{
-  padding-top: 2.5rem;
-  padding-bottom: 2.5rem;
-}
 .py-20{
   padding-top: 5rem;
   padding-bottom: 5rem;
@@ -1084,6 +1077,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 .px-\[1\.12rem\]{
   padding-left: 1.12rem;
   padding-right: 1.12rem;
+}
+.py-16{
+  padding-top: 4rem;
+  padding-bottom: 4rem;
 }
 .pt-28{
   padding-top: 7rem;
@@ -1193,10 +1190,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .text-blue-600{
   --tw-text-opacity: 1;
   color: rgb(37 99 235 / var(--tw-text-opacity));
-}
-.text-black{
-  --tw-text-opacity: 1;
-  color: rgb(0 0 0 / var(--tw-text-opacity));
 }
 .underline{
   text-decoration: underline;
@@ -1402,10 +1395,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-bg-opacity: 1;
   background-color: rgb(226 232 240 / var(--tw-bg-opacity));
 }
-.hover\:bg-blue-300:hover{
-  --tw-bg-opacity: 1;
-  background-color: rgb(147 197 253 / var(--tw-bg-opacity));
-}
 .hover\:text-blue-300:hover{
   --tw-text-opacity: 1;
   color: rgb(147 197 253 / var(--tw-text-opacity));
@@ -1425,14 +1414,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .focus-visible\:outline-none:focus-visible{
   outline: 2px solid transparent;
   outline-offset: 2px;
-}
-.disabled\:text-blue-500:disabled{
-  --tw-text-opacity: 1;
-  color: rgb(59 130 246 / var(--tw-text-opacity));
-}
-.disabled\:text-red-700:disabled{
-  --tw-text-opacity: 1;
-  color: rgb(185 28 28 / var(--tw-text-opacity));
 }
 .disabled\:text-blue-700:disabled{
   --tw-text-opacity: 1;
