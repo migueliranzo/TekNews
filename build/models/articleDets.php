@@ -88,7 +88,7 @@ function typeToText($arg_1)
    
     }
 
-    if (title.contentEditable == "true") {
+    if (hidden) {
       title.setAttribute("contenteditable", "false");
       document.getElementById("titleEditIcon").className = "fas fa-pencil-alt hover:bg-gray-300 p-2 rounded-full transition-all mb-2";
       //title.style.textDecoration = "none";
@@ -209,8 +209,22 @@ document.getElementById("up").style.visibility = "hidden";
 
 $(function () {
 
+var $loading = $('#spinner').hide();
+$(document)
+  .ajaxStart(function () {
+    $loading.show();
+    $('#successToast').css("visibility", "hidden");
+    $('#successToast').css("opacity", "0");
+  })
+  .ajaxStop(function () {
+    $loading.hide();
+    $('#successToast').css("visibility", "visible");
+    $('#successToast').css("opacity", "1");
+  });
+
 $('form').on('submit', function (e) {
-  //alert("eee");
+  hidden = false;
+  editTitle();
   e.preventDefault();
   var type = $('[name="type"]').val();
   var title = $('[name="title"]').text();
@@ -220,17 +234,22 @@ $('form').on('submit', function (e) {
     url: 'models/editArticle.php',
     data:"type=" + type + '&title=' + title + '&content=' + content + "&articleID=" + <?php echo $articleID ?>,
     success: function (data) {
-     console.log(data);
+     
     }
   });
+
 
 });
 
 });
 
 </script>
-
-
+<div id="successToast" class="transition-all bg-green-500 opacity-0  invisible duration-300 w-max h-max">Changes saved!</div>
+<div id="spinner" class="fixed z-10 left-0 top-0 w-[100%] h-[100%] text-center overflow-auto bg-[rgba(0,0,0,0.4)] ">
+  <div class="m-auto mt-[50vh]"> 
+  <div class="lds-ring"><div></div><div></div><div></div><div></div></div>    
+</div>
+</div>
 <form> 
 <div id="articleTitle" class=" container p-0 max-w-[90ch] mb-10 ">
 
