@@ -214,12 +214,16 @@ $(document)
   .ajaxStart(function () {
     $loading.show();
     $('#successToast').css("visibility", "hidden");
-    $('#successToast').css("opacity", "0");
   })
   .ajaxStop(function () {
     $loading.hide();
-    $('#successToast').css("visibility", "visible");
-    $('#successToast').css("opacity", "1");
+    $('#successToast').css("visibility", "visible"); 
+    var div1 = $("#successToast");
+    div1.animate({bottom: '30px'},{duration: 400, queue: false});
+    div1.animate({opacity: '1'}, 600);
+    div1.animate({opacity: '1'}, 600);
+    div1.animate({opacity: '0'}, 600);
+    div1.animate({bottom: '-10px'}, 100);
   });
 
 $('form').on('submit', function (e) {
@@ -244,7 +248,7 @@ $('form').on('submit', function (e) {
 });
 
 </script>
-<div id="successToast" class="transition-all bg-green-500 opacity-0  invisible duration-300 w-max h-max">Changes saved!</div>
+<div id="successToast" class="fixed  -bottom-3 invisible bg-green-600 opacity-0 px-6 py-2 rounded-lg text-white  w-max h-max">Changes saved!</div>
 <div id="spinner" class="fixed z-10 left-0 top-0 w-[100%] h-[100%] text-center overflow-auto bg-[rgba(0,0,0,0.4)] ">
   <div class="m-auto mt-[50vh]"> 
   <div class="lds-ring"><div></div><div></div><div></div><div></div></div>    

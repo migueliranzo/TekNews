@@ -5,7 +5,18 @@ module.exports = {
     './build/**/*.php',
   ],
   theme: {
-    extend: {},
+    extend: {
+        keyframes: {
+        wiggle: {
+          '0%, 100%': { transform: 'rotate(-3deg)' },
+          '50%': { transform: 'rotate(3deg)' },
+        },
+        fadein:{
+          '0%': {opacity: 0},
+          '100%': {opacity: 1}
+        }
+      }
+    },
     fontFamily:{
       Readex: ["Readex Pro, sans-serif"],
       IBMMONO: ["IBM Plex Mono, monospace"],
