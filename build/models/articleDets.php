@@ -283,13 +283,13 @@ $('form').on('submit', function (e) {
 <div id="mainContainer" class="flex  flex-col xl:flex-row  xl:items-start items-center mt-6  gap-8">
   <!-- Content -->
   <div class="flex flex-1 flex-col items-center" id="viewContainer">
-    <article id="contentView" class=" prose max-w-[75ch] text-justify break-words">
+    <article id="contentView" class=" prose max-w-[78ch] text-justify break-words">
       <?php echo $Parsedown->text($content); ?>
     </article>
 
   </div>
   <!-- Edit view -->
-  <div id="contentPanel" class=" flex-1  max-w-[75ch] w-[100%] flex-col hidden">
+  <div id="contentPanel" class=" flex-1  max-w-[78ch] w-[100%] flex-col hidden">
     <div class="flex flex-row border  rounded-sm rounded-bl-none rounded-br-none border-black">
       <button type="button" class="p-2 hover:bg-slate-200 bg-white text-gray-500" onclick="setSelectedText('**',true)"><i class="fas fa-bold"></i></button>
       <button type="button" class="p-2 hover:bg-slate-200 bg-white text-gray-500" onclick="setSelectedText('\n ## ',false, '\n')"><i class="fas fa-heading"></i></button>
