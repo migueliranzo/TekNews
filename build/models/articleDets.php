@@ -226,7 +226,7 @@ $(document)
     div1.animate({bottom: '-10px'}, 100);
   });
 
-$('form').on('submit', function (e) {
+$('#editForm').on('submit', function (e) {
   hidden = false;
   editTitle();
   e.preventDefault();
@@ -254,7 +254,7 @@ $('form').on('submit', function (e) {
   <div class="lds-ring"><div></div><div></div><div></div><div></div></div>    
 </div>
 </div>
-<form> 
+<form id="editForm"> 
 <div id="articleTitle" class=" container p-0 max-w-[90ch] mb-10 ">
 
 <div class="flex"> 

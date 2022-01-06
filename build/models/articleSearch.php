@@ -37,6 +37,19 @@
     $keywordRaw = $_GET["keyword"];
     $keyword = '%' . $keywordRaw . '%';
 
+    $sql = " SELECT COUNT(*) FROM `report` WHERE (title LIKE ? OR description LIKE ?)";
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindParam(1, $keyword, PDO::PARAM_STR);
+    $stmt->bindParam(2, $keyword, PDO::PARAM_STR);
+    $stmt->execute();
+    $row =  $stmt->fetch();
+    $total_records = $row[0];
+
+    if($total_records == 0){
+        echo " <div class='mt-12 text-center text-2xl'>We couldn't find anything for <p class='font-bold'>$keywordRaw</p> 
+        Try different or less specific keywords.</div>";
+    }
+
     try {
 
         $sql = " SELECT * FROM `report` WHERE (title LIKE ? OR description LIKE ?) LIMIT $start_from, $per_page_record;";
@@ -45,7 +58,11 @@
         $stmt->bindParam(2, $keyword, PDO::PARAM_STR);
         $stmt->execute();
 
+        
+
     ?>
+   
+
         <div class="grid pt-28 auto-cols-max m-0 bg-white  lg:grid-cols-4 gap-4  grid-cols-2  sm:grid-cols-2 lg:m-0 sm:m-8 md:m-16">
             <?php
 
@@ -94,13 +111,7 @@
             <div class="bg-blue-500 shadow-lg text-white shadow-cyan-500/50 inline-block pt-2 pb-3 px-4 rounded-2xl overflow-hidden">
                 <?php //Calculation of pages needed to paginate and display of page numbers
 
-                $sql = " SELECT COUNT(*) FROM `report` WHERE (title LIKE ? OR description LIKE ?)";
-                $stmt = $pdo->prepare($sql);
-                $stmt->bindParam(1, $keyword, PDO::PARAM_STR);
-                $stmt->bindParam(2, $keyword, PDO::PARAM_STR);
-                $stmt->execute();
-                $row =  $stmt->fetch();
-                $total_records = $row[0];
+               
 
                 $total_pages = ceil($total_records / $per_page_record);  // Number of pages required.
                 $pagLink = "";
