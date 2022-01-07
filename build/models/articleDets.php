@@ -238,6 +238,19 @@ if ($newArticle) { ?>
     src = "img/" + $('#imgSelector').val();
     $('#newArticleImg').attr("src",src);
   }
+
+  function deleteArticle(){
+    <?php  if ($newArticle) {  $articleID = -1; }?>
+    $.ajax({
+        type: 'post',
+        url: 'models/editArticle.php',
+        data: "articleID=" + <?php echo $articleID ?> + '&delete=' + 1,
+        success: function(data) {
+          window.location = "index.php";
+        }
+      });
+      <?php   ?>
+  }
   
   $(function() {
 
@@ -443,6 +456,9 @@ if ($newArticle) { ?>
 
       <div id="up" class="p-5 fixed bottom-8 invisible opacity-0 right-2 transition-all duration-300    ">
         <div class="flex flex-col">
+        <?php   if (!$newArticle) {  ?> 
+        <button onclick="deleteArticle()" class="py-1 px-4 border-2 transition-all text-left duration-300 text-white relative rounded-full  bg-red-500 hover:border-red-500  mt-3 " type="submit"><i class=" fas text-xl  text-left fa-times  mr-3"> </i>Delete article</button>
+        <?php } ?>
           <button class="py-1 px-4 border-2 transition-all text-left duration-300 text-white relative rounded-full  bg-blue-500 hover:border-blue-500  mt-3 " type="submit"><i class="far text-xl  text-left fa-save mr-3"> </i>Save changes</button>
 
           <?php   if (!$newArticle) {  ?> 
