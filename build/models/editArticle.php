@@ -14,20 +14,34 @@ $id = $_POST["articleID"];
 $title = $_POST["title"];
 $content = $_POST["content"];
 $type = $_POST["type"];
+$img = $_POST["img"];
 
+if ($id == -1) {
 
+    try {
 
-try {
-
-   $sql = "UPDATE report SET title=?, description=?, type=? WHERE id=?";
-   $stmt= $pdo->prepare($sql);
-   $stmt->execute([$title, $content, $type, $id]);
-
-    if ($stmt->execute([$title, $content, $type, $id])) {
-        echo 'Updated';
+        $sql = "INSERT INTO report (title,description, type,imgpath) VALUES (?,?,?,?)";
+        $stmt = $pdo->prepare($sql);
+        if (  $stmt->execute([$title, $content, $type,$img])) {
+            echo $pdo->lastInsertId();
+        }
+    } catch (PDOException $e) {
+        echo $sql . "<br>" . $e->getMessage();
     }
 
+} else {
 
-} catch (PDOException $e) {
-    echo $sql . "<br>" . $e->getMessage();
+
+    try {
+
+        $sql = "UPDATE report SET title=?, description=?, type=? WHERE id=?";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([$title, $content, $type, $id]);
+
+        if ($stmt->execute([$title, $content, $type, $id])) {
+            echo 'Updated';
+        }
+    } catch (PDOException $e) {
+        echo $sql . "<br>" . $e->getMessage();
+    }
 }

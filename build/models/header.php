@@ -1,3 +1,6 @@
+<?php if (session_status() != PHP_SESSION_ACTIVE) {
+  session_start();
+} ?>
 <head>
 	<style>
 ::-webkit-scrollbar {
@@ -34,11 +37,12 @@
 				</div>
                 </a>
 				<ul class="hidden md:flex flex-1 justify-end items-center gap-12 text-gray-700 uppercase text-xs">
-					<li class="cursor-pointer">Items</li>
+					<li class="cursor-pointer"> <?php if($_SESSION["admin"]){   ?> <a href="article.php?new=1"> <button class=" shadow-red-500/50 shadow-lg rounded-md px-7 transition duration-300 py-3 uppercase bg-red-500 text-white hover:bg-red-200 ">Create article</button></a> <?php }?> </li>
 					<form class="mb-0" action="search.php" method="GET">
-					<li> <input class="p-2 border border-black rounded-md" name="keyword" id="keyword" type="search"><button class="uppercase ml-4 btn btn-green" type="submit">Search news</button> </li>
+					<li> <input class="p-2 border border-black rounded-md" name="keyword" id="keyword" type="search"><button class="uppercase ml-4 btn btn-green hover:bg-green-200" type="submit">Search news</button> </li>
 					</form>
                     <a href="login.php">
+                   
 					<button type="button"  class="bg-indigo-500  text-white rounded-md px-7 py-3 uppercase hover:bg-indigo-200 shadow-lg shadow-cyan-500/50  transition duration-300">Login</button>
                     </a>
                 </ul>

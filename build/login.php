@@ -1,4 +1,6 @@
-<?php session_start();?>
+<?php if (session_status() != PHP_SESSION_ACTIVE) {
+  session_start();
+}   ?>
 <html>
  <?php include "models/header.php" ?>
 
@@ -64,9 +66,8 @@ try {
     $stmt->execute();
     $row =  $stmt->fetch();
     $total_records = $row[0];
-
     if($total_records != 0){
-        $_SESSION["admin"] = "1";
+        $_SESSION["admin"] = $row["role"];
         echo "<script>window.location.href='index.php'</script>";
         exit();
     }else{
