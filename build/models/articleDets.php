@@ -47,8 +47,12 @@ if (!$newArticle) {
   }
 }
 
+if (isset($_SESSION["name"]) && $_SESSION["role"] == 0){ 
+  $userid = $_SESSION["userID"];
 
+  $results = $con->query("SELECT * FROM user_report WHERE report_id = $articleID AND user_id = $userid");
 
+}
 
 
 $Parsedown = new Parsedown();
@@ -252,6 +256,54 @@ if ($newArticle) { ?>
       });
       <?php   ?>
   }
+
+
+  <?php    if (isset($_SESSION["name"]) && $_SESSION["role"] == 0){   ?>
+
+    <?php  if ($results) { if($results->num_rows != 0){  
+
+        echo "  var favStatus = 1; ";
+
+      }else{
+
+        echo "  var favStatus = 0; ";
+
+        } 
+
+        } ?>
+
+ 
+
+  <?php } ?>
+
+    function changeFav(status){
+      if(status){
+        document.getElementById("saveIcon").className = "far fa-heart hover:bg-red-500  hover:text-white p-2 rounded-full transition-all mb-2";
+    }else{
+      document.getElementById("saveIcon").className = "fas fa-heart hover:bg-neutral-300 text-red-500 p-2 rounded-full transition-all mb-2";
+    }
+    }
+  
+  function saveArticle(){
+
+    <?php    if (isset($_SESSION["name"]) && $_SESSION["role"] == 0){   ?>
+      
+    $.ajax({
+        type: 'post',
+        url: 'models/saveArticle.php',
+        data: "articleID=" + <?php echo $articleID ?> + '&userID=' + <?php echo $_SESSION["userID"] ?> + '&alreadyFav=' + favStatus ,
+        success: function(data) {  
+          if(data == "deleted"){
+            changeFav(favStatus);
+            favStatus = 0;
+          }else{
+            changeFav(favStatus);
+            favStatus = 1;
+        }
+      }
+      });
+      <?php } ?>
+  }
   
   $(function() {
 
@@ -316,17 +368,22 @@ if ($newArticle) { ?>
 
   $( document ).ready(function() {
    
-    <?php if ($_SESSION["admin"] == 1) {?> showImg(); <?php }  ?>
+    <?php if ($_SESSION["role"] == 1  || $_SESSION["role"] == 2 ) {?> showImg(); <?php }  ?>
 
       <?php
-      if ($newArticle) { ?>
+
+      if ($results) { if($results->num_rows != 0){ ?>
+        changeFav(0);
+        <?php  } } ?>
+
+      if ($newArticle) { 
       editTitle();
       switchView();
       enableEdit();
-      <?php
+     
       }
 
-      ?>
+      
 
     
 });
@@ -375,7 +432,7 @@ if ($newArticle) { ?>
 
       <?php
 
-      if ($_SESSION["admin"] == 1) {
+      if ($_SESSION["role"] == 1 || $_SESSION["role"] == 2) {
       ?>
 
         <div class="flex justify-end flex-1">
@@ -383,7 +440,16 @@ if ($newArticle) { ?>
         </div>
 
       <?php
-      }
+      }else{ if (isset($_SESSION["name"]) && $_SESSION["role"] == 0){
+        ?>
+
+        <div class="flex justify-end flex-1"> 
+          <button type="button" onclick="saveArticle()"><i id="saveIcon" class="far fa-heart hover:bg-red-500  hover:text-white p-2 rounded-full transition-all mb-2"></i></button>
+        </div>
+
+
+        <?php
+      }}
 
       ?>
 
@@ -395,7 +461,7 @@ if ($newArticle) { ?>
 
   <div class="max-w-[80ch] text-center container p-0 mb-4">
  
-    <?php if ($_SESSION["admin"] == 1) { ?>    
+    <?php if ($_SESSION["role"] == 1 || $_SESSION["role"] == 2) { ?>    
 
       <select class="invisible" onchange="showImg()" id="imgSelector">
       <?php if (!$newArticle){  ?> 
@@ -452,7 +518,7 @@ if ($newArticle) { ?>
 
   <?php
 
-  if ($_SESSION["admin"] == 1) {
+  if ($_SESSION["role"] == 1 || $_SESSION["role"] == 2) {
   ?>
 
     <div id="editMenu" class=" fixed bottom-1 right-[1px] p-1 rounded-full " onmouseleave="hideMenu()">
@@ -461,9 +527,9 @@ if ($newArticle) { ?>
 
       <div id="up" class="p-5 fixed bottom-8 invisible opacity-0 right-2 transition-all duration-300    ">
         <div class="flex flex-col">
-        <?php   if (!$newArticle) {  ?> 
+        <?php   if (!$newArticle ) { if($_SESSION["role"] != 2){ ?> 
         <button onclick="deleteArticle()" class="py-1 px-4 border-2 transition-all text-left duration-300 text-white relative rounded-full  bg-red-500 hover:border-red-500  mt-3 " type="submit"><i class=" fas text-xl  text-left fa-times  mr-3"> </i>Delete article</button>
-        <?php } ?>
+        <?php }} ?>
           <button class="py-1 px-4 border-2 transition-all text-left duration-300 text-white relative rounded-full  bg-blue-500 hover:border-blue-500  mt-3 " type="submit"><i class="far text-xl  text-left fa-save mr-3"> </i>Save changes</button>
 
           <?php   if (!$newArticle) {  ?> 
