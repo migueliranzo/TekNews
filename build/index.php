@@ -37,7 +37,7 @@
 					In quis ultricies magna.
 				</p>
 			</div>
-			<div class="container">
+			<div name="news" id="news" class="container">
 				<?php
 				include "../build/models/test.php";
 				?>

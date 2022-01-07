@@ -102,6 +102,7 @@ if ($newArticle) { ?>
   function editTitle() {
     var title = document.getElementById("title");
     var typeEdit = document.getElementById("typeEdit");
+    $("#imgSelector").css("visibility", "hidden");
 
     if (hidden) {
       hidden = false;
@@ -115,12 +116,13 @@ if ($newArticle) { ?>
     }
 
     if (hidden) {
+      $("#imgSelector").css("visibility", "hidden");
       title.setAttribute("contenteditable", "false");
       document.getElementById("titleEditIcon").className = "fas fa-pencil-alt hover:bg-gray-300 p-2 rounded-full transition-all mb-2";
       //title.style.textDecoration = "none";
       title.style.border = "none";
     } else {
-
+      $("#imgSelector").css("visibility", "visible");
       title.setAttribute("contenteditable", "true");
       title.focus();
       document.getElementById("titleEditIcon").className = "fas fa-check bg-blue-500 text-white hover:bg-blue-200 p-2 rounded-full transition-all mb-2";
@@ -234,7 +236,6 @@ if ($newArticle) { ?>
   }
   var src = null;
   function showImg(){
-
     src = "img/" + $('#imgSelector').val();
     $('#newArticleImg').attr("src",src);
   }
@@ -300,7 +301,7 @@ if ($newArticle) { ?>
       $.ajax({
         type: 'post',
         url: 'models/editArticle.php',
-        data: "type=" + type + '&title=' + title + '&content=' + content + "&articleID=" + <?php echo $articleID ?> <?php  if ($newArticle) { ?> + '&img=' + src <?php  }?> ,
+        data: "type=" + type + '&title=' + title + '&content=' + content + "&articleID=" + <?php echo $articleID ?> + '&img=' + src,
         success: function(data) {
           <?php  if ($newArticle) {  ?>  window.location = "article.php?article=" + data;   <?php  } ?>
         }
@@ -314,8 +315,10 @@ if ($newArticle) { ?>
   });
 
   $( document ).ready(function() {
-    
-    <?php
+   
+    <?php if ($_SESSION["admin"] == 1) {?> showImg(); <?php }  ?>
+
+      <?php
       if ($newArticle) { ?>
       editTitle();
       switchView();
@@ -391,16 +394,19 @@ if ($newArticle) { ?>
   </div>
 
   <div class="max-w-[80ch] text-center container p-0 mb-4">
-    <?php if (!$newArticle) {  ?>
-    <img class="m-auto max-w-[80ch] " src=<?php   echo "'" . $image . "'"; ?> alt="">
-    <?php }else{
+ 
+    <?php if ($_SESSION["admin"] == 1) { ?>    
 
-      echo "choose img";   ?> 
-      
-      <select onchange="showImg()" id="imgSelector">
-      
+      <select class="invisible" onchange="showImg()" id="imgSelector">
+      <?php if (!$newArticle){  ?> 
+
+      <option selected hidden> <?php echo substr($image,4); ?></option>
+      <option value="null" >none</option>
+      <?php  }else{ ?>
+        
       <option value="null" selected>none</option>
 
+      <?php  } ?>
       <?php
        
         $dir  = 'img/';
@@ -411,12 +417,11 @@ if ($newArticle) { ?>
       ?>
 
 </select> 
+<?php } ?>
 
-<img id="newArticleImg" class="m-auto max-w-[80ch] " src="img/logo.png"; alt="">
+<img id="newArticleImg" class="m-auto max-w-[80ch] " src=" <?php echo $image ?> "; alt="">
 
-        <?php
-
-    }  ?>
+       
   </div>
 
   <div id="mainContainer" class="flex  flex-col xl:flex-row  xl:items-start items-center mt-6  gap-8">

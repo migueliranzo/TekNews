@@ -17,7 +17,7 @@ $type = $_POST["type"];
 $img = $_POST["img"];
 
 
-if ($_POST["delete"] == 1) {
+if ( isset($_POST["delete"]) && $_POST["delete"] == 1) {
 
     try {
 
@@ -48,12 +48,10 @@ if ($_POST["delete"] == 1) {
 
 
         try {
-
-            $sql = "UPDATE report SET title=?, description=?, type=? WHERE id=?";
+            echo $img;
+            $sql = "UPDATE report SET title=?, description=?, type=?, imgpath=? WHERE id=?";
             $stmt = $pdo->prepare($sql);
-            $stmt->execute([$title, $content, $type, $id]);
-
-            if ($stmt->execute([$title, $content, $type, $id])) {
+            if ( $stmt->execute([$title, $content, $type,$img, $id])){
                 echo 'Updated';
             }
         } catch (PDOException $e) {

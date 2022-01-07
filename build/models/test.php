@@ -100,9 +100,9 @@
         after:rotate-45 after:top-20 after:-left-16' href='index.php?page=";
 
         if ($page >= 2) {
-          echo ($page - 1);
+          echo ($page - 1) . '#news';
         } else {
-          echo 1;
+          echo 1 . '#news';
         }
 
         echo "'>  Prev </a>";
@@ -113,11 +113,11 @@
             $pagLink .= "<a class='px-3 z-20 after:-z-10 after:w-[150px] hover: transition duration-300 after:h-[150px]  
             after:bg-pink-500 after:`` relative after:absolute after:block inline-block after:-top-[178px] after:duration-300
             after:rotate-45 after:hover:-top-[178px] after:-left-[58px]' href='index.php?page="
-              . $i . "'>" . $i . " </a>";
+              . $i . '#news' . "'>" . $i . " </a>";
           } else {
             $pagLink .= "<a class='px-3 z-20 after:-z-10 after:w-[150px] hover: transition duration-300 after:h-[150px]  
             after:bg-blue-700 after:`` relative after:absolute after:block inline-block after:top-20 after:duration-300
-            after:rotate-45 after:hover:top-7 after:-left-[58px]' href='index.php?page=" . $i . "'>" . $i . " </a>";
+            after:rotate-45 after:hover:top-7 after:-left-[58px]' href='index.php?page=" . $i . '#news' . "'>" . $i . " </a>";
           }
         };
         echo $pagLink;
@@ -129,9 +129,9 @@
 
         if ($page < $total_pages) {
 
-          echo ($page + 1);
+          echo ($page + 1) . '#news';
         } else {
-          echo $total_pages;
+          echo $total_pages . '#news';
         }
 
         echo "'>  Next </a>";

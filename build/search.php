@@ -3,7 +3,7 @@
 
 		<!-- news grid -->
 		<section class="py-10 ">
-            <div class="container">
+            <div class="container" id="news" name="news">
 				<?php
 				include "../build/models/articleSearch.php";
 				?>
