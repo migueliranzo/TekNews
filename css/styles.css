@@ -5,6 +5,16 @@
 @tailwind utilities;
 
 @layer utilities {
+
+  @media screen and (max-width: 820px) { 
+    .searchBar{
+      display: none;
+    }
+    .searchBarLittle{
+      display: block;
+    }
+  }
+
   .news-card-effect {
     z-index: 100;
     position: relative;

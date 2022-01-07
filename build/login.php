@@ -19,9 +19,9 @@
     <div class="relative  flex flex-col mt-44 items-center ">
         <div class="relative sm:max-w-sm w-full">
             <div style="top: 24px;
-    left: -10px;" class=" bg-blue-400 shadow-lg  w-full h-full rounded-3xl absolute  transform rotate-6"></div>
+    left: -10px;" class=" sm:block hidden bg-blue-400 shadow-lg  w-full h-full rounded-3xl absolute  transform rotate-6"></div>
             <div style="top: -28px;
-    left: 19px;" class=" bg-green-400 shadow-lg  w-full h-full rounded-3xl absolute  transform rotate-6"></div>
+    left: 19px;" class="sm:block hidden bg-green-400 shadow-lg  w-full h-full rounded-3xl absolute  transform rotate-6"></div>
             <div class="border border-gray-300 relative w-full rounded-3xl  px-6 py-4 bg-white shadow-md">
 
                 <form id="loginForm" method="POST" action="" class="mt-10">

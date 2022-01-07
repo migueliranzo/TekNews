@@ -14,11 +14,7 @@
 						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ultricies varius enim laoreet laoreet. Suspendisse at eros sit amet augue ultricies eleifend.
 						In quis ultricies magna.
 					</p>
-					<div class="flex justify-center flex-wrap gap-6">
-						<button type="button" class=" btn btn-green  hover:bg-green-300 ">Yeeeeee</button>
-						<button type="button" class="btn btn-purple  hover:bg-fuchsia-300 ">Yooo</button>
-
-					</div>
+					
 				</div>
 				<!-- IMG -->
 				<div class="flex justify-center flex-1 mb-10 md:mb-16 lg:mb-0 z-10  ">

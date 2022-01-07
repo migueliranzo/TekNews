@@ -18,7 +18,7 @@
 
 ?>
 
-<div class="flex justify-center">
+<div class="flex justify-center text-center">
     <div class="">
         <div class="text-4xl"> Hi <?php echo $_SESSION["name"] ?>, take a look at your <p  class="inline-block font-bold text-red-500"> favourite </p> articles! </div>
     </div>
