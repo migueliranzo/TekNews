@@ -48,7 +48,13 @@
     if($total_records == 0){
         echo " <div class='mt-12 text-center text-2xl'>We couldn't find anything for <p class='font-bold'>$keywordRaw</p> 
         Try different or less specific keywords.</div>";
+    }else if($total_records == 1){
+        echo " <div class='mt-12  text-2xl'> <p  class='inline-block font-bold text-blue-500'> $total_records Result </p>  found</div>";
+    }else{
+        echo " <div class='mt-12  text-2xl'> <p  class='inline-block font-bold text-blue-500'> $total_records Results </p>  found</div>";
     }
+
+    if($total_records != 0){
 
     try {
 
@@ -63,7 +69,7 @@
     ?>
    
 
-        <div class="grid pt-28 auto-cols-max m-0 bg-white  lg:grid-cols-4 gap-4  grid-cols-2  sm:grid-cols-2 lg:m-0 sm:m-8 md:m-16">
+        <div id="news" name="news" class="grid pt-28 auto-cols-max m-0 bg-white  lg:grid-cols-4 gap-4  grid-cols-2  sm:grid-cols-2 lg:m-0 sm:m-8 md:m-16">
             <?php
 
             function typeToText($arg_1)
@@ -98,22 +104,24 @@
     } catch (PDOException $e) {
         echo $sql . "<br>" . $e->getMessage();
     }
-
+    }
     ?>
 
     <div>
         <br>
 
+    
+        <?php if ($total_records != 0) { ?>
 
         <div class=" text-center  pt-6">
 
             <br>
             <div class="bg-blue-500 shadow-lg text-white shadow-cyan-500/50 inline-block pt-2 pb-3 px-4 rounded-2xl overflow-hidden">
-                <?php //Calculation of pages needed to paginate and display of page numbers
+                <?php 
 
                
 
-                $total_pages = ceil($total_records / $per_page_record);  // Number of pages required.
+                $total_pages = ceil($total_records / $per_page_record);  
                 $pagLink = "";
 
 
@@ -162,7 +170,7 @@
                 ?>
             </div>
         </div>
-
+        <?php } ?>
     </div>
     </div>
     </div>

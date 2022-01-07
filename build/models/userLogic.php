@@ -39,10 +39,10 @@ if (isset($_POST["rppassword"])) {
             $stmt->execute();
             $row =  $stmt->fetch();
           
-                $_SESSION["role"] = $row["role"];
-                $_SESSION["name"] = $row["name"];
+                $_SESSION["role"] = 0;
+                $_SESSION["name"] = $user;
                 $_SESSION["userID"] = $pdo->lastInsertId();
-
+        
                 echo "<script>window.location.href='index.php'</script>";
                 exit();
            

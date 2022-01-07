@@ -47,8 +47,23 @@
 				
 
 					<?php 
+					 
+
 						if (isset($_SESSION["name"]) && $_SESSION["role"] == 0){
-							echo "<a href='userProfile.php'> <button type='button' class='bg-pink-500  text-white rounded-md px-7 py-3 uppercase hover:bg-pink-200 shadow-lg shadow-pink-500/50  transition duration-300'>Logged as " . $_SESSION['name'] . " </button> </a>";
+
+							if (strpos($_SERVER['REQUEST_URI'], "userProfile.php") !== false) {
+								echo "<a href='models/logOff.php'> <button type='button' class='bg-red-500  text-white rounded-md px-7 py-3 uppercase hover:bg-pink-200 shadow-lg shadow-pink-500/50  transition duration-300'>Log out</button> </a>";
+							}else{
+								echo "<a href='userProfile.php'> <button type='button' class='bg-pink-500  text-white rounded-md px-7 py-3 uppercase hover:bg-pink-200 shadow-lg shadow-pink-500/50  transition duration-300'>Logged as " . $_SESSION['name'] . " </button> </a>";
+					
+							}
+						
+
+							}else if( (isset($_SESSION["name"]) && ($_SESSION["role"] == 1) || ($_SESSION["role"] == 2))){
+
+								echo "<a href='models/logOff.php'> <button type='button' class='bg-red-500  text-white rounded-md px-7 py-3 uppercase hover:bg-pink-200 shadow-lg shadow-pink-500/50  transition duration-300'>Log out</button> </a>";
+						
+							
 						}else{
 							echo "<a href='login.php'> <button type='button' class='bg-indigo-500  text-white rounded-md px-7 py-3 uppercase hover:bg-indigo-200 shadow-lg shadow-cyan-500/50  transition duration-300'>Login</button> </a>";
 					

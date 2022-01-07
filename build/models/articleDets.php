@@ -371,18 +371,20 @@ if ($newArticle) { ?>
     <?php if ($_SESSION["role"] == 1  || $_SESSION["role"] == 2 ) {?> showImg(); <?php }  ?>
 
       <?php
-
+      if (isset($_SESSION["name"]) && $_SESSION["role"] == 0){ 
       if ($results) { if($results->num_rows != 0){ ?>
-        changeFav(0);
-        <?php  } } ?>
 
-      if ($newArticle) { 
+        changeFav(0);
+
+        <?php } } } ?>
+
+        <?php  if ($newArticle) {  ?>
       editTitle();
       switchView();
       enableEdit();
-     
+      <?php
       }
-
+      ?>
       
 
     
