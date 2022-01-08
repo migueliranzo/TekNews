@@ -57,7 +57,7 @@
               return "Tech News";
               break;
             case 1:
-              return "Cryto World";
+              return "Crypto World";
               break;
             case 2:
               return "Virtual reality";
@@ -85,13 +85,13 @@
       <br>
       <div class="bg-blue-500 shadow-lg text-white shadow-cyan-500/50 inline-block pt-2 pb-3 px-4 rounded-2xl overflow-hidden">
 
-        <?php //Calculation of pages needed to paginate and display of page numbers
+        <?php 
         $query = "SELECT COUNT(*) FROM report";
         $rs_result = mysqli_query($con, $query);
         $row = mysqli_fetch_row($rs_result);
         $total_records = $row[0];
 
-        $total_pages = ceil($total_records / $per_page_record);  // Number of pages required.
+        $total_pages = ceil($total_records / $per_page_record);  
         $pagLink = "";
 
 

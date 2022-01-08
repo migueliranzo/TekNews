@@ -29,47 +29,99 @@
         $page = 1;
     }
 
+  
+    function typeToTextB($arg_1) {
+
+                switch ($arg_1) {
+                    case 0:
+                        return "Tech News";
+                        break;
+                    case 1:
+                        return "Crypto World";
+                        break;
+                    case 2:
+                        return "Virtual reality";
+                        break;
+                    case 3:
+                        return "Biotechnology";
+                        break;
+                }
+            }
+
     $start_from = ($page - 1) * $per_page_record;
 
 
     $pdo = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
 
-    $keywordRaw = $_GET["keyword"];
-    $keyword = '%' . $keywordRaw . '%';
+    if (isset($_GET["type"])) {
+      
+        $keyword = $_GET["type"];
+        $keywordRaw = typeToTextB($_GET["type"]);
 
-    $sql = " SELECT COUNT(*) FROM `report` WHERE (title LIKE ? OR description LIKE ?)";
-    $stmt = $pdo->prepare($sql);
-    $stmt->bindParam(1, $keyword, PDO::PARAM_STR);
-    $stmt->bindParam(2, $keyword, PDO::PARAM_STR);
-    $stmt->execute();
-    $row =  $stmt->fetch();
-    $total_records = $row[0];
+        $sql = " SELECT COUNT(*) FROM `report` WHERE type = ?";
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindParam(1, $keyword, PDO::PARAM_STR);
+        $stmt->execute();
+        $row =  $stmt->fetch();
+        $total_records = $row[0];
+
+
+     } else {
+
+        $keywordRaw = $_GET["keyword"];
+        $keyword = '%' . $keywordRaw . '%';
+    
+        $sql = " SELECT COUNT(*) FROM `report` WHERE (title LIKE ? OR description LIKE ?)";
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindParam(1, $keyword, PDO::PARAM_STR);
+        $stmt->bindParam(2, $keyword, PDO::PARAM_STR);
+        $stmt->execute();
+        $row =  $stmt->fetch();
+        $total_records = $row[0];
+
+     }
+
+    
 
     if($total_records == 0){
         echo " <div class='mt-12 text-center text-2xl'>We couldn't find anything for <p class='font-bold'>$keywordRaw</p> 
         Try different or less specific keywords.</div>";
-    }else if($total_records == 1){
-        echo " <div class='mt-12  text-2xl'> <p  class='inline-block font-bold text-blue-500'> $total_records Result </p>  found</div>";
-    }else{
-        echo " <div class='mt-12  text-2xl'> <p  class='inline-block font-bold text-blue-500'> $total_records Results </p>  found</div>";
+    }else if($total_records == 1 ){
+        echo " <div class='mt-12  text-2xl'> <p  class='inline-block font-bold '> $total_records Result </p>  found for <p class='inline font-bold text-blue-500 '>$keywordRaw</p> </div>";
+    }else if(isset($_GET["type"])){
+          echo " <div class='mt-12  text-2xl'> <p  class='inline-block font-bold '> $total_records articles </p> under the  <p class='inline font-bold text-blue-500 '>$keywordRaw</p> category </div>";
+
+    }else{        
+      
+        echo " <div class='mt-12  text-2xl'> <p  class='inline-block font-bold '> $total_records Results </p>  found for <p class='inline font-bold text-blue-500 '>$keywordRaw</p> </div>";
+    
     }
 
     if($total_records != 0){
 
     try {
 
-        $sql = " SELECT * FROM `report` WHERE (title LIKE ? OR description LIKE ?) LIMIT $start_from, $per_page_record;";
-        $stmt = $pdo->prepare($sql);
-        $stmt->bindParam(1, $keyword, PDO::PARAM_STR);
-        $stmt->bindParam(2, $keyword, PDO::PARAM_STR);
-        $stmt->execute();
+        if (isset($_GET["type"])) {
 
+            $sql = " SELECT * FROM `report` WHERE type = ? LIMIT $start_from, $per_page_record;";
+            $stmt = $pdo->prepare($sql);
+            $stmt->bindParam(1, $keyword, PDO::PARAM_STR);
+            $stmt->execute();
+
+        }else{
+
+            $sql = " SELECT * FROM `report` WHERE (title LIKE ? OR description LIKE ?) LIMIT $start_from, $per_page_record;";
+            $stmt = $pdo->prepare($sql);
+            $stmt->bindParam(1, $keyword, PDO::PARAM_STR);
+            $stmt->bindParam(2, $keyword, PDO::PARAM_STR);
+            $stmt->execute();
+        }
         
 
     ?>
    
 
-        <div id="news" name="news" class="grid pt-28 auto-cols-max m-0 bg-white  lg:grid-cols-4 gap-4  grid-cols-2  sm:grid-cols-2 lg:m-0 sm:m-8 md:m-16">
+        <div id="news" name="news" class="grid pt-12 auto-cols-max m-0 bg-white  lg:grid-cols-4 gap-4  grid-cols-2  sm:grid-cols-2 lg:m-0 sm:m-8 md:m-16">
             <?php
 
             function typeToText($arg_1)
@@ -80,7 +132,7 @@
                         return "Tech News";
                         break;
                     case 1:
-                        return "Cryto World";
+                        return "Crypto World";
                         break;
                     case 2:
                         return "Virtual reality";

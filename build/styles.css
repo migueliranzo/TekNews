@@ -783,6 +783,14 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-top: 1rem;
   margin-bottom: 1rem;
 }
+.mx-4{
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+.mx-2{
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
 .mt-14{
   margin-top: 3.5rem;
 }
@@ -858,11 +866,17 @@ Ensure the default browser behavior of the `hidden` attribute.
 .ml-2{
   margin-left: 0.5rem;
 }
+.mt-5{
+  margin-top: 1.25rem;
+}
 .block{
   display: block;
 }
 .inline-block{
   display: inline-block;
+}
+.inline{
+  display: inline;
 }
 .flex{
   display: flex;
@@ -977,6 +991,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .flex-col-reverse{
   flex-direction: column-reverse;
 }
+.flex-wrap{
+  flex-wrap: wrap;
+}
 .items-center{
   align-items: center;
 }
@@ -998,6 +1015,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .gap-4{
   gap: 1rem;
 }
+.gap-6{
+  gap: 1.5rem;
+}
 .overflow-auto{
   overflow: auto;
 }
@@ -1006,6 +1026,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .text-ellipsis{
   text-overflow: ellipsis;
+}
+.whitespace-nowrap{
+  white-space: nowrap;
 }
 .break-words{
   overflow-wrap: break-word;
@@ -1274,6 +1297,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .pb-8{
   padding-bottom: 2rem;
 }
+.pt-12{
+  padding-top: 3rem;
+}
 .text-left{
   text-align: left;
 }
@@ -1282,6 +1308,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .text-justify{
   text-align: justify;
+}
+.align-middle{
+  vertical-align: middle;
 }
 .font-Readex{
   font-family: Readex Pro, sans-serif;
@@ -1682,6 +1711,14 @@ Ensure the default browser behavior of the `hidden` attribute.
 .hover\:bg-slate-400:hover{
   --tw-bg-opacity: 1;
   background-color: rgb(148 163 184 / var(--tw-bg-opacity));
+}
+.hover\:bg-green-300:hover{
+  --tw-bg-opacity: 1;
+  background-color: rgb(134 239 172 / var(--tw-bg-opacity));
+}
+.hover\:bg-fuchsia-300:hover{
+  --tw-bg-opacity: 1;
+  background-color: rgb(240 171 252 / var(--tw-bg-opacity));
 }
 .hover\:text-blue-900:hover{
   --tw-text-opacity: 1;
