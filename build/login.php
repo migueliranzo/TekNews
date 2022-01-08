@@ -78,7 +78,7 @@
 
 
     <?php
-    	include "../build/models/userLogic.php";
+    	include "../build/services/userLogic.php";
     ?>
 </div>
 

@@ -21,8 +21,7 @@
     $password = "";
     $dbname = "technews";
 
-    $per_page_record = 5;  // Number of entries to show in a page.   
-    // Look for a GET variable page if not found default is 1.        
+    $per_page_record = 5;         
     if (isset($_GET["page"])) {
         $page  = $_GET["page"];
     } else {

@@ -14,7 +14,6 @@
 <body>
 <?php
 
-//session_destroy();
 
 ?>
 
@@ -35,8 +34,7 @@
     $password = "";
     $dbname = "technews";
 
-    $per_page_record = 5;  // Number of entries to show in a page.   
-    // Look for a GET variable page if not found default is 1.        
+    $per_page_record = 5;          
     if (isset($_GET["page"])) {
         $page  = $_GET["page"];
     } else {
@@ -83,7 +81,7 @@ if ($total_records == 0) {
                         return "Tech News";
                         break;
                     case 1:
-                        return "Cryto World";
+                        return "Crypto World";
                         break;
                     case 2:
                         return "Virtual reality";

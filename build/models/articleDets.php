@@ -65,7 +65,7 @@ function typeToText($arg_1)
       return "Tech News";
       break;
     case 1:
-      return "Cryto World";
+      return "Crypto World";
       break;
     case 2:
       return "Virtual reality";
@@ -248,7 +248,7 @@ if ($newArticle) { ?>
     <?php  if ($newArticle) {  $articleID = -1; }?>
     $.ajax({
         type: 'post',
-        url: 'models/editArticle.php',
+        url: 'services/editArticle.php',
         data: "articleID=" + <?php echo $articleID ?> + '&delete=' + 1,
         success: function(data) {
           window.location = "index.php";
@@ -290,7 +290,7 @@ if ($newArticle) { ?>
       
     $.ajax({
         type: 'post',
-        url: 'models/saveArticle.php',
+        url: 'services/saveArticle.php',
         data: "articleID=" + <?php echo $articleID ?> + '&userID=' + <?php echo $_SESSION["userID"] ?> + '&alreadyFav=' + favStatus ,
         success: function(data) {  
           if(data == "deleted"){
@@ -352,7 +352,7 @@ if ($newArticle) { ?>
       var content = $('[name="articleContent"]').val();
       $.ajax({
         type: 'post',
-        url: 'models/editArticle.php',
+        url: 'services/editArticle.php',
         data: "type=" + type + '&title=' + title + '&content=' + content + "&articleID=" + <?php echo $articleID ?> + '&img=' + src,
         success: function(data) {
           <?php  if ($newArticle) {  ?>  window.location = "article.php?article=" + data;   <?php  } ?>
@@ -426,7 +426,7 @@ if ($newArticle) { ?>
           ?>
 
           <option value="0">Tech News</option>
-          <option value="1">Cryto World</option>
+          <option value="1">Crypto World</option>
           <option value="2">Virtual reality</option>
           <option value="3">Biotechnology</option>
         </select>

@@ -69,13 +69,13 @@
 				if (isset($_SESSION["name"]) && $_SESSION["role"] == 0) {
 
 					if (strpos($_SERVER['REQUEST_URI'], "userProfile.php") !== false) {
-						echo "<a href='models/logOff.php'> <button type='button' class='bg-red-500  text-white rounded-md px-7 py-3 uppercase hover:bg-red-200 shadow-lg shadow-red-500/50  transition duration-300'>Log out</button> </a>";
+						echo "<a href='services/logOff.php'> <button type='button' class='bg-red-500  text-white rounded-md px-7 py-3 uppercase hover:bg-red-200 shadow-lg shadow-red-500/50  transition duration-300'>Log out</button> </a>";
 					} else {
 						echo "<a href='userProfile.php'> <button type='button' class='bg-pink-500 max-w-[200px] text-ellipsis overflow-hidden text-white rounded-md px-7 py-3 uppercase hover:bg-pink-200 shadow-lg shadow-pink-500/50  transition duration-300'>Logged as " . $_SESSION['name'] . " </button> </a>";
 					}
 				} else if ((isset($_SESSION["name"]) && ($_SESSION["role"] == 1) || ($_SESSION["role"] == 2))) {
 
-					echo "<a href='models/logOff.php'> <button type='button' class='bg-red-500  text-white rounded-md px-7 py-3 uppercase hover:bg-red-200 shadow-lg shadow-red-500/50  transition duration-300'>Log out</button> </a>";
+					echo "<a href='services/logOff.php'> <button type='button' class='bg-red-500  text-white rounded-md px-7 py-3 uppercase hover:bg-red-200 shadow-lg shadow-red-500/50  transition duration-300'>Log out</button> </a>";
 				} else {
 					echo "<a href='login.php'> <button type='button' class='bg-indigo-500  text-white rounded-md px-7 py-3 uppercase hover:bg-indigo-200 shadow-lg shadow-cyan-500/50  transition duration-300'>Login</button> </a>";
 				}
@@ -111,13 +111,13 @@
 					if (isset($_SESSION["name"]) && $_SESSION["role"] == 0) {
 
 						if (strpos($_SERVER['REQUEST_URI'], "userProfile.php") !== false) {
-							echo "<a href='models/logOff.php'> <li class='px-7 py-3 uppercase text-center hover:bg-slate-400' transition> Log out </li></a>";
+							echo "<a href='services/logOff.php'> <li class='px-7 py-3 uppercase text-center hover:bg-slate-400' transition> Log out </li></a>";
 						} else {
 							echo "<a href='userProfile.php'> <li class='px-7 py-3 uppercase text-center hover:bg-slate-400' transition> Profile </li></a>";
 						}
 					} else if ((isset($_SESSION["name"]) && ($_SESSION["role"] == 1) || ($_SESSION["role"] == 2))) {
 
-						echo "<a href='models/logOff.php'> <li class='px-7 py-3 uppercase text-center hover:bg-slate-400' transition> Log out </li></a>";
+						echo "<a href='services/logOff.php'> <li class='px-7 py-3 uppercase text-center hover:bg-slate-400' transition> Log out </li></a>";
 					} else {
 						echo "<a href='login.php'> <li class='px-7 py-3 uppercase text-center hover:bg-slate-400' transition> Login </li></a>";
 					}

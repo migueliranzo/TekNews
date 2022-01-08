@@ -42,7 +42,7 @@
 			</div>
 			<div name="news" id="news" class="container">
 				<?php
-				include "../build/models/test.php";
+				include "../build/models/articles.php";
 				?>
 			</div>
 		</section>
