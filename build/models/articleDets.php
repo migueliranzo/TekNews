@@ -347,7 +347,7 @@ if ($newArticle) { ?>
       hidden = false;
       editTitle();
       e.preventDefault();
-      var type = $('[name="type"]').val();
+      var type = $('[name="type"]').find(":selected").val();
       var title = $('[name="title"]').text();
       var content = $('[name="articleContent"]').val();
       $.ajax({
