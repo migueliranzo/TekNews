@@ -1,4 +1,8 @@
-<?php if (session_status() != PHP_SESSION_ACTIVE) {
+<?php
+include "../vendor/erusev/parsedown/Parsedown.php";
+$Parsedown = new Parsedown();
+
+if (session_status() != PHP_SESSION_ACTIVE) {
 	session_start();
 	if (!isset($_SESSION["role"])) {
 		$_SESSION["role"] = 0;
@@ -49,10 +53,10 @@
 
 	<!-- Header -->
 	<header class="fixed bg-white w-full z-[9999] top-0">
-		<nav class=" container flex items-center ">
+		<nav class="py-1 container flex items-center ">
 			<a class="z-20" href="index.php">
-				<div class="py-2 z-20 flex items-baseline"> <i class=" text-7xl fas fa-microchip"></i>
-					<p class="px-2  uppercase   text-6xl">Teknews</p> 
+				<div class="py-2 z-20 flex items-center"> <i class=" text-5xl fas fa-microchip"></i>
+					<p class="px-2  uppercase   text-5xl">Teknews</p> 
 				</div>
 			</a>
 			<ul class="hidden lg:flex flex-1 justify-end items-center gap-12 text-gray-700 uppercase text-xs">

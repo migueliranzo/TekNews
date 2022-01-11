@@ -26,7 +26,7 @@
   }
 
 
-  $per_page_record = 5;         
+  $per_page_record = 15;         
   if (isset($_GET["page"])) {
     $page  = $_GET["page"];
   } else {

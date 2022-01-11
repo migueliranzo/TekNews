@@ -1,5 +1,5 @@
 <?php
-include "../vendor/erusev/parsedown/Parsedown.php";
+
 
 $newArticle = 0;
 
@@ -55,7 +55,7 @@ if (isset($_SESSION["name"]) && $_SESSION["role"] == 0){
 }
 
 
-$Parsedown = new Parsedown();
+
 
 function typeToText($arg_1)
 {
