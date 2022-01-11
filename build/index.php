@@ -14,14 +14,7 @@
 						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ultricies varius enim laoreet laoreet. Suspendisse at eros sit amet augue ultricies eleifend.
 						In quis ultricies magna.
 					</p> 
-					<div class="flex  justify-center flex-wrap gap-6">
-					<form class="mb-0" action="search.php" method="GET">
-						<button type="submit" value="1" name="type" class=" btn btn-green mr-2 hover:bg-green-300 ">Crypto World</button>
-						<button type="submit" value="0" name="type" class=" btn btn-purple mr-2 hover:bg-fuchsia-300 ">Tech News</button>
-						<button type="submit" value="2" name="type" class=" btn btn-green mr-2 hover:bg-green-300 ">VR</button>
-						<button type="submit" value="3" name="type" class=" btn btn-purple  hover:bg-fuchsia-300 mt-5 ">Biotechnology</button>
-					</form>
-					</div>
+					
 				</div>
 				<!-- IMG -->
 				<div class="flex justify-center flex-1 mb-10 md:mb-16 lg:mb-0 z-10  ">
