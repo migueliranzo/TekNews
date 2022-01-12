@@ -26,7 +26,7 @@
   }
 
 
-  $per_page_record = 15;         
+  $per_page_record = 14;         
   if (isset($_GET["page"])) {
     $page  = $_GET["page"];
   } else {
@@ -43,8 +43,7 @@
     <br>
     <div>
 
-      <div class="grid pt-28 auto-cols-max m-0 bg-white  lg:grid-cols-4 gap-4  grid-cols-2  sm:grid-cols-2 lg:m-0 sm:m-8 md:m-16">
-
+    <div id="news" name="news" class="grid pt-12 auto-cols-max m-0  lg:grid-cols-4 gap-4  grid-cols-2  sm:grid-cols-2 lg:m-0 sm:mx-8  md:mx-16 ">
 
         <?php
 

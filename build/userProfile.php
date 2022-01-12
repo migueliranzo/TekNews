@@ -4,7 +4,7 @@
 
 	
 		<!-- news grid -->
-		<section class="py-20 ">
+		<section class="py-20 min-h-full">
             <div class="container">
 				<?php
 				include "../build/models/userPage.php";
@@ -12,7 +12,7 @@
 			</div>
 		</section>
 
-       
+		<?php include "../build/models/footer.php" ?>
 
 	</body>
 

@@ -69,8 +69,8 @@ if ($total_records == 0) {
     $total_records = $row[0];
       
 ?>
-
-        <div id="news" name="news" class="grid pt-28 auto-cols-max m-0 bg-white  lg:grid-cols-4 gap-4  grid-cols-2  sm:grid-cols-2 lg:m-0 sm:m-8 md:m-16">
+        
+        <div id="news" name="news" class="grid pt-12 auto-cols-max m-0 bg-white  lg:grid-cols-4 gap-4  grid-cols-2  sm:grid-cols-2 lg:m-0 sm:mx-8  md:mx-16 ">
             <?php
 
             function typeToText($arg_1)

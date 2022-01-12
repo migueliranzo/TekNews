@@ -24,8 +24,8 @@
 			<!-- epic shape-->
 			<div class="hidden md:block overflow-hidden bg-green-300 rounded-l-full absolute h-80 w-2/4 top-32 right-0 lg:top-20 lg:w-2/6 xl:w-5/12"></div>
 		</section>
-		<!-- news grid -->
-		<section class="py-20 mt-20">
+		<!-- news grid bg-[#f8f9fa] -->
+		<section class="py-20 mt-20 min-h-full">
 			<div class="sm:w-3/4 lg:w-5/12 mx-auto px-2">
 				<h1 class="text-3xl text-center text-gray-700">Tech News!</h1>
 				<p class="text-gray-400 text-center mt-4">
@@ -33,14 +33,14 @@
 					In quis ultricies magna.
 				</p>
 			</div>
-			<div name="news" id="news" class="container">
+			<div name="news" id="news" class="container" >
 				<?php
 				include "../build/models/articles.php";
 				?>
 			</div>
 		</section>
 
-
+	<?php include "../build/models/footer.php" ?>
 
 	</body>
 
