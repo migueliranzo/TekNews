@@ -780,6 +780,14 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-top: 1rem;
   margin-bottom: 1rem;
 }
+.my-6{
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.my-8{
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
 .mt-14{
   margin-top: 3.5rem;
 }
@@ -1287,6 +1295,12 @@ Ensure the default browser behavior of the `hidden` attribute.
 .pb-3{
   padding-bottom: 0.75rem;
 }
+.pt-4{
+  padding-top: 1rem;
+}
+.pl-4{
+  padding-left: 1rem;
+}
 .pl-6{
   padding-left: 1.5rem;
 }
@@ -1304,9 +1318,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .pb-1{
   padding-bottom: 0.25rem;
-}
-.pt-4{
-  padding-top: 1rem;
 }
 .pt-3{
   padding-top: 0.75rem;
@@ -1467,6 +1478,12 @@ Ensure the default browser behavior of the `hidden` attribute.
 .ease-out{
   transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
 }
+.limitTitleHeight{
+    display: -webkit-box; 
+    -webkit-line-clamp: 4; 
+    line-clamp: 4;  
+    -webkit-box-orient: vertical;
+  }
 .news-card-effect {
     z-index: 100;
     position: relative;
@@ -1607,10 +1624,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   content: var(--tw-content);
   height: 150px;
 }
-.after\:h-\[66\%\]::after{
-  content: var(--tw-content);
-  height: 66%;
-}
 .after\:w-\[150px\]::after{
   content: var(--tw-content);
   width: 150px;
@@ -1726,6 +1739,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-text-opacity: 1;
   color: rgb(147 197 253 / var(--tw-text-opacity));
 }
+.hover\:text-pink-500:hover{
+  --tw-text-opacity: 1;
+  color: rgb(236 72 153 / var(--tw-text-opacity));
+}
 .after\:hover\:top-\[0\.20\]:hover::after{
   content: var(--tw-content);
   top: 0.20;
@@ -1737,10 +1754,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .after\:hover\:top-7:hover::after{
   content: var(--tw-content);
   top: 1.75rem;
-}
-.after\:hover\:h-\[62\%\]:hover::after{
-  content: var(--tw-content);
-  height: 62%;
 }
 .focus\:bg-blue-100:focus{
   --tw-bg-opacity: 1;
@@ -1793,6 +1806,10 @@ Ensure the default browser behavior of the `hidden` attribute.
     margin-left: 2rem;
     margin-right: 2rem;
   }
+  .sm\:my-8{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
   .sm\:mr-12{
     margin-right: 3rem;
   }
@@ -1831,9 +1848,16 @@ Ensure the default browser behavior of the `hidden` attribute.
   .md\:m-16{
     margin: 4rem;
   }
+  .md\:m-8{
+    margin: 2rem;
+  }
   .md\:mx-16{
     margin-left: 4rem;
     margin-right: 4rem;
+  }
+  .md\:my-8{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
   }
   .md\:mb-16{
     margin-bottom: 4rem;
@@ -1847,8 +1871,8 @@ Ensure the default browser behavior of the `hidden` attribute.
   .md\:hidden{
     display: none;
   }
-  .md\:w-\[42vw\]{
-    width: 42vw;
+  .md\:w-\[45vw\]{
+    width: 45vw;
   }
   .md\:text-center{
     text-align: center;
@@ -1857,9 +1881,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 @media (min-width: 1024px){
   .lg\:top-20{
     top: 5rem;
-  }
-  .lg\:col-span-3{
-    grid-column: span 3 / span 3;
   }
   .lg\:col-span-4{
     grid-column: span 4 / span 4;
@@ -1896,9 +1917,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   }
   .lg\:grid-cols-4{
     grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-  .lg\:grid-cols-3{
-    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
   .lg\:flex-row{
     flex-direction: row;
@@ -1945,10 +1963,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   }
   .xl\:items-start{
     align-items: flex-start;
-  }
-  .xl\:text-lg{
-    font-size: 1.125rem;
-    line-height: 1.75rem;
   }
 }
 @media (min-width: 1536px){

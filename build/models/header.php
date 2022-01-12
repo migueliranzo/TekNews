@@ -118,11 +118,11 @@ if (session_status() != PHP_SESSION_ACTIVE) {
 				</div>
 		<div class="xl:hidden lg:hidden">
 	
-		<div id="sideMenu" class=" hidden bg-blue-500 border-l-2 border-b-2 rounded-bl-full text-white right-0 top-0 md:w-[42vw] sm:w-[52vw] w-[60vw]  overflow-hidden fixed z-[999]">
+		<div id="sideMenu" class=" hidden bg-blue-500 border-l-2 border-b-2 rounded-bl-full text-white right-0 top-0 md:w-[45vw] sm:w-[52vw] w-[60vw]  overflow-hidden fixed z-[999]">
 	
 		<div> 
 				<ul>
-					<li class="mt-12 ml-4">
+					<li class="pt-4  pl-4  transition text-xl"> <i class='hover:text-pink-500 hover:cursor-pointer pl-6 pr-1 fas fa-times'></i>
 					</li>
 
 					<?php
