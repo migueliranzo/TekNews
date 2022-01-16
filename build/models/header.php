@@ -37,7 +37,7 @@ if (session_status() != PHP_SESSION_ACTIVE) {
 	function showSideMenu() {
 	
 		$("#sideMenu").slideDown( 400, function() {
-    // Animation complete.
+    
   });
 	}
 
@@ -47,7 +47,7 @@ if (session_status() != PHP_SESSION_ACTIVE) {
 
 		if (!container.is(e.target) && container.has(e.target).length === 0) {
 			$("#sideMenu").slideUp( 400, function() {
-    // Animation complete.
+   
   });
 		}
 	});
@@ -57,7 +57,7 @@ if (session_status() != PHP_SESSION_ACTIVE) {
 
 	<!-- Header -->
 	<header class="fixed bg-white w-full z-[9999] top-0">
-		<nav class="py-1 container flex items-center ">
+		<nav class="container flex items-center ">
 			<a class="z-20" href="index.php">
 				<div class="py-2 z-20 flex items-center"> <i class=" text-5xl fas fa-microchip"></i>
 					<p class="px-2  uppercase   text-5xl">Teknews</p> 
@@ -104,10 +104,10 @@ if (session_status() != PHP_SESSION_ACTIVE) {
 			<nav class="items-center md:flex bg-blue-500 hidden ">
 			<form class="mb-0 flex items-center m-auto" action="search.php" method="GET">
 				<ul class="flex flex-row">
-						<li class="hover:bg-pink-500 py-1"><button type="submit" value="1" name="type" class="py-3 px-6 text-white ">Crypto World</button></li>
-						<li class="hover:bg-pink-500 py-1"><button type="submit" value="0" name="type" class="py-3 px-6  text-white ">Tech News</button></li>
-						<li class="hover:bg-pink-500 py-1"><button type="submit" value="2" name="type" class=" py-3 px-6 text-white ">VR</button></li>
-						<li class="hover:bg-pink-500 py-1"><button type="submit" value="3" name="type" class="py-3 px-6 text-white ">Biotechnology</button></li>
+						<li class="hover:bg-pink-500"><button type="submit" value="1" name="type" class="py-3 px-6 text-white ">Crypto World</button></li>
+						<li class="hover:bg-pink-500"><button type="submit" value="0" name="type" class="py-3 px-6  text-white ">Tech News</button></li>
+						<li class="hover:bg-pink-500"><button type="submit" value="2" name="type" class=" py-3 px-6 text-white ">VR</button></li>
+						<li class="hover:bg-pink-500"><button type="submit" value="3" name="type" class="py-3 px-6 text-white ">Biotechnology</button></li>
 				</ul>
 				</form>
 			</nav>

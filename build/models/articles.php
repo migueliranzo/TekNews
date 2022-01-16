@@ -10,9 +10,6 @@
 <body>
   <?php
 
-
-  include "classes/report.php";
-
   $servername = "localhost";
   $username = "root";
   $password = "";
@@ -70,7 +67,7 @@
         $i = 0;
         while ($row = mysqli_fetch_array($rs_result)) {
           $i++;
-          // Display each field of the records.    
+           
           include "paginationGrid.php";
         };
         ?>

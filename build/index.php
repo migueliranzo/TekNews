@@ -26,14 +26,14 @@
 		</section>
 		<!-- news grid bg-[#f8f9fa] -->
 		<section class="py-20 mt-20 min-h-full">
-			<div class="sm:w-3/4 lg:w-5/12 mx-auto px-2">
+			<div  id="news"  class="sm:w-3/4 lg:w-5/12 mx-auto px-2">
 				<h1 class="text-3xl text-center text-gray-700">Tech News!</h1>
 				<p class="text-gray-400 text-center mt-4">
 					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ultricies varius enim laoreet laoreet. Suspendisse at eros sit amet augue ultricies eleifend.
 					In quis ultricies magna.
 				</p>
 			</div>
-			<div name="news" id="news" class="container" >
+			<div name="news" class="container" >
 				<?php
 				include "../build/models/articles.php";
 				?>

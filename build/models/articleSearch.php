@@ -86,13 +86,13 @@
         echo " <div class='mt-12 text-center text-2xl'>We couldn't find anything for <p class='font-bold'>$keywordRaw</p> 
         Try different or less specific keywords.</div>";
     }else if($searchType != -1){
-        echo " <div class='mt-12  text-2xl lg:text-left text-center '> <p  class='inline-block font-bold '>  $total_records articles </p> under the  <p class='inline font-bold text-blue-500 '>$keywordRaw</p> category </div>";
+        echo " <div   id='news'   class='mt-12  text-2xl lg:text-left text-center '> <p  class='inline-block font-bold '>  $total_records articles </p> under the  <p class='inline font-bold text-blue-500 '>$keywordRaw</p> category </div>";
 
   }  else if($total_records == 1 ){
-        echo " <div class='mt-12  text-2xl lg:text-left text-center '> <p  class='inline-block font-bold '> $total_records Result </p>  found for <p class='inline font-bold text-blue-500 '>$keywordRaw</p> </div>";
+        echo " <div  id='news'   class='mt-12  text-2xl lg:text-left text-center '> <p  class='inline-block font-bold '> $total_records Result </p>  found for <p class='inline font-bold text-blue-500 '>$keywordRaw</p> </div>";
     }else{        
       
-        echo " <div class='mt-12  text-2xl lg:text-left text-center'> <p  class='inline-block font-bold '> $total_records Results </p>  found for <p class='inline font-bold text-blue-500 '>$keywordRaw</p> </div>";
+        echo " <div id='news'  class='mt-12  text-2xl lg:text-left text-center'> <p  class='inline-block font-bold '> $total_records Results </p>  found for <p class='inline font-bold text-blue-500 '>$keywordRaw</p> </div>";
     
     }
 
@@ -120,7 +120,7 @@
     ?>
    
 
-        <div id="news" name="news" class="grid pt-12 auto-cols-max m-0 bg-white  lg:grid-cols-4 gap-4  grid-cols-2  sm:grid-cols-2 lg:m-0 sm:mx-8  md:mx-16 ">
+        <div  name="news" class="grid pt-12 auto-cols-max m-0 bg-white  lg:grid-cols-4 gap-4  grid-cols-2  sm:grid-cols-2 lg:m-0 sm:mx-8  md:mx-16 ">
             <?php
 
             function typeToText($arg_1)
@@ -146,7 +146,7 @@
             while ($row =  $stmt->fetch()) {
 
                 $i++;
-                // Display each field of the records.    
+                  
                 include "paginationGrid.php";
             };
             ?>
@@ -164,9 +164,9 @@
     
         <?php if ( $total_records >= $per_page_record ) { ?>
 
-        <div class=" text-center  pt-6">
+        <div class=" text-center  pt-3">
 
-            <br>
+         
             <div class="bg-blue-500 shadow-lg text-white shadow-cyan-500/50 inline-block pt-2 pb-3 px-4 rounded-2xl overflow-hidden">
                 <?php 
 

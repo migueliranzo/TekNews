@@ -784,10 +784,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
 }
-.my-8{
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-}
 .mt-14{
   margin-top: 3.5rem;
 }
@@ -1295,6 +1291,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .pb-3{
   padding-bottom: 0.75rem;
 }
+.pt-3{
+  padding-top: 0.75rem;
+}
 .pt-4{
   padding-top: 1rem;
 }
@@ -1318,9 +1317,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .pb-1{
   padding-bottom: 0.25rem;
-}
-.pt-3{
-  padding-top: 0.75rem;
 }
 .pb-8{
   padding-bottom: 2rem;
@@ -1806,10 +1802,6 @@ Ensure the default browser behavior of the `hidden` attribute.
     margin-left: 2rem;
     margin-right: 2rem;
   }
-  .sm\:my-8{
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-  }
   .sm\:mr-12{
     margin-right: 3rem;
   }
@@ -1845,12 +1837,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   }
 }
 @media (min-width: 768px){
-  .md\:m-16{
-    margin: 4rem;
-  }
-  .md\:m-8{
-    margin: 2rem;
-  }
   .md\:mx-16{
     margin-left: 4rem;
     margin-right: 4rem;
