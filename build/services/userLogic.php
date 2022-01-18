@@ -28,9 +28,9 @@ if (isset($_POST["rppassword"])) {
         $stmt->bindParam(1, $user, PDO::PARAM_STR);
         $stmt->execute();
         $row =  $stmt->fetch();
-        $total_records = $row[0];
+        $records = $row[0];
 
-        if ($total_records == 0) {
+        if ($records == 0) {
 
             $sql = " INSERT INTO `user` (name, password ,role) VALUES (?,?,0)";
             $stmt = $pdo->prepare($sql);
@@ -68,8 +68,8 @@ if (isset($_POST["rppassword"])) {
             $stmt->bindParam(2, $pass, PDO::PARAM_STR);
             $stmt->execute();
             $row =  $stmt->fetch();
-            $total_records = $row[0];
-            if ($total_records != 0) {
+            $records = $row[0];
+            if ($records != 0) {
                 $_SESSION["role"] = $row["role"];
                 $_SESSION["name"] = $row["name"];
                 $_SESSION["userID"] = $row["id"];

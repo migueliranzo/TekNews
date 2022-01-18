@@ -34,14 +34,14 @@
     $password = "";
     $dbname = "technews";
 
-    $per_page_record = 5;          
+    $maxResults = 5;          
     if (isset($_GET["page"])) {
         $page  = $_GET["page"];
     } else {
         $page = 1;
     }
 
-    $start_from = ($page - 1) * $per_page_record;
+    $start = ($page - 1) * $maxResults;
 
     $pdo = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
 
@@ -53,20 +53,20 @@
     $stmt->bindParam(1, $keyword, PDO::PARAM_STR);
     $stmt->execute();
     $row =  $stmt->fetch();
-    $total_records = $row[0];
-    echo " <div class='mt-12 text-center text-2xl'>You have liked a total of <p  class='inline-block font-bold text-blue-500'> $total_records  articles </p> </div>";
+    $records = $row[0];
+    echo " <div class='mt-12 text-center text-2xl'>You have liked a total of <p  class='inline-block font-bold text-blue-500'> $records  articles </p> </div>";
 
-if ($total_records == 0) {
+if ($records == 0) {
     echo " <div  class='mt-12 text-center text-2xl'>Ooops, it seems you haven't liked any article yet!</div>";
 } else {
 
     try {
       
-      $sql = "SELECT * FROM `report` WHERE id IN (SELECT report_id FROM `user_report` WHERE  user_id = ?)  LIMIT $start_from, $per_page_record;";
+      $sql = "SELECT * FROM `report` WHERE id IN (SELECT report_id FROM `user_report` WHERE  user_id = ?)  LIMIT $start, $maxResults;";
       $stmt = $pdo->prepare($sql);
       $stmt->bindParam(1, $keyword, PDO::PARAM_STR);
       $stmt->execute();
-    $total_records = $row[0];
+    $records = $row[0];
       
 ?>
         
@@ -112,7 +112,7 @@ if ($total_records == 0) {
 <div>
         <br>
 
-        <?php if ($total_records != 0) { ?>
+        <?php if ($records != 0) { ?>
 
         <div class=" text-center  pt-3">
 
@@ -120,8 +120,8 @@ if ($total_records == 0) {
             <div class="bg-blue-500 shadow-lg text-white shadow-cyan-500/50 inline-block pt-2 pb-3 px-4 rounded-2xl overflow-hidden">
                 <?php 
  
-                $total_pages = ceil($total_records / $per_page_record);  
-                $pagLink = "";
+                $pages = ceil($records / $maxResults);  
+                $index = "";
 
 
                 echo "<a class='px-3 z-20 after:-z-10 after:w-[150px] hover: transition duration-300 after:h-[150px]  
@@ -137,30 +137,30 @@ if ($total_records == 0) {
                 echo "'>  Prev </a>";
 
 
-                for ($i = 1; $i <= $total_pages; $i++) {
+                for ($i = 1; $i <= $pages; $i++) {
                     if ($i == $page) {
-                        $pagLink .= "<a class='px-3 z-20 after:-z-10 after:w-[150px] hover: transition duration-300 after:h-[150px]  
+                        $index .= "<a class='px-3 z-20 after:-z-10 after:w-[150px] hover: transition duration-300 after:h-[150px]  
             after:bg-pink-500 after:`` relative after:absolute after:block inline-block after:-top-[178px] after:duration-300
             after:rotate-45 after:hover:-top-[178px] after:-left-[58px]' href='userProfile.php?page="
                             . $i . '#news' . "'>" . $i . " </a>";
                     } else {
-                        $pagLink .= "<a class='px-3 z-20 after:-z-10 after:w-[150px] hover: transition duration-300 after:h-[150px]  
+                        $index .= "<a class='px-3 z-20 after:-z-10 after:w-[150px] hover: transition duration-300 after:h-[150px]  
             after:bg-blue-700 after:`` relative after:absolute after:block inline-block after:top-20 after:duration-300
             after:rotate-45 after:hover:top-7 after:-left-[58px]' href='userProfile.php?page=" . $i . '#news' . "'>" . $i . " </a>";
                     }
                 };
-                echo $pagLink;
+                echo $index;
 
 
                 echo "<a class='px-3 z-20 after:-z-10 after:w-[150px] hover: transition duration-300 after:h-[150px]  
           after:bg-blue-700 after:`` relative after:absolute after:block inline-block after:hover:top-[0.20] after:duration-300
           after:rotate-45 after:top-20 after:-left-7' href='userProfile.php?page=";
 
-                if ($page < $total_pages) {
+                if ($page < $pages) {
 
                     echo ($page + 1) . '#news';
                 } else {
-                    echo $total_pages . '#news';
+                    echo $pages . '#news';
                 }
 
                 echo "'>  Next </a>";

@@ -34,10 +34,10 @@ if ($con->connect_error) {
 if (!$newArticle) {
   $query = "SELECT * FROM report WHERE id = $articleID";
 
-  $rs_result = mysqli_query($con, $query);
+  $result = mysqli_query($con, $query);
 
   $i = 0;
-  while ($row = mysqli_fetch_array($rs_result)) {
+  while ($row = mysqli_fetch_array($result)) {
     $i++;
 
     $title = $row["title"];
