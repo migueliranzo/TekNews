@@ -365,9 +365,27 @@ if ($newArticle) { ?>
    
 
   });
+/*      Experimental
+  function fixDiv() { 
+    var $div = $("#testF");
+    var $desiredH = $("#viewContainer").css("width")
+    if ($(window).scrollTop() > $div.data("top")+ $("#editForm").height()/2 ) { 
+        $('#testF').css({'position': 'fixed', 'top': '160', 'width': $desiredH}); //viewContainer
+    }
+    else {
+        $('#testF').css({'position': 'static', 'top': 'auto', 'width': '100%'});
+      }
+    }
+*/
+  
 
   $( document ).ready(function() {
    
+    /*   Experimental
+      $("#testF").data("top", $("#testF").offset().top); 
+    $(window).scroll(fixDiv);
+    */
+
     <?php if ($_SESSION["role"] == 1  || $_SESSION["role"] == 2 ) {?> showImg(); <?php }  ?>
 
       <?php
@@ -502,6 +520,7 @@ if ($newArticle) { ?>
     </div>
     <!-- Edit view -->
     <div id="contentPanel" class=" flex-1  max-w-[78ch] w-[100%] flex-col hidden">
+  <!--     <div id="testF">  -->
       <div class="flex flex-row border  rounded-sm rounded-bl-none rounded-br-none border-black">
         <button type="button" class="p-2 hover:bg-slate-200 bg-white text-gray-500" onclick="setSelectedText('**',true)"><i class="fas fa-bold"></i></button>
         <button type="button" class="p-2 hover:bg-slate-200 bg-white text-gray-500" onclick="setSelectedText('\n ## ',false, '\n')"><i class="fas fa-heading"></i></button>
@@ -514,7 +533,7 @@ if ($newArticle) { ?>
       </div>
 
     </div>
-
+   <!-- </div> -->
   </div>
   </div>
 
