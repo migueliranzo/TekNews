@@ -10,6 +10,13 @@ if (session_status() != PHP_SESSION_ACTIVE) {
 } ?>
 <html class="font-Readex">
 <head>
+
+		<title>
+		TekNews
+        </title>
+
+		<link rel = "icon" href = "img/logo.png" type = "image/x-icon">
+
 	<style>
 		::-webkit-scrollbar {
 			width: 6px;

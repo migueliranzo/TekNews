@@ -11,9 +11,13 @@
 						The Best News Feed
 					</h2>
 					<p class="text-gray-400 text-lg text-center lg:text-left mb-6">
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ultricies varius enim laoreet laoreet. Suspendisse at eros sit amet augue ultricies eleifend.
-						In quis ultricies magna.
+					TekNews Network is one of the most popular e-business and technology news publishers in the UNIVERSE. 
+					
 					</p> 
+					<p class="text-gray-400 text-lg text-center lg:text-left mb-6">
+					Our network of business and technology news publications attracts a targeted audience of buyers and decision-makers who need timely industry news and reliable analysis.
+					</p> 
+					
 					
 				</div>
 				<!-- IMG -->
@@ -29,8 +33,8 @@
 			<div  id="news"  class="sm:w-3/4 lg:w-5/12 mx-auto px-2">
 				<h1 class="text-3xl text-center text-gray-700">Tech News!</h1>
 				<p class="text-gray-400 text-center mt-4">
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ultricies varius enim laoreet laoreet. Suspendisse at eros sit amet augue ultricies eleifend.
-					In quis ultricies magna.
+				These publications are some of the most respected and widely-read business and technology news sites of the Internet age. 
+				Teknews Network features an award-winning team of journalists who produce daily news and industry analysis.
 				</p>
 			</div>
 			<div name="news" class="container" >

@@ -20,6 +20,7 @@ module.exports = {
     fontFamily:{
       Readex: ["Readex Pro, sans-serif"],
       IBMMONO: ["IBM Plex Mono, monospace"],
+      Raleway: ["Raleway, sans-serif"]
     },
     container: {
       center: true,
