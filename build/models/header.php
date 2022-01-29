@@ -47,11 +47,15 @@ if (session_status() != PHP_SESSION_ACTIVE) {
 
 			$("#menuIcon").removeClass("fa-times")
 			$("#menuIcon").addClass("fa-bars");
+			$("#menuBtn").addClass("p-2");
 			$("#menuBtn").removeClass("bg-neutral-100");
-		}else{
+		}else{ 
+			$("#menuBtn").addClass("bg-neutral-100");
 			$("#menuIcon").removeClass("fa-bars")
 			$("#menuIcon").addClass("fa-times");
-			$("#menuBtn").addClass("bg-neutral-100");
+			$("#menuIcon").removeClass("p-2")
+			$("#menuBtn").addClass("py-1");
+			$("#menuBtn").addClass("px-3");
 		}
 	}
 
@@ -141,7 +145,7 @@ if (session_status() != PHP_SESSION_ACTIVE) {
 				</div>
 		<div class="xl:hidden lg:hidden">
 	
-		<div id="sideMenu" style="box-shadow: rgb(188 188 188) 0px 4px 5px 0px;" class="bg-stone-50 shadow-t-xl pt-4 shadow-black hidden  right-0 top-[64px] md:w-[35vw] sm:w-[35vw] w-[40vw]  overflow-hidden fixed z-[999]">
+		<div id="sideMenu" style="box-shadow: rgb(188 188 188) 0px 4px 5px 0px;" class="bg-stone-50 shadow-t-xl pt-6 shadow-black hidden  right-0 top-[64px] md:w-[35vw] sm:w-[35vw] w-[40vw]  overflow-hidden fixed z-[999]">
 	
 		<div class="flex"> 
 			<div class="flex-grow">
