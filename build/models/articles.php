@@ -23,7 +23,7 @@
   }
 
 
-  $maxResults = 14;         
+  $maxResults = 12;         
   if (isset($_GET["page"])) {
     $page  = $_GET["page"];
   } else {
@@ -34,6 +34,7 @@
 
   $query = "SELECT * FROM report LIMIT $start, $maxResults"; //query que coje los resultados exactos, de 0 a 5, de 5 a 10....
   $result = mysqli_query($con, $query);
+  $numResults = mysqli_num_rows($result);
   ?>
 
   <div>

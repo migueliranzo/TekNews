@@ -80,7 +80,7 @@
 
      }
 
-    
+     $numResults = $records;
 
     if($records == 0){
         echo " <div class='mt-12 text-center text-2xl'>We couldn't find anything for <p class='font-bold'>$keywordRaw</p> 
