@@ -80,7 +80,7 @@
 
      }
 
-     $numResults = $records;
+    
 
     if($records == 0){
         echo " <div class='mt-12 text-center text-2xl'>We couldn't find anything for <p class='font-bold'>$keywordRaw</p> 
@@ -106,7 +106,7 @@
             $stmt = $pdo->prepare($sql);
             $stmt->bindParam(1, $keyword, PDO::PARAM_STR);
             $stmt->execute();
-
+            $numResults = $stmt->rowCount();
         }else{
 
             $sql = " SELECT * FROM `report` WHERE (title LIKE ? OR description LIKE ?) LIMIT $start, $maxResults;";
@@ -114,6 +114,7 @@
             $stmt->bindParam(1, $keyword, PDO::PARAM_STR);
             $stmt->bindParam(2, $keyword, PDO::PARAM_STR);
             $stmt->execute();
+            $numResults = $stmt->rowCount();
         }
         
 
@@ -162,7 +163,7 @@
         <br>
 
     
-        <?php if ( $records >= $maxResults ) { ?>
+        <?php if ( $records > $maxResults ) { ?>
 
         <div class=" text-center  pt-3">
 
