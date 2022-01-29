@@ -11,6 +11,7 @@ if ($numResults!= 1) {
     <a href="article.php?article= <?php echo $row["id"] ?>" class=" container  flex flex-col duration-200 overflow-hidden group cursor-pointer border-l-4 rounded-l-2xl lg:rounded-l-none 
 lg:border-l-0 border-r-4 border-t-4 border-b-4 rounded-r-2xl border-dotted  border-blue-600 col-span-2 lg:row-span-2 sm:row-span-1">
 
+<div class="overflow-hidden h-[100%] mb-2">
       <div class=" uppercase px-0  md:text-center lg:text-left font-bold pb-1  pt-4  text-xs text-blue-600 duration-300 ease-out bg-white ">
         <?php echo typeToText($row["type"]); ?>
       </div>
@@ -22,10 +23,12 @@ lg:border-l-0 border-r-4 border-t-4 border-b-4 rounded-r-2xl border-dotted  bord
         </div>
 
       </div>
-      <div class="overflow-hidden  my-4">
+      <div class="overflow-hidden  mt-4 mb-2">
         <div class="flex flex-1 justify-center pb-1  group-hover:-skew-y-2  group-hover:scale-110  duration-300 ease-out">
           <img src=' <?php echo $row["imgpath"]; ?> ' alt="">
         </div>
+      </div>
+      <div class="h-[100%] dots-2"></div>
       </div>
     </a>
 

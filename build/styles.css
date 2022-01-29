@@ -779,13 +779,13 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-left: auto;
   margin-right: auto;
 }
-.my-4{
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-}
 .my-6{
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
+}
+.my-4{
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 .mt-14{
   margin-top: 3.5rem;
@@ -1508,6 +1508,8 @@ Ensure the default browser behavior of the `hidden` attribute.
     right: -2px;
     top: 0px;
   }
+.circles-2 { background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMCcgaGVpZ2h0PScxMCc+CiAgPHJlY3Qgd2lkdGg9JzEwJyBoZWlnaHQ9JzEwJyBmaWxsPSd3aGl0ZScgLz4KICA8Y2lyY2xlIGN4PScxLjUnIGN5PScxLjUnIHI9JzEuNScgZmlsbD0nYmxhY2snLz4KPC9zdmc+Cg=="); background-repeat: repeat; }
+.dots-2 { background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMCcgaGVpZ2h0PScxMCc+CiAgPHJlY3Qgd2lkdGg9JzEwJyBoZWlnaHQ9JzEwJyBmaWxsPSd3aGl0ZScgLz4KICA8cmVjdCB4PScwJyB5PScwJyB3aWR0aD0nMicgaGVpZ2h0PScyJyBmaWxsPSdibGFjaycgLz4KPC9zdmc+"); background-repeat: repeat; }
 /* Spinner de https://loading.io/css/*/
 .lds-ring {
     display: inline-block;
