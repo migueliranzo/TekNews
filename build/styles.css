@@ -787,6 +787,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-top: 1rem;
   margin-bottom: 1rem;
 }
+.my-2{
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
 .mt-14{
   margin-top: 3.5rem;
 }
@@ -858,6 +862,12 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .ml-7{
   margin-left: 1.75rem;
+}
+.mr-1{
+  margin-right: 0.25rem;
+}
+.mb-1{
+  margin-bottom: 0.25rem;
 }
 .block{
   display: block;
@@ -949,6 +959,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .flex-1{
   flex: 1 1 0%;
+}
+.flex-grow{
+  flex-grow: 1;
 }
 .rotate-6{
   --tw-rotate: 6deg;
@@ -1081,6 +1094,12 @@ Ensure the default browser behavior of the `hidden` attribute.
   border-bottom-left-radius: 9999px;
 }
 .rounded-br-2xl{
+  border-bottom-right-radius: 1rem;
+}
+.rounded-br-\[2rem\]{
+  border-bottom-right-radius: 2rem;
+}
+.rounded-br-\[1rem\]{
   border-bottom-right-radius: 1rem;
 }
 .border{
@@ -1278,6 +1297,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 .px-\[1\.12rem\]{
   padding-left: 1.12rem;
   padding-right: 1.12rem;
+}
+.px-1{
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
 }
 .pl-2{
   padding-left: 0.5rem;

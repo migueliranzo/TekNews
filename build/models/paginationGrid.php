@@ -72,7 +72,8 @@ lg:border-l-0 border-r-4 border-t-4 border-b-4 rounded-r-2xl border-dotted  bord
   
   <a href="article.php?article= <?php echo $row["id"] ?>" class=" col-span-2 lg:col-span-2 sm:col-span-2 sm:row-span-1 row-span-1 lg:row-span-1">
       <div class="  flex   h-[100%] duration-200 group cursor-pointer border-gray-400 border-solid border-b border-r rounded-b-2xl rounded-l-none hover:border-blue-800 after:ease-out">
-        <div class="overflow-hidden rounded-br-2xl flex flex-row ">
+      <div class="flex flex-col">
+      <div class="overflow-hidden rounded-br-2xl flex flex-row ">
           <div class="overflow-hidden flex flex-1">
             <div class="transform group-hover:scale-110 ease-out  duration-300">
                   <img src=' <?php echo $row["imgpath"]; ?> ' alt="">
@@ -88,8 +89,15 @@ lg:border-l-0 border-r-4 border-t-4 border-b-4 rounded-r-2xl border-dotted  bord
                        <p class="limitTitleHeight"><?php echo $row["title"]; ?></p>
                   </div>
             </div>
+            
             </div>
         </div>
+        <div class="flex-grow mt-3 mb-1 px-1 ">
+
+        <div class="dots-2 h-[100%] rounded-br-[1rem]"></div>
+              
+            </div>
+            </div> 
       </div>
     </a>
 
@@ -147,8 +155,9 @@ news-card-effect after:ease-out">
     if ($numResults== 3) {  ?>
 
 <a href="article.php?article= <?php echo $row["id"] ?>" class=" col-span-2 lg:col-span-2 sm:col-span-2 sm:row-span-1 row-span-1 lg:row-span-1">
-      <div class="  flex  h-[100%]  duration-200 group cursor-pointer border-gray-400 border-solid border-b border-r rounded-b-2xl rounded-l-none hover:border-blue-800 after:ease-out">
-        <div class="overflow-hidden rounded-br-2xl flex flex-row   ">
+      <div class="  flex   h-[100%] duration-200 group cursor-pointer border-gray-400 border-solid border-b border-r rounded-b-2xl rounded-l-none hover:border-blue-800 after:ease-out">
+      <div class="flex flex-col">
+      <div class="overflow-hidden rounded-br-2xl flex flex-row ">
           <div class="overflow-hidden flex flex-1">
             <div class="transform group-hover:scale-110 ease-out  duration-300">
                   <img src=' <?php echo $row["imgpath"]; ?> ' alt="">
@@ -164,8 +173,15 @@ news-card-effect after:ease-out">
                        <p class="limitTitleHeight"><?php echo $row["title"]; ?></p>
                   </div>
             </div>
+            
             </div>
         </div>
+        <div class="flex-grow mt-3 mb-1 px-1 ">
+
+        <div class="dots-2 h-[100%] rounded-br-[1rem] "></div>
+              
+            </div>
+            </div> 
       </div>
     </a>
 

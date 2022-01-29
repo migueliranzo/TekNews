@@ -67,7 +67,7 @@ if ($records == 0) {
       $stmt->bindParam(1, $keyword, PDO::PARAM_STR);
       $stmt->execute();
     $records = $row[0];
-      
+    $numResults = $records;
 ?>
         
         <div  name="news" class="grid pt-12 auto-cols-max m-0 bg-white  lg:grid-cols-4 gap-4  grid-cols-2  sm:grid-cols-2 lg:m-0 sm:mx-8  md:mx-16 ">
