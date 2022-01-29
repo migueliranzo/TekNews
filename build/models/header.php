@@ -41,23 +41,38 @@ if (session_status() != PHP_SESSION_ACTIVE) {
 </head>
 
 <script>
-	function showSideMenu() {
-	
-		$("#sideMenu").slideDown( 400, function() {
-    
-  });
+
+	function checkMenu(){
+		if($("#sideMenu").css("display") == "none"){
+
+			$("#menuIcon").removeClass("fa-times")
+			$("#menuIcon").addClass("fa-bars");
+			$("#menuBtn").removeClass("bg-neutral-100");
+		}else{
+			$("#menuIcon").removeClass("fa-bars")
+			$("#menuIcon").addClass("fa-times");
+			$("#menuBtn").addClass("bg-neutral-100");
+		}
 	}
 
-	$(document).mouseup(function(e) {
-		console.log("ee");
-		var container = $("sideMenu");
+	function toggleSideMenu(){
 
-		if (!container.is(e.target) && container.has(e.target).length === 0) {
-			$("#sideMenu").slideUp( 400, function() {
-   
-  });
-		}
-	});
+		$("#sideMenu").toggle();
+		checkMenu();		
+
+	}
+
+	
+	document.addEventListener('mouseup', function(e) {
+    var container = document.getElementById('sideMenu');
+    var container2 = document.getElementById('menuBtn');
+    if (!container.contains(e.target) && !container2.contains(e.target)) {
+        container.style.display = 'none';
+
+		checkMenu();
+    }
+});
+	
 </script>
 
 
@@ -90,7 +105,7 @@ if (session_status() != PHP_SESSION_ACTIVE) {
 					}
 				} else if ((isset($_SESSION["name"]) && ($_SESSION["role"] == 1) || ($_SESSION["role"] == 2))) {
 
-					echo "<a href='services/logOff.php'> <button type='button' class='bg-red-500  text-white rounded-md px-7 py-3 uppercase hover:bg-red-200 shadow-lg shadow-red-500/50  transition duration-300'>Log out</button> </a>";
+					echo "<a href='services/logOff.php'> <button type='button' class='bg-red-500  text-white rounded-md px-7 py-3 uppercase hover:bg-red-200 shadow-lg shadow-red-500/50   transition duration-300'>Log out</button> </a>";
 				} else {
 					echo "<a href='login.php'> <button type='button' class='bg-pink-500  text-white rounded-md px-7 py-3 uppercase hover:bg-pink-300 shadow-lg shadow-cyan-500/50  transition duration-300'>Login</button> </a>";
 				}
@@ -104,8 +119,9 @@ if (session_status() != PHP_SESSION_ACTIVE) {
 				<form class="searchBar  md:block hidden mb-0" action="search.php" method="GET">
 					<input class=" p-2 border border-black rounded-md" name="keyword" id="keyword" type="search"><button class="mr-12 uppercase ml-4 btn btn-green hover:bg-green-200" type="submit"><i class="fas fa-search"></i></button>
 				</form>
-				<i onclick="showSideMenu()" class="hover:cursor-pointer fas text-4xl fa-bars"></i>
-
+				<div onclick="toggleSideMenu()" id="menuBtn" class="p-2 transition hover:bg-neutral-100">
+				<i  id="menuIcon" class="hover:cursor-pointer  text-4xl fas fa-bars"></i>
+				</div>
 			</div>
 			</nav>
 			<nav class="items-center md:flex bg-blue-500 hidden ">
@@ -125,51 +141,52 @@ if (session_status() != PHP_SESSION_ACTIVE) {
 				</div>
 		<div class="xl:hidden lg:hidden">
 	
-		<div id="sideMenu" class=" hidden bg-neutral-700 border-l-2 border-b-2 rounded-bl-full text-white right-0 top-0 md:w-[45vw] sm:w-[52vw] w-[60vw]  overflow-hidden fixed z-[999]">
+		<div id="sideMenu" style="box-shadow: rgb(188 188 188) 0px 4px 5px 0px;" class="bg-stone-50 shadow-t-xl pt-4 shadow-black hidden  right-0 top-[64px] md:w-[35vw] sm:w-[35vw] w-[40vw]  overflow-hidden fixed z-[999]">
 	
-		<div> 
-				<ul>
-					<li class="pt-4 bg-neutral-200 pl-4 text-black  transition flex text-xl pb-1"> <p class="text-left flex-1">Menu</p>  <i class='flex-1 pr-[30px] hover:text-pink-500 text-right hover:cursor-pointer pl-6 fas fa-times'></i>
-					</li>
+		<div class="flex"> 
+			<div class="flex-grow">
+				<ul class="text-left">
+					
 
 					<?php
 
 					if (isset($_SESSION["name"]) && $_SESSION["role"] == 0) {
 
 						if (strpos($_SERVER['REQUEST_URI'], "userProfile.php") !== false) {
-							echo "<a href='services/logOff.php'> <li class='px-7 py-3 uppercase text-right sm:text-center  hover:text-pink-500' transition> Log out <i class='pl-6 pr-1 fas fa-times'></i> </li></a>";
-						} else {
-							echo "<a href='userProfile.php'> <li class='px-7 py-3 uppercase text-right sm:text-center  hover:text-pink-500' transition> Profile <i class='pl-6  fas fa-user-circle'></i>  </li></a>";
-							echo "<a href='services/logOff.php'> <li class='px-7 py-3 uppercase text-right sm:text-center  hover:text-pink-500' transition> Log out <i class='pl-6 pr-1 fas fa-times'></i> </li></a>";
+							echo "<a href='services/logOff.php'> <li class='px-7 hover:bg-stone-200 transition border-b-2 py-3 uppercase  sm:  hover:text-pink-500' transition> Log out <i class=' pl-6 hidden sm:inline   pr-1 fas fa-times'></i> </li></a>";
+						} else { 
+							echo "<a href='userProfile.php'> <li class='px-7 hover:bg-stone-200 transition py-3  uppercase  sm:  hover:text-pink-500' transition> Profile <i class=' pl-6 hidden sm:inline   fas fa-user-circle'></i>  </li></a>";
+							echo "<a href='services/logOff.php'> <li class='px-7 hover:bg-stone-200 transition md:mb-2 border-b-2 py-3 uppercase  sm:  hover:text-pink-500' transition> Log out <i class=' pl-6 hidden sm:inline   pr-1 fas fa-times'></i> </li></a>";
 						}
 					} else if ((isset($_SESSION["name"]) && ($_SESSION["role"] == 1) || ($_SESSION["role"] == 2))) {
 
-						echo "<a href='services/logOff.php'> <li class='px-7 py-3 uppercase text-right sm:text-center  hover:text-pink-500' transition> Log out <i class='pl-6 pr-1 fas fa-times'></i> </li></a>";
+						echo "<a href='services/logOff.php'> <li class='px-7 hover:bg-stone-200 transition border-b-2 py-3 uppercase  sm:  hover:text-pink-500' transition> Log out <i class=' pl-6 hidden sm:inline   pr-1 fas fa-times'></i> </li></a>";
 					} else {
-						echo "<a href='login.php'> <li class='px-7 py-3 uppercase text-right sm:text-center  hover:text-pink-500' transition> Login <i class='pl-6  fas fa-user-circle'></i>  </li></a>";
+						echo "<a href='login.php'> <li class='px-7 hover:bg-stone-200 transition py-3 uppercase  sm:  hover:text-pink-500' transition> Login <i class=' pl-6 hidden sm:inline   fas fa-user-circle'></i>  </li></a>";
 					}
 					?>
 
 
 					<?php if ($_SESSION["role"] == 1 || $_SESSION["role"] == 2) {   ?> <a href='article.php?new=1'>
-							<li class='px-7 py-3 uppercase text-right sm:text-center  hover:text-pink-500' transition> Create article <i class="pl-6 pr-1 fas fa-folder-plus"></i> </li>
+							<li class='px-7 py-3 uppercase  sm:  hover:text-pink-500' transition> Create article <i class="pl-6 pr-1 fas fa-folder-plus"></i> </li>
 						</a> <?php } ?>
 					
 						<li class="md:hidden block">
 						<form class="mb-0 flex  flex-col" action="search.php" method="GET">
-							<ul class=" text-right sm:text-center  ">
-						<li class="pr-6 bg-neutral-500 mt-2"> <p class="py-2   uppercase">Categories <i class="pl-6 pr-2 inline fas fa-list"></i></p>  </li>
-						<li class=" py-1"><button type="submit" value="1" name="type" class="py-3 px-6  hover:text-pink-500   text-white ">Crypto World</button></li>
-						<li class=" py-1"><button type="submit" value="0" name="type" class="py-3 px-6  hover:text-pink-500   text-white ">Tech News</button></li>
-						<li class=" py-1"><button type="submit" value="3" name="type" class="py-3 px-6  hover:text-pink-500  text-white ">Biotechnology</button></li>
-						<li class=" py-1"><button type="submit" value="2" name="type" class=" py-3 px-6 hover:text-pink-500   text-white ">VR</button></li>
-						<li class="sm:mb-10"></li>
+							<ul class="  sm:  ">
+						<li class="  px-7 mt-2"> <p class="py-2   uppercase">Categories <i class="hidden sm:inline md:hidden pl-4  fas fa-list"></i></p>  </li>
+						<li class=" border-t-2 hover:bg-stone-200 transition py-1"><button type="submit" value="1" name="type" class="w-[100%] text-left py-3 px-6  hover:text-pink-500    ">Crypto World</button></li>
+						<li class=" hover:bg-stone-200 transition py-1"><button type="submit" value="0" name="type" class="w-[100%] text-left py-3 px-6  hover:text-pink-500    ">Tech News</button></li>
+						<li class=" hover:bg-stone-200 transition py-1"><button type="submit" value="3" name="type" class="w-[100%] text-left py-3 px-6  hover:text-pink-500   ">Biotechnology</button></li>
+						<li class=" hover:bg-stone-200 transition py-1"><button type="submit" value="2" name="type" class="w-[100%] text-left  py-3 px-6 hover:text-pink-500    ">VR</button></li>
+						
 				</ul>
 				</form>
 						</li>
 
-						<li class="mb-6"></li>
+						
 				</ul>
+			</div>
 			</div>
 		</div>
 		</div>
