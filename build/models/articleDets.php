@@ -97,7 +97,9 @@ if ($newArticle) { ?>
   function mrkToHtml() {
     document.getElementById("contentView").innerHTML = md.render(document.getElementById("contentEdit").value);
     let attribute = document.getElementById("contentView").offsetHeight;
-
+    $("#contentPanel").height(attribute);
+    console.log(attribute);
+    
     //  document.getElementById("contentEdit").style.height = attribute+20;
   }
 
@@ -137,7 +139,7 @@ if ($newArticle) { ?>
   }
 
   function enableEdit() {
-
+ 
     hideMenu();
 
     if (display == true) {
@@ -163,6 +165,7 @@ if ($newArticle) { ?>
       display = true;
 
     }
+    mrkToHtml();
   }
 
   function switchView() {
@@ -170,7 +173,10 @@ if ($newArticle) { ?>
     hideMenu();
 
     if (orientation) {
-
+     
+      $("#contentPanel").removeClass("h-[100%]");
+      $("#contentPanel").addClass("h-[500px]");
+      $("#contentPanel").removeClass("flex-1");
       document.getElementById("mainContainer").style.flexDirection = "column";
       document.getElementById("mainContainer").style.alignItems = "center";
       var element1 = document.getElementById("contentPanel");
@@ -178,8 +184,11 @@ if ($newArticle) { ?>
         behavior: "smooth"
       });
 
-      orientation = false;
+      orientation = false; 
     } else {
+       $("#contentPanel").removeClass("h-[500px]");
+       $("#contentPanel").addClass("flex-1");
+      $("#contentPanel").addClass("h-[100%]");
       document.getElementById("mainContainer").style.flexDirection = "";
       document.getElementById("mainContainer").style.alignItems = "";
       var element3 = document.getElementById("contentPanel");
@@ -505,7 +514,7 @@ if ($newArticle) { ?>
 </select> 
 <?php } ?>
 
-<img id="newArticleImg" class="m-auto max-w-[80ch] " src=" <?php echo $image ?> "; alt="">
+<img id="newArticleImg" class="m-auto max-w-[80ch] w-[100%]" src=" <?php echo $image ?> "; alt="">
 
        
   </div>
@@ -528,7 +537,7 @@ if ($newArticle) { ?>
         <button type="button" class="p-2 hover:bg-slate-200 bg-white text-gray-500" onclick="setSelectedText('\n >',false, '\n\n')"><i class="fas fa-quote-left"></i></button>
       </div>
       <div class="w-[100%]">
-        <textarea name="articleContent" id="contentEdit" onkeyup="mrkToHtml()" class="w-[100%] h-[500px] border border-black rounded rounded-tr-none rounded-tl-none p-2"><?php if (!$newArticle){ echo $content;} ?></textarea>
+        <textarea name="articleContent" id="contentEdit" onkeyup="mrkToHtml()" class="w-[100%] h-[100%] border border-black rounded rounded-tr-none rounded-tl-none p-2"><?php if (!$newArticle){ echo $content;} ?></textarea>
 
       </div>
 

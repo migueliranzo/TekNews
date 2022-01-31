@@ -92,7 +92,7 @@ if (session_status() != PHP_SESSION_ACTIVE) {
 			<ul class="hidden lg:flex flex-1 justify-end items-center gap-12 text-gray-700 uppercase text-xs">
 				<li class="cursor-pointer"> <?php if ($_SESSION["role"] == 1 || $_SESSION["role"] == 2) {   ?> <a href="article.php?new=1"> <button class=" shadow-fuchsia-500/50 shadow-lg rounded-md px-7 transition duration-300 py-3 uppercase bg-fuchsia-500 text-white hover:bg-fuchsia-200 ">Create article</button></a> <?php } ?> </li>
 				<li><form class="mb-0" action="search.php" method="GET">
-					<li> <input class="p-2 border border-black rounded-md" name="keyword" id="keyword" type="search"><button class="uppercase ml-4 btn btn-green hover:bg-green-200" type="submit"><i class="fas fa-search"></i></button> </li>
+					<li> <input class="p-2 border border-black rounded-md" name="keyword"  placeholder="Search..." type="search"><button class="uppercase ml-4 btn btn-green hover:bg-green-200" type="submit"><i class="fas fa-search"></i></button> </li>
 				</form>
 				</li>
 
@@ -119,9 +119,9 @@ if (session_status() != PHP_SESSION_ACTIVE) {
 
 
 			</ul>
-			<div class="flex  lg:hidden flex-1 justify-end">
+			<div class="flex  lg:hidden flex-1 justify-end items-center">
 				<form class="searchBar  md:block hidden mb-0" action="search.php" method="GET">
-					<input class=" p-2 border border-black rounded-md" name="keyword" id="keyword" type="search"><button class="mr-12 uppercase ml-4 btn btn-green hover:bg-green-200" type="submit"><i class="fas fa-search"></i></button>
+					<input class=" p-2 border border-black rounded-md" name="keyword" id="keyword"  placeholder="Search..." type="search"><button class="mr-12 uppercase ml-4 btn btn-green hover:bg-green-200" type="submit"><i class="fas fa-search"></i></button>
 				</form>
 				<div onclick="toggleSideMenu()" id="menuBtn" class="p-2 transition hover:bg-neutral-100">
 				<i  id="menuIcon" class="hover:cursor-pointer  text-4xl fas fa-bars"></i>
@@ -138,9 +138,9 @@ if (session_status() != PHP_SESSION_ACTIVE) {
 				</ul>
 				</form>
 			</nav>
-		<div class=" justify-center  ">
-		<form class="searchBarLittle md:hidden py-2 bg-blue-500 flex justify-center  mb-0" action="search.php" method="GET">
-					<input class=" p-2 border border-black rounded-md" name="keyword" id="keyword" type="search"><button class="sm:mr-12 font-bold uppercase ml-4 btn btn-green hover:bg-green-200" type="submit"><p class="hidden sm:inline">Search</p>  <i class="sm:ml-4 fas fa-search"></i></button>
+		<div class=" justify-center h-[48] ">
+		<form class="searchBarLittle md:hidden py-2 bg-blue-500 flex justify-center h-[100%]  mb-0" action="search.php" method="GET">
+					<input class=" p-2 border border-black rounded-md" name="keyword" placeholder="Search..." id="keyword" type="search"><button class="sm:mr-12 font-bold uppercase ml-4 rounded-xl px-2 btn-green hover:bg-green-200" type="submit"><p class="hidden sm:inline">Search</p>  <i class="sm:ml-4 fas fa-search"></i></button>
 				</form>
 				</div>
 		<div class="xl:hidden lg:hidden">

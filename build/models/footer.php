@@ -1,6 +1,6 @@
 <footer class=" text-white">
     <div class="bg-neutral-700">
-    <div class="flex container py-6 items-baseline max-w-[45vw]">
+    <div class="flex container py-6 items-baseline xl:max-w-[60vw] ">
 
 
  

@@ -895,22 +895,25 @@ Ensure the default browser behavior of the `hidden` attribute.
 .h-11{
   height: 2.75rem;
 }
+.h-\[100\%\]{
+  height: 100%;
+}
+.h-\[500px\]{
+  height: 500px;
+}
 .h-max{
   height: -webkit-max-content;
   height: -moz-max-content;
   height: max-content;
 }
-.h-\[100\%\]{
-  height: 100%;
-}
 .h-1{
   height: 0.25rem;
 }
-.h-\[500px\]{
-  height: 500px;
-}
 .h-24{
   height: 6rem;
+}
+.h-\[48\]{
+  height: 48;
 }
 .min-h-full{
   min-height: 100%;
@@ -1194,6 +1197,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-bg-opacity: 1;
   background-color: rgb(23 23 23 / var(--tw-bg-opacity));
 }
+.bg-neutral-100{
+  --tw-bg-opacity: 1;
+  background-color: rgb(245 245 245 / var(--tw-bg-opacity));
+}
 .bg-fuchsia-500{
   --tw-bg-opacity: 1;
   background-color: rgb(217 70 239 / var(--tw-bg-opacity));
@@ -1209,10 +1216,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .bg-red-700{
   --tw-bg-opacity: 1;
   background-color: rgb(185 28 28 / var(--tw-bg-opacity));
-}
-.bg-neutral-100{
-  --tw-bg-opacity: 1;
-  background-color: rgb(245 245 245 / var(--tw-bg-opacity));
 }
 .stroke-1{
   stroke-width: 1;
@@ -1310,9 +1313,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .pt-3{
   padding-top: 0.75rem;
 }
-.pt-4{
-  padding-top: 1rem;
-}
 .pl-6{
   padding-left: 1.5rem;
 }
@@ -1327,6 +1327,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .pb-1{
   padding-bottom: 0.25rem;
+}
+.pt-4{
+  padding-top: 1rem;
 }
 .pb-8{
   padding-bottom: 2rem;
@@ -1731,6 +1734,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-bg-opacity: 1;
   background-color: rgb(249 168 212 / var(--tw-bg-opacity));
 }
+.hover\:bg-neutral-100:hover{
+  --tw-bg-opacity: 1;
+  background-color: rgb(245 245 245 / var(--tw-bg-opacity));
+}
 .hover\:bg-pink-500:hover{
   --tw-bg-opacity: 1;
   background-color: rgb(236 72 153 / var(--tw-bg-opacity));
@@ -1738,14 +1745,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .hover\:bg-stone-200:hover{
   --tw-bg-opacity: 1;
   background-color: rgb(231 229 228 / var(--tw-bg-opacity));
-}
-.hover\:bg-neutral-200:hover{
-  --tw-bg-opacity: 1;
-  background-color: rgb(229 229 229 / var(--tw-bg-opacity));
-}
-.hover\:bg-neutral-100:hover{
-  --tw-bg-opacity: 1;
-  background-color: rgb(245 245 245 / var(--tw-bg-opacity));
 }
 .hover\:text-blue-900:hover{
   --tw-text-opacity: 1;
@@ -1762,10 +1761,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .hover\:text-pink-500:hover{
   --tw-text-opacity: 1;
   color: rgb(236 72 153 / var(--tw-text-opacity));
-}
-.hover\:text-pink-100:hover{
-  --tw-text-opacity: 1;
-  color: rgb(252 231 243 / var(--tw-text-opacity));
 }
 .after\:hover\:top-\[0\.20\]:hover::after{
   content: var(--tw-content);
@@ -1830,9 +1825,6 @@ Ensure the default browser behavior of the `hidden` attribute.
     margin-left: 2rem;
     margin-right: 2rem;
   }
-  .sm\:mb-12{
-    margin-bottom: 3rem;
-  }
   .sm\:mr-12{
     margin-right: 3rem;
   }
@@ -1873,9 +1865,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   .md\:mb-16{
     margin-bottom: 4rem;
   }
-  .md\:mb-10{
-    margin-bottom: 2.5rem;
-  }
   .md\:mb-2{
     margin-bottom: 0.5rem;
   }
@@ -1890,6 +1879,12 @@ Ensure the default browser behavior of the `hidden` attribute.
   }
   .md\:w-\[35vw\]{
     width: 35vw;
+  }
+  .md\:max-w-\[20vw\]{
+    max-width: 20vw;
+  }
+  .md\:max-w-\[52vw\]{
+    max-width: 52vw;
   }
   .md\:text-center{
     text-align: center;
@@ -1938,6 +1933,27 @@ Ensure the default browser behavior of the `hidden` attribute.
   .lg\:w-5\/12{
     width: 41.666667%;
   }
+  .lg\:max-w-\[45vw\]{
+    max-width: 45vw;
+  }
+  .lg\:max-w-\[48vw\]{
+    max-width: 48vw;
+  }
+  .lg\:max-w-\[52vw\]{
+    max-width: 52vw;
+  }
+  .lg\:max-w-\[50vw\]{
+    max-width: 50vw;
+  }
+  .lg\:max-w-\[62vw\]{
+    max-width: 62vw;
+  }
+  .lg\:max-w-\[56vw\]{
+    max-width: 56vw;
+  }
+  .lg\:max-w-\[60vw\]{
+    max-width: 60vw;
+  }
   .lg\:grid-cols-4{
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
@@ -1983,6 +1999,30 @@ Ensure the default browser behavior of the `hidden` attribute.
   }
   .xl\:w-5\/12{
     width: 41.666667%;
+  }
+  .xl\:max-w-\[52vw\]{
+    max-width: 52vw;
+  }
+  .xl\:max-w-\[75vw\]{
+    max-width: 75vw;
+  }
+  .xl\:max-w-\[70vw\]{
+    max-width: 70vw;
+  }
+  .xl\:max-w-\[60vw\]{
+    max-width: 60vw;
+  }
+  .xl\:max-w-\[50vw\]{
+    max-width: 50vw;
+  }
+  .xl\:max-w-\[45vw\]{
+    max-width: 45vw;
+  }
+  .xl\:max-w-\[55vw\]{
+    max-width: 55vw;
+  }
+  .xl\:max-w-\[58vw\]{
+    max-width: 58vw;
   }
   .xl\:flex-row{
     flex-direction: row;
