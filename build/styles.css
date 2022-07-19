@@ -909,14 +909,29 @@ Ensure the default browser behavior of the `hidden` attribute.
 .h-1{
   height: 0.25rem;
 }
-.h-24{
-  height: 6rem;
-}
 .h-\[48\]{
   height: 48;
 }
+.h-24{
+  height: 6rem;
+}
+.h-\[250px\]{
+  height: 250px;
+}
 .min-h-full{
   min-height: 100%;
+}
+.min-h-\[6rem\]{
+  min-height: 6rem;
+}
+.min-h-\[50\%\]{
+  min-height: 50%;
+}
+.min-h-\[500px\]{
+  min-height: 500px;
+}
+.min-h-\[250px\]{
+  min-height: 250px;
 }
 .w-5\/6{
   width: 83.333333%;
@@ -950,9 +965,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .max-w-\[75ch\]{
   max-width: 75ch;
 }
-.max-w-\[45vw\]{
-  max-width: 45vw;
-}
 .max-w-\[200px\]{
   max-width: 200px;
 }
@@ -971,6 +983,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .cursor-pointer{
   cursor: pointer;
+}
+.resize-none{
+  resize: none;
 }
 .appearance-none{
   -webkit-appearance: none;
@@ -1880,12 +1895,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   .md\:w-\[35vw\]{
     width: 35vw;
   }
-  .md\:max-w-\[20vw\]{
-    max-width: 20vw;
-  }
-  .md\:max-w-\[52vw\]{
-    max-width: 52vw;
-  }
   .md\:text-center{
     text-align: center;
   }
@@ -1933,27 +1942,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   .lg\:w-5\/12{
     width: 41.666667%;
   }
-  .lg\:max-w-\[45vw\]{
-    max-width: 45vw;
-  }
-  .lg\:max-w-\[48vw\]{
-    max-width: 48vw;
-  }
-  .lg\:max-w-\[52vw\]{
-    max-width: 52vw;
-  }
-  .lg\:max-w-\[50vw\]{
-    max-width: 50vw;
-  }
-  .lg\:max-w-\[62vw\]{
-    max-width: 62vw;
-  }
-  .lg\:max-w-\[56vw\]{
-    max-width: 56vw;
-  }
-  .lg\:max-w-\[60vw\]{
-    max-width: 60vw;
-  }
   .lg\:grid-cols-4{
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
@@ -2000,29 +1988,8 @@ Ensure the default browser behavior of the `hidden` attribute.
   .xl\:w-5\/12{
     width: 41.666667%;
   }
-  .xl\:max-w-\[52vw\]{
-    max-width: 52vw;
-  }
-  .xl\:max-w-\[75vw\]{
-    max-width: 75vw;
-  }
-  .xl\:max-w-\[70vw\]{
-    max-width: 70vw;
-  }
   .xl\:max-w-\[60vw\]{
     max-width: 60vw;
-  }
-  .xl\:max-w-\[50vw\]{
-    max-width: 50vw;
-  }
-  .xl\:max-w-\[45vw\]{
-    max-width: 45vw;
-  }
-  .xl\:max-w-\[55vw\]{
-    max-width: 55vw;
-  }
-  .xl\:max-w-\[58vw\]{
-    max-width: 58vw;
   }
   .xl\:flex-row{
     flex-direction: row;

@@ -138,7 +138,7 @@ if (session_status() != PHP_SESSION_ACTIVE) {
 				</ul>
 				</form>
 			</nav>
-		<div class=" justify-center h-[48] ">
+		<div class=" justify-center">
 		<form class="searchBarLittle md:hidden py-2 bg-blue-500 flex justify-center h-[100%]  mb-0" action="search.php" method="GET">
 					<input class=" p-2 border border-black rounded-md" name="keyword" placeholder="Search..." id="keyword" type="search"><button class="sm:mr-12 font-bold uppercase ml-4 rounded-xl px-2 btn-green hover:bg-green-200" type="submit"><p class="hidden sm:inline">Search</p>  <i class="sm:ml-4 fas fa-search"></i></button>
 				</form>

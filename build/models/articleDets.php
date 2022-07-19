@@ -124,15 +124,15 @@ if ($newArticle) { ?>
     if (hidden) {
       $("#imgSelector").css("visibility", "hidden");
       title.setAttribute("contenteditable", "false");
-      document.getElementById("titleEditIcon").className = "fas fa-pencil-alt hover:bg-gray-300 p-2 rounded-full transition-all mb-2";
-      //title.style.textDecoration = "none";
+      //Merged Edit title and content into 1 functionality
+      //document.getElementById("titleEditIcon").className = "fas fa-pencil-alt hover:bg-gray-300 p-2 rounded-full transition-all mb-2";
       title.style.border = "none";
     } else {
       $("#imgSelector").css("visibility", "visible");
       title.setAttribute("contenteditable", "true");
       title.focus();
-      document.getElementById("titleEditIcon").className = "fas fa-check bg-blue-500 text-white hover:bg-blue-200 p-2 rounded-full transition-all mb-2";
-      //title.style.textDecoration = "underline";
+      //Merged Edit title and content into 1 functionality
+     // document.getElementById("titleEditIcon").className = "fas fa-check bg-blue-500 text-white hover:bg-blue-200 p-2 rounded-full transition-all mb-2";
       title.style.border = " solid";
     }
 
@@ -140,6 +140,8 @@ if ($newArticle) { ?>
 
   function enableEdit() {
  
+    //Enabling title edit aswell here as it makes easier to use when you only have to click in one place to edit anything
+    editTitle();
     hideMenu();
 
     if (display == true) {
@@ -161,9 +163,9 @@ if ($newArticle) { ?>
       element1.scrollIntoView({
         behavior: "smooth"
       });
-
+    
       display = true;
-
+      
     }
     mrkToHtml();
   }
@@ -175,7 +177,7 @@ if ($newArticle) { ?>
     if (orientation) {
      
       $("#contentPanel").removeClass("h-[100%]");
-      $("#contentPanel").addClass("h-[500px]");
+      $("#contentPanel").addClass("h-[250px]");
       $("#contentPanel").removeClass("flex-1");
       document.getElementById("mainContainer").style.flexDirection = "column";
       document.getElementById("mainContainer").style.alignItems = "center";
@@ -186,7 +188,7 @@ if ($newArticle) { ?>
 
       orientation = false; 
     } else {
-       $("#contentPanel").removeClass("h-[500px]");
+       $("#contentPanel").removeClass("h-[250px]");
        $("#contentPanel").addClass("flex-1");
       $("#contentPanel").addClass("h-[100%]");
       document.getElementById("mainContainer").style.flexDirection = "";
@@ -354,7 +356,8 @@ if ($newArticle) { ?>
     <?php  if ($newArticle) {  $articleID = -1; }?>
 
       hidden = false;
-      editTitle();
+
+
       e.preventDefault();
       var type = $('[name="type"]').find(":selected").val();
       var title =  encodeURIComponent($('[name="title"]').text());
@@ -406,7 +409,7 @@ if ($newArticle) { ?>
         <?php } } } ?>
 
         <?php  if ($newArticle) {  ?>
-      editTitle();
+      //editTitle();
       switchView();
       enableEdit();
       <?php
@@ -465,7 +468,7 @@ if ($newArticle) { ?>
       ?>
 
         <div class="flex justify-end flex-1">
-          <button type="button" onclick="editTitle()"><i id="titleEditIcon" class="fas fa-pencil-alt hover:bg-gray-300 p-2 rounded-full transition-all mb-2"></i></button>
+          <button type="button" onclick="editTitle()"><i id="titleEditIcon" class="hidden fas fa-pencil-alt hover:bg-gray-300 p-2 rounded-full transition-all mb-2"></i></button>
         </div>
 
       <?php
@@ -521,14 +524,14 @@ if ($newArticle) { ?>
 
   <div id="mainContainer" class="flex  flex-col xl:flex-row  xl:items-start items-center mt-14  gap-8">
     <!-- Content -->
-    <div class="flex flex-1 flex-col items-center" id="viewContainer">
+    <div class="flex flex-1 flex-col items-center " id="viewContainer">
       <article id="contentView" class=" prose max-w-[75ch]  break-words">
         <?php  if (!$newArticle) { echo $Parsedown->text($content); } ?>
       </article>
 
     </div>
     <!-- Edit view -->
-    <div id="contentPanel" class=" flex-1  max-w-[75ch] w-[100%] flex-col hidden">
+    <div id="contentPanel" class=" flex-1  max-w-[75ch] min-h-[250px] w-[100%] flex-col hidden">
   <!--     <div id="testF">  -->
       <div class="flex flex-row border  rounded-sm rounded-bl-none rounded-br-none border-black">
         <button type="button" class="p-2 hover:bg-slate-200 bg-white text-gray-500" onclick="setSelectedText('**',true)"><i class="fas fa-bold"></i></button>
@@ -537,7 +540,7 @@ if ($newArticle) { ?>
         <button type="button" class="p-2 hover:bg-slate-200 bg-white text-gray-500" onclick="setSelectedText('\n >',false, '\n\n')"><i class="fas fa-quote-left"></i></button>
       </div>
       <div class="w-[100%]">
-        <textarea name="articleContent" id="contentEdit" onkeyup="mrkToHtml()" class="w-[100%] h-[100%] border border-black rounded rounded-tr-none rounded-tl-none p-2"><?php if (!$newArticle){ echo $content;} ?></textarea>
+        <textarea name="articleContent" id="contentEdit" onkeyup="mrkToHtml()" class="w-[100%]  resize-none h-[100%] border border-black rounded rounded-tr-none rounded-tl-none p-2"><?php if (!$newArticle){ echo $content;} ?></textarea>
 
       </div>
 
@@ -562,13 +565,15 @@ if ($newArticle) { ?>
         <?php }} ?>
           <button class="py-1 px-4 border-2 transition-all text-left duration-300 text-white relative rounded-full  bg-blue-500 hover:border-blue-500  mt-3 " type="submit"><i class="far text-xl  text-left fa-save mr-3"> </i>Save changes</button>
 
-          <?php   if (!$newArticle) {  ?> 
-         
           <div id="switchBtn" class="hidden">
            <button id="switchBtn" onclick="switchView()" class="min-w-[180px] text-left py-1 px-4 border-2 xl:block hover:border-blue-500   hidden stroke-1 rounded-full bg-blue-500 text-white relative transition-all duration-300    mt-3 " type="button"><i class="fas fa-random text-xl mr-3"></i>Change view</button>  
 
           </div>
 
+
+          <?php   if (!$newArticle) {  ?> 
+         
+        
           <button id="editBtn" onclick="enableEdit()" class=" text-left py-1 px-4 border-2 hover:border-blue-500    rounded-full  bg-blue-500 text-white transition-all duration-300  relative   mt-3 " type="button"><i class="far fa-edit text-left text-xl mr-3"></i>Edit article</button>
             
           <?php } ?>
