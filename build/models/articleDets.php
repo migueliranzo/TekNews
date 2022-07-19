@@ -316,8 +316,67 @@ if ($newArticle) { ?>
       <?php } ?>
   }
   
-  $(function() {
 
+  var isAnimating = false;
+
+  function showSpinner(toastText){
+
+    if (isAnimating) {
+        return;
+    }
+
+    isAnimating = true;
+
+    $('#failToast').css("visibility", "visible");
+          var toast = $("#failToast");
+          toast.text(toastText); 
+        toast.animate({
+          bottom: '50px'
+        }, {
+          duration: 400,
+          queue: false
+        });
+        toast.animate({
+          opacity: '1'
+        }, 600);
+        toast.animate({
+          opacity: '1'
+        }, 600);
+        toast.animate({
+          opacity: '0'
+        }, 600);
+        toast.animate({
+          bottom: '-10px'
+        }, 100);
+        console.log(isAnimating);
+        setTimeout(function() {
+        isAnimating = false;
+        console.log(isAnimating);
+    }, 2000);
+    console.log(isAnimating);
+       
+  }
+
+  function checkMinLength(title, content, url){
+
+        if(title.toString().length <= 10){
+          showSpinner("Title too short!");
+        return false;
+        }
+
+        if(content.toString().length <= 120){
+          showSpinner("Content too short!");
+          return false;
+        }
+
+        if(url == "img/null"){
+          showSpinner("You must select an image!");
+          return false;
+        }
+        return true;
+}
+
+  $(function() {
    
     var $loading = $('#spinner').hide();
     $(document)
@@ -328,23 +387,23 @@ if ($newArticle) { ?>
       .ajaxStop(function() {
         $loading.hide();
         $('#successToast').css("visibility", "visible");
-        var div1 = $("#successToast");
-        div1.animate({
+        var toast = $("#successToast");
+        toast.animate({
           bottom: '30px'
         }, {
           duration: 400,
           queue: false
         });
-        div1.animate({
+        toast.animate({
           opacity: '1'
         }, 600);
-        div1.animate({
+        toast.animate({
           opacity: '1'
         }, 600);
-        div1.animate({
+        toast.animate({
           opacity: '0'
         }, 600);
-        div1.animate({
+        toast.animate({
           bottom: '-10px'
         }, 100);
       });
@@ -352,16 +411,22 @@ if ($newArticle) { ?>
 
     $('#editForm').on('submit', function(e) {
 
-
     <?php  if ($newArticle) {  $articleID = -1; }?>
 
-      hidden = false;
-
+     // hidden = false;
 
       e.preventDefault();
       var type = $('[name="type"]').find(":selected").val();
       var title =  encodeURIComponent($('[name="title"]').text());
       var content = encodeURIComponent($('[name="articleContent"]').val());
+
+      if(!checkMinLength(title,content,src)){
+        return;
+      }
+
+      //Only autoSave when editing exisiting articles
+      <?php  if (!$newArticle) { ?>   enableEdit(); <?php   }?>
+
       $.ajax({
         type: 'post',
         url: 'services/editArticle.php',
@@ -392,7 +457,6 @@ if ($newArticle) { ?>
   
 
   $( document ).ready(function() {
-   
     /*   Experimental
       $("#testF").data("top", $("#testF").offset().top); 
     $(window).scroll(fixDiv);
@@ -425,6 +489,7 @@ if ($newArticle) { ?>
 
 
 <div id="successToast" class="fixed  -bottom-3 invisible bg-green-600 opacity-0 px-6 py-2 rounded-lg text-white  w-max h-max">Changes saved!</div>
+<div id="failToast" class="fixed  -bottom-3  bg-red-600 opacity-0 px-6 py-2 rounded-lg text-white  w-max h-max">Habibi</div>
 
 <?php  if (!$newArticle) { ?>  
 
