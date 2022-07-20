@@ -359,7 +359,7 @@ if ($newArticle) { ?>
 
   function checkMinLength(title, content, url){
 
-        if(title.toString().length <= 10){
+        if(title.toString().length <= 8){
           showSpinner("Title too short!");
         return false;
         }
@@ -462,6 +462,29 @@ if ($newArticle) { ?>
     $(window).scroll(fixDiv);
     */
 
+    let $window = $(window);
+
+    function checkWidth() {
+        var windowsize = $window.width();
+        if (windowsize < 1280) {
+           
+      $("#contentPanel").removeClass("h-[100%]");
+      $("#contentPanel").addClass("h-[250px]");
+      $("#contentPanel").removeClass("flex-1");
+      document.getElementById("mainContainer").style.flexDirection = "column";
+      document.getElementById("mainContainer").style.alignItems = "center";
+      var element1 = document.getElementById("contentPanel");
+      element1.scrollIntoView({
+        behavior: "smooth"
+      });
+      orientation = false; 
+        }
+    }
+
+    checkWidth();
+
+    $(window).resize(checkWidth);
+
     <?php if ($_SESSION["role"] == 1  || $_SESSION["role"] == 2 ) {?> showImg(); <?php }  ?>
 
       <?php
@@ -552,7 +575,7 @@ if ($newArticle) { ?>
 
 
     </div>
-    <p name="title" id="title" class="focus-within:outline-none font-bold text-5xl"><?php   if (!$newArticle) {  echo $title; }  ?> </p>
+    <p name="title" id="title" style="overflow-wrap: anywhere;" class="focus-within:outline-none font-bold sm:text-5xl text-4xl"><?php   if (!$newArticle) {  echo $title; }  ?> </p>
     <div class="bg-blue-500 h-1 m-auto mt-4"> </div>
   </div>
 
@@ -589,14 +612,14 @@ if ($newArticle) { ?>
 
   <div id="mainContainer" class="flex  flex-col xl:flex-row  xl:items-start items-center mt-14  gap-8">
     <!-- Content -->
-    <div class="flex flex-1 flex-col items-center " id="viewContainer">
-      <article id="contentView" class=" prose max-w-[75ch]  break-words">
+    <div class="flex flex-1 flex-col items-center" style="overflow-wrap: anywhere;" id="viewContainer">
+      <article id="contentView" class=" prose max-w-[75ch]">
         <?php  if (!$newArticle) { echo $Parsedown->text($content); } ?>
       </article>
 
     </div>
     <!-- Edit view -->
-    <div id="contentPanel" class=" flex-1  max-w-[75ch] min-h-[250px] w-[100%] flex-col hidden">
+    <div id="contentPanel" class="flex-1  max-w-[75ch] min-h-[250px] w-[100%] flex-col hidden">
   <!--     <div id="testF">  -->
       <div class="flex flex-row border  rounded-sm rounded-bl-none rounded-br-none border-black">
         <button type="button" class="p-2 hover:bg-slate-200 bg-white text-gray-500" onclick="setSelectedText('**',true)"><i class="fas fa-bold"></i></button>
@@ -628,10 +651,10 @@ if ($newArticle) { ?>
         <?php   if (!$newArticle ) { if($_SESSION["role"] != 2){ ?> 
         <button onclick="deleteArticle()" class="py-1 px-4 border-2 transition-all text-left duration-300 text-white relative rounded-full  bg-red-500 hover:border-red-500  mt-3 " type="submit"><i class=" fas text-xl  text-left fa-times  mr-3"> </i>Delete article</button>
         <?php }} ?>
-          <button class="py-1 px-4 border-2 transition-all text-left duration-300 text-white relative rounded-full  bg-blue-500 hover:border-blue-500  mt-3 " type="submit"><i class="far text-xl  text-left fa-save mr-3"> </i>Save changes</button>
-
+        
           <div id="switchBtn" class="hidden">
            <button id="switchBtn" onclick="switchView()" class="min-w-[180px] text-left py-1 px-4 border-2 xl:block hover:border-blue-500   hidden stroke-1 rounded-full bg-blue-500 text-white relative transition-all duration-300    mt-3 " type="button"><i class="fas fa-random text-xl mr-3"></i>Change view</button>  
+           <button class="py-1 pr-4 pl-6 border-2 transition-all text-left duration-300 text-white relative rounded-full  bg-blue-500 hover:border-blue-500  mt-3 " type="submit"><i class="far text-xl  text-left fa-save mr-3"> </i>Save changes</button>
 
           </div>
 

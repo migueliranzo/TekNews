@@ -18,7 +18,7 @@ lg:border-l-0 border-r-4 border-t-4 border-b-4 rounded-r-2xl border-dotted  bord
 
       <div class="flex p-0 m-0 bg-white">
 
-        <div class="group-hover:not-italic italic overflow-hidden md:text-center lg:text-left duration-300 ease-out font-bold bg-white text-4xl  ">
+        <div class="group-hover:not-italic italic  md:text-center lg:text-left duration-300 ease-out font-bold bg-white text-4xl  ">
         <p class="limitTitleHeight"><?php echo $row["title"]; ?></p>
         </div>
 
@@ -136,7 +136,7 @@ news-card-effect after:ease-out">
 
       <div class="flex p-0 m-0 bg-white">
 
-        <div class="group-hover:not-italic italic overflow-hidden md:text-center lg:text-left duration-300 ease-out font-bold bg-white text-4xl  ">
+        <div class="group-hover:not-italic italic  md:text-center lg:text-left duration-300 ease-out font-bold bg-white text-4xl  ">
         <p class="limitTitleHeight">LastElse<?php echo $row["title"]; ?></p>
         </div>
 
@@ -247,7 +247,7 @@ lg:border-r-0 border-r-4 border-t-4 border-b-4 rounded-r-2xl border-dotted  bord
 
       <div class="flex p-0 m-0 bg-white">
 
-        <div class="group-hover:not-italic italic overflow-hidden md:text-center lg:text-left duration-300 ease-out font-bold bg-white text-4xl  ">
+        <div class="group-hover:not-italic italic md:text-center lg:text-left duration-300 ease-out font-bold bg-white text-4xl  ">
         <p class="limitTitleHeight"><?php echo $row["title"]; ?></p>
         </div>
 

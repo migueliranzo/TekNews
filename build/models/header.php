@@ -56,6 +56,9 @@ if (session_status() != PHP_SESSION_ACTIVE) {
 			$("#menuIcon").removeClass("p-2")
 			$("#menuBtn").addClass("py-1");
 			$("#menuBtn").addClass("px-3");
+			$("#menuBtn").addClass("justify-center");
+			$("#menuBtn").addClass("flex");
+			$("#menuBtn").addClass("min-w-[55.5px]");
 		}
 	}
 
@@ -86,7 +89,7 @@ if (session_status() != PHP_SESSION_ACTIVE) {
 		<nav class="container flex items-center ">
 			<a class="z-20" href="index.php">
 				<div class="py-2 z-20 flex items-center"> <i class=" text-5xl fas fa-microchip"></i>
-					<p class="px-2  uppercase   text-5xl">Teknews</p> 
+					<p class="px-2  sm:uppercase   text-5xl">Teknews</p> 
 				</div>
 			</a>
 			<ul class="hidden lg:flex flex-1 justify-end items-center gap-12 text-gray-700 uppercase text-xs">
@@ -123,7 +126,7 @@ if (session_status() != PHP_SESSION_ACTIVE) {
 				<form class="searchBar  md:block hidden mb-0" action="search.php" method="GET">
 					<input class=" p-2 border border-black rounded-md" name="keyword" id="keyword"  placeholder="Search..." type="search"><button class="mr-12 uppercase ml-4 btn btn-green hover:bg-green-200" type="submit"><i class="fas fa-search"></i></button>
 				</form>
-				<div onclick="toggleSideMenu()" id="menuBtn" class="p-2 transition hover:bg-neutral-100">
+				<div onclick="toggleSideMenu()" id="menuBtn" class="p-3 transition hover:bg-neutral-100">
 				<i  id="menuIcon" class="hover:cursor-pointer  text-4xl fas fa-bars"></i>
 				</div>
 			</div>
@@ -145,7 +148,7 @@ if (session_status() != PHP_SESSION_ACTIVE) {
 				</div>
 		<div class="xl:hidden lg:hidden">
 	
-		<div id="sideMenu" style="box-shadow: rgb(188 188 188) 0px 4px 5px 0px;" class="bg-stone-50 shadow-t-xl pt-6 shadow-black hidden  right-0 top-[64px] md:w-[35vw] sm:w-[35vw] w-[40vw]  overflow-hidden fixed z-[999]">
+		<div id="sideMenu" style="box-shadow: rgb(188 188 188) 0px 4px 5px 0px;" class="bg-stone-50 shadow-t-xl pt-6 shadow-black hidden  right-0 top-[64px] md:w-[35vw] sm:w-[39vw] w-[100%]  overflow-hidden fixed z-[999]">
 	
 		<div class="flex"> 
 			<div class="flex-grow">
@@ -157,14 +160,14 @@ if (session_status() != PHP_SESSION_ACTIVE) {
 					if (isset($_SESSION["name"]) && $_SESSION["role"] == 0) {
 
 						if (strpos($_SERVER['REQUEST_URI'], "userProfile.php") !== false) {
-							echo "<a href='services/logOff.php'> <li class='px-7 hover:bg-stone-200 transition border-b-2 py-3 uppercase  sm:  hover:text-pink-500' transition> Log out <i class=' pl-6 hidden sm:inline   pr-1 fas fa-times'></i> </li></a>";
+							echo "<a href='services/logOff.php'> <li class='px-7 hover:bg-stone-200 transition border-b-2 py-3 uppercase  sm:  hover:text-pink-500 font-bold'  transition> Log out <i class=' pl-6 hidden sm:inline   pr-1 fas fa-times'></i> </li></a>";
 						} else { 
 							echo "<a href='userProfile.php'> <li class='px-7 hover:bg-stone-200 transition py-3  uppercase  sm:  hover:text-pink-500' transition> Profile <i class=' pl-6 hidden sm:inline   fas fa-user-circle'></i>  </li></a>";
 							echo "<a href='services/logOff.php'> <li class='px-7 hover:bg-stone-200 transition md:mb-2 border-b-2 py-3 uppercase  sm:  hover:text-pink-500' transition> Log out <i class=' pl-6 hidden sm:inline   pr-1 fas fa-times'></i> </li></a>";
 						}
 					} else if ((isset($_SESSION["name"]) && ($_SESSION["role"] == 1) || ($_SESSION["role"] == 2))) {
 
-						echo "<a href='services/logOff.php'> <li class='px-7 hover:bg-stone-200 transition border-b-2 py-3 uppercase  sm:  hover:text-pink-500' transition> Log out <i class=' pl-6 hidden sm:inline   pr-1 fas fa-times'></i> </li></a>";
+						echo "<a href='services/logOff.php'> <li class='px-7 hover:bg-stone-200 transition border-b-2 py-3 uppercase  sm:  hover:text-pink-500 font-bold' transition> Log out <i class=' pl-6 hidden sm:inline   pr-1 fas fa-times'></i> </li></a>";
 					} else {
 						echo "<a href='login.php'> <li class='px-7 hover:bg-stone-200 transition py-3 uppercase  sm:  hover:text-pink-500' transition> Login <i class=' pl-6 hidden sm:inline   fas fa-user-circle'></i>  </li></a>";
 					}
@@ -172,13 +175,12 @@ if (session_status() != PHP_SESSION_ACTIVE) {
 
 
 					<?php if ($_SESSION["role"] == 1 || $_SESSION["role"] == 2) {   ?> <a href='article.php?new=1'>
-							<li class='px-7 py-3 uppercase  sm:  hover:text-pink-500' transition> Create article <i class="pl-6 pr-1 fas fa-folder-plus"></i> </li>
+							<li class='px-7 py-3 uppercase  hover:bg-stone-200 sm:  hover:text-pink-500 font-bold' transition> Create article <i class="pl-6 pr-1 sm:inline hidden fas fa-folder-plus"></i> </li>
 						</a> <?php } ?>
 					
 						<li class="md:hidden block">
 						<form class="mb-0 flex  flex-col" action="search.php" method="GET">
 							<ul class="  sm:  ">
-						<li class="  px-7 mt-2"> <p class="py-2   uppercase">Categories <i class="hidden sm:inline md:hidden pl-4  fas fa-list"></i></p>  </li>
 						<li class=" border-t-2 hover:bg-stone-200 transition py-1"><button type="submit" value="1" name="type" class="w-[100%] text-left py-3 px-6  hover:text-pink-500    ">Crypto World</button></li>
 						<li class=" hover:bg-stone-200 transition py-1"><button type="submit" value="0" name="type" class="w-[100%] text-left py-3 px-6  hover:text-pink-500    ">Tech News</button></li>
 						<li class=" hover:bg-stone-200 transition py-1"><button type="submit" value="3" name="type" class="w-[100%] text-left py-3 px-6  hover:text-pink-500   ">Biotechnology</button></li>
