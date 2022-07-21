@@ -1,7 +1,40 @@
 <html>
 <?php include "models/header.php" ?>
-
+<link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 <script>
+
+    $( function() {
+        $( "#dialog" ).dialog(
+                {
+                    autoOpen: false, draggable: false,
+                    buttons: [{ text: "OK", click: function() {$( this ).dialog( "close" );}}]
+                }
+            );
+        } );
+  
+
+    document.addEventListener('mouseup', function(e) {
+    var container = document.getElementById('dialog');
+    if (!container.contains(e.target)) {
+        container.style.display = 'none';
+
+        $( "#dialog" ).dialog("close");
+    }
+});
+
+    function showFakeUsers(){
+
+        let isOpen = $( "#dialog" ).dialog( "isOpen" );
+
+        $( "#dialog" ).dialog("open");
+
+        if(isOpen){
+            $( "#dialog" ).dialog("close");
+        }
+    }
+
     function showNewForm() {
 
         $("#loginForm").slideUp();
@@ -38,6 +71,15 @@
                             Sign in
                         </button>
                     </div>
+
+                    <div class="mt-7">
+                        <div class="flex justify-center items-center">
+                            <label class="mr-2">Checking the site?</label>
+                            <a href="#" onclick="showFakeUsers()" class=" text-blue-500 transition duration-300 ease-in-out  hover:text-blue-900">
+                                Try dummy accounts
+                            </a>
+                        </div>
+                    </div>
                     <div class="mt-7">
                         <div class="flex justify-center items-center">
                             <label class="mr-2">Not registered?</label>
@@ -46,6 +88,7 @@
                             </a>
                         </div>
                     </div>
+                 
                 </form>
                 <form id="registerForm" class="hidden" method="POST" action="" class="mt-10">
                     <div>
@@ -72,6 +115,17 @@
                         </div>
                     </div>
                 </form>
+                <div id="dialog" class="flex gap-4 font-Readex" title="Choose an account" style="font-family: Readex Pro, sans-serif;">
+                    <form id="" class="flex-1 text-center cursor-pointer" method="POST" action="services/dummyUser.php" class="mt-10">
+                        <button><img src="img/avatarAzul.svg">  <input value="0" class="hidden" name="type"> User  </button>
+                          </form>
+                    <form id="" class="flex-1 text-center cursor-pointer" method="POST" action="services/dummyUser.php" class="mt-10">
+                        <button  ><img src="img/avatarROJO.svg"> <input value="1" class="hidden" name="type"> Admin  </button>
+                          </form>
+                    <form id="" class="flex-1 text-center cursor-pointer" method="POST" action="services/dummyUser.php" class="mt-10">
+                        <button  ><img src="img/avatarVerde.svg"> <input value="2" class="hidden" name="type"> Editor  </button>
+                          </form>
+            </div>
             </div>
         </div>
     </div>

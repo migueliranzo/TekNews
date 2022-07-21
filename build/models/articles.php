@@ -23,16 +23,25 @@
   }
 
 
-  $maxResults = 12;         
+  $maxResults = 14;         
   if (isset($_GET["page"])) {
     $page  = $_GET["page"];
   } else {
     $page = 1;
   }
 
+
+  if(isset($_SESSION["dummyUser"]) && $_SESSION["dummyUser"] == true ){
+  
+      $defaultTable = "reportDummy";
+  }else{
+      
+      $defaultTable = "report";
+  }
+
   $start = ($page - 1) * $maxResults;
 
-  $query = "SELECT * FROM report LIMIT $start, $maxResults"; //query que coje los resultados exactos, de 0 a 5, de 5 a 10....
+  $query = "SELECT * FROM $defaultTable LIMIT $start, $maxResults"; //query que coje los resultados exactos, de 0 a 5, de 5 a 10....
   $result = mysqli_query($con, $query);
   $numResults = mysqli_num_rows($result);
   ?>
@@ -82,7 +91,7 @@
       <div class="bg-blue-500 shadow-lg text-white shadow-cyan-500/50 inline-block pt-2 pb-3 px-4 rounded-2xl overflow-hidden">
 
         <?php 
-        $query = "SELECT COUNT(*) FROM report";
+        $query = "SELECT COUNT(*) FROM $defaultTable";
         $result = mysqli_query($con, $query);
         $row = mysqli_fetch_row($result);
         $records = $row[0];

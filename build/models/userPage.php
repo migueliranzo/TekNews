@@ -34,7 +34,7 @@
     $password = "";
     $dbname = "technews";
 
-    $maxResults = 5;          
+    $maxResults = 9;          
     if (isset($_GET["page"])) {
         $page  = $_GET["page"];
     } else {
@@ -45,10 +45,19 @@
 
     $pdo = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
 
+
+    if(isset($_SESSION["dummyUser"]) && $_SESSION["dummyUser"] == true ){
+
+        $defaultTable = "user_reportdummy";
+    }else{
+        
+        $defaultTable = "user_report";
+    }
+    
    
     $keyword = $_SESSION["userID"];
 
-    $sql = " SELECT COUNT(*) FROM `user_report` WHERE user_id LIKE ?";
+    $sql = " SELECT COUNT(*) FROM $defaultTable WHERE user_id LIKE ?";
     $stmt = $pdo->prepare($sql);
     $stmt->bindParam(1, $keyword, PDO::PARAM_STR);
     $stmt->execute();
@@ -62,7 +71,7 @@ if ($records == 0) {
 
     try {
       
-      $sql = "SELECT * FROM `report` WHERE id IN (SELECT report_id FROM `user_report` WHERE  user_id = ?)  LIMIT $start, $maxResults;";
+      $sql = "SELECT * FROM `report` WHERE id IN (SELECT report_id FROM $defaultTable WHERE  user_id = ?)  LIMIT $start, $maxResults;";
       $stmt = $pdo->prepare($sql);
       $stmt->bindParam(1, $keyword, PDO::PARAM_STR);
       $stmt->execute();

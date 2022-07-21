@@ -31,8 +31,27 @@ if ($con->connect_error) {
   die("Connection failed: " . $con->connect_error);
 }
 
+
+
+if(isset($_SESSION["dummyUser"]) && $_SESSION["dummyUser"] == true ){
+
+    $defaultTable = "reportDummy";
+}else{
+    
+    $defaultTable = "report";
+}
+
+if(isset($_SESSION["dummyUser"]) && $_SESSION["dummyUser"] == true ){
+
+  $defaultTableUser = "user_reportdummy";
+}else{
+  
+  $defaultTableUser = "user_report";
+}
+
+
 if (!$newArticle) {
-  $query = "SELECT * FROM report WHERE id = $articleID";
+  $query = "SELECT * FROM $defaultTable WHERE id = $articleID";
 
   $result = mysqli_query($con, $query);
 
@@ -50,8 +69,7 @@ if (!$newArticle) {
 if (isset($_SESSION["name"]) && $_SESSION["role"] == 0){ 
   $userid = $_SESSION["userID"];
 
-  $results = $con->query("SELECT * FROM user_report WHERE report_id = $articleID AND user_id = $userid");
-
+  $results = $con->query("SELECT * FROM $defaultTableUser WHERE report_id = $articleID AND user_id = $userid");
 }
 
 
@@ -273,11 +291,11 @@ if ($newArticle) { ?>
 
     <?php  if ($results) { if($results->num_rows != 0){  
 
-        echo "  var favStatus = 1; ";
+        echo "  let favStatus = 1;";
 
       }else{
 
-        echo "  var favStatus = 0; ";
+        echo "  let favStatus = 0; ";
 
         } 
 
@@ -288,6 +306,7 @@ if ($newArticle) { ?>
   <?php } ?>
 
     function changeFav(status){
+      console.log("aa");
       if(status){
         document.getElementById("saveIcon").className = "far fa-heart hover:bg-red-500  hover:text-white p-2 rounded-full transition-all mb-2";
     }else{
@@ -461,11 +480,36 @@ if ($newArticle) { ?>
       $("#testF").data("top", $("#testF").offset().top); 
     $(window).scroll(fixDiv);
     */
+  
+   
+    
 
-    let $window = $(window);
+   
 
-    function checkWidth() {
-        var windowsize = $window.width();
+    <?php if ($_SESSION["role"] == 1  || $_SESSION["role"] == 2 ) {?> showImg(); <?php }  ?>
+
+      <?php
+      if (isset($_SESSION["name"]) && $_SESSION["role"] == 0){ 
+        echo $results->num_rows;
+      if ($results) { if($results->num_rows != 0){ ?>
+
+        changeFav(0);
+
+        <?php } } } ?>
+
+        <?php  if ($newArticle) {  ?>
+      //editTitle();
+      //switchView();
+      enableEdit();
+      <?php
+      }
+      ?>
+      
+      let $window = $(window);
+      let windowsize = $window.width();
+
+      function checkWidth() {
+      var windowsize = $window.width();
         if (windowsize < 1280) {
            
       $("#contentPanel").removeClass("h-[100%]");
@@ -481,29 +525,14 @@ if ($newArticle) { ?>
         }
     }
 
-    checkWidth();
+      checkWidth();
 
-    $(window).resize(checkWidth);
+if (windowsize > 1280) {
+  switchView();
+}
 
-    <?php if ($_SESSION["role"] == 1  || $_SESSION["role"] == 2 ) {?> showImg(); <?php }  ?>
 
-      <?php
-      if (isset($_SESSION["name"]) && $_SESSION["role"] == 0){ 
-      if ($results) { if($results->num_rows != 0){ ?>
-
-        changeFav(0);
-
-        <?php } } } ?>
-
-        <?php  if ($newArticle) {  ?>
-      //editTitle();
-      switchView();
-      enableEdit();
-      <?php
-      }
-      ?>
-      
-
+$(window).resize(checkWidth);
     
 });
 

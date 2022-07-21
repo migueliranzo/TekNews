@@ -120,7 +120,7 @@ news-card-effect after:ease-out">
           <div class="flex flex-1 border-solid  m-0 pb-8 ">
 
             <div class="container h-24 px-[1.12rem] border-gray-400 overflow-hidden group-hover:border-blue-800 border-solid  transform group-hover:-translate-y-3  duration-300 ease-out bg-white ">
-              <p class="limitTitleHeight">No igual a 2<?php echo $row["title"]; ?></p>
+              <p class="limitTitleHeight"><?php echo $row["title"]; ?></p>
             </div>
           </div>
         </div>
@@ -137,7 +137,7 @@ news-card-effect after:ease-out">
       <div class="flex p-0 m-0 bg-white">
 
         <div class="group-hover:not-italic italic  md:text-center lg:text-left duration-300 ease-out font-bold bg-white text-4xl  ">
-        <p class="limitTitleHeight">LastElse<?php echo $row["title"]; ?></p>
+        <p class="limitTitleHeight"><?php echo $row["title"]; ?></p>
         </div>
 
       </div>

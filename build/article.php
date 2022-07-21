@@ -7,22 +7,36 @@ $username = "root";
 $password = "";
 $dbname = "technews";
 
-$articleID = $_GET['article'];;
+if (isset($_GET['new']) && $_GET['new'] == 1) {
+  
+  }else{
+	  
+	session_start();
+	if(isset($_SESSION["dummyUser"]) && $_SESSION["dummyUser"] == true ){
 
-$con = new mysqli($servername, $username, $password, $dbname);
-
-if ($con->connect_error) {
-	die("Connection failed: " . $con->connect_error);
+		$defaultTable = "reportDummy";
+	}else{
+		
+		$defaultTable = "report";
+	}
+	  
+	  $articleID = $_GET['article'];;
+	  
+	  $con = new mysqli($servername, $username, $password, $dbname);
+	  
+	  if ($con->connect_error) {
+		  die("Connection failed: " . $con->connect_error);
+		}
+	  
+		$query = "SELECT * FROM $defaultTable WHERE id = $articleID";
+		$result = mysqli_query($con, $query);
+	  
+		if (mysqli_num_rows($result)==0) { 
+	  
+		  header("Location: index.php");
+		  die();
+		 }
   }
-
-  $query = "SELECT * FROM report WHERE id = $articleID";
-  $result = mysqli_query($con, $query);
-
-  if (mysqli_num_rows($result)==0) { 
-
-	header("Location: index.php");
-	die();
-   }
 
 ?>
 

@@ -16,12 +16,21 @@ $content = $_POST["content"];
 $type = $_POST["type"];
 $img = $_POST["img"];
 
+session_start();
+
+if(isset($_SESSION["dummyUser"]) && $_SESSION["dummyUser"] == true ){
+
+    $defaultTable = "reportDummy";
+}else{
+    
+    $defaultTable = "report";
+}
 
 if ( isset($_POST["delete"]) && $_POST["delete"] == 1) {
 
     try {
 
-        $sql = "DELETE FROM report WHERE id = ?";
+        $sql = "DELETE FROM $defaultTable WHERE id = ?";
         $stmt = $pdo->prepare($sql);
         if ($stmt->execute([$id])) {
            echo "deleted";
@@ -36,7 +45,7 @@ if ( isset($_POST["delete"]) && $_POST["delete"] == 1) {
 
         try {
 
-            $sql = "INSERT INTO report (title,description, type,imgpath) VALUES (?,?,?,?)";
+            $sql = "INSERT INTO $defaultTable (title,description, type,imgpath) VALUES (?,?,?,?)";
             $stmt = $pdo->prepare($sql);
             if ($stmt->execute([$title, $content, $type, $img])) {
                 echo $pdo->lastInsertId();
@@ -49,7 +58,7 @@ if ( isset($_POST["delete"]) && $_POST["delete"] == 1) {
 
         try {
             echo $img;
-            $sql = "UPDATE report SET title=?, description=?, type=?, imgpath=? WHERE id=?";
+            $sql = "UPDATE $defaultTable SET title=?, description=?, type=?, imgpath=? WHERE id=?";
             $stmt = $pdo->prepare($sql);
             if ( $stmt->execute([$title, $content, $type,$img, $id])){
                 echo 'Updated';
