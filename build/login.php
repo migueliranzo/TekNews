@@ -76,7 +76,7 @@
                         <div class="flex justify-center items-center">
                             <label class="mr-2">Checking the site?</label>
                             <a href="#" onclick="showFakeUsers()" class=" text-blue-500 transition duration-300 ease-in-out  hover:text-blue-900">
-                                Try dummy accounts
+                                Try demo accounts
                             </a>
                         </div>
                     </div>
@@ -116,14 +116,14 @@
                     </div>
                 </form>
                 <div id="dialog" class="flex gap-4 font-Readex" title="Choose an account" style="font-family: Readex Pro, sans-serif;">
-                    <form id="" class="flex-1 text-center cursor-pointer" method="POST" action="services/dummyUser.php" class="mt-10">
-                        <button><img src="img/avatarAzul.svg">  <input value="0" class="hidden" name="type"> User  </button>
+                    <form id="" class="flex-1 text-center cursor-pointer mt-5"  method="POST" action="services/dummyUser.php" class="mt-10">
+                        <button><img  width="50" height="50" src="img/avatarAzul.svg">  <input value="0" class="hidden" name="type"> User  </button>
                           </form>
-                    <form id="" class="flex-1 text-center cursor-pointer" method="POST" action="services/dummyUser.php" class="mt-10">
-                        <button  ><img src="img/avatarROJO.svg"> <input value="1" class="hidden" name="type"> Admin  </button>
+                    <form id="" class="flex-1 text-center cursor-pointer  mt-5" method="POST" action="services/dummyUser.php" class="mt-10">
+                        <button  ><img width="50" height="50"  src="img/avatarROJO.svg"> <input value="1" class="hidden" name="type"> Admin  </button>
                           </form>
-                    <form id="" class="flex-1 text-center cursor-pointer" method="POST" action="services/dummyUser.php" class="mt-10">
-                        <button  ><img src="img/avatarVerde.svg"> <input value="2" class="hidden" name="type"> Editor  </button>
+                    <form id="" class="flex-1 text-center cursor-pointer mt-5 " method="POST" action="services/dummyUser.php" class="mt-10">
+                        <button  ><img width="50" height="50"  src="img/avatarVerde.svg"> <input value="2" class="hidden" name="type"> Editor  </button>
                           </form>
             </div>
             </div>
