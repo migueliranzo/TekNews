@@ -19,10 +19,11 @@ $content;
 $type;
 $image;
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "technews";
+
+$servername = $xSERVERNAME;
+$username = $xUSERNAME;
+$password = $xPASSWORD;
+$dbname = $xDBNAME;
 
 
 $con = new mysqli($servername, $username, $password, $dbname);

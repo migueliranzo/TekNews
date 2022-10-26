@@ -1,4 +1,6 @@
 <?php
+
+include "../dbinfo.php";
 include "../vendor/erusev/parsedown/Parsedown.php";
 $Parsedown = new Parsedown();
 

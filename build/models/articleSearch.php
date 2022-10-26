@@ -11,10 +11,10 @@
     <?php
 
 
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "technews";
+    $servername = $xSERVERNAME;
+    $username = $xUSERNAME;
+    $password = $xPASSWORD;
+    $dbname = $xDBNAME;
 
     $maxResults = 5;         
     if (isset($_GET["page"])) {

@@ -29,10 +29,10 @@
     
    
 
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "technews";
+    $servername = $xSERVERNAME;
+    $username = $xUSERNAME;
+    $password = $xPASSWORD;
+    $dbname = $xDBNAME;
 
     $maxResults = 9;          
     if (isset($_GET["page"])) {

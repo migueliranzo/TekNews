@@ -1,13 +1,13 @@
 <?php
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "technews";
+include "../../dbinfo.php";
+    $servername = $xSERVERNAME;
+    $username = $xUSERNAME;
+    $password = $xPASSWORD;
+    $dbname = $xDBNAME;
 
 
-
-$pdo = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+$pdo = new PDO("mysql:host=$servername;dbname=$dbname;charset=utf8mb4", $username, $password);
 
 
 $article = $_POST["articleID"];

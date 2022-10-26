@@ -10,11 +10,10 @@
 <body>
   <?php
 
-  $servername = "localhost";
-  $username = "root";
-  $password = "";
-  $dbname = "technews";
-
+  $servername = $xSERVERNAME;
+  $username = $xUSERNAME;
+  $password = $xPASSWORD;
+  $dbname = $xDBNAME;
   // Creamos conexion
   $con = new mysqli($servername, $username, $password, $dbname);
   // Verificamos conexion
@@ -22,6 +21,7 @@
     die("Connection failed: " . $con->connect_error);
   }
 
+  $con->set_charset("utf8");
 
   $maxResults = 14;         
   if (isset($_GET["page"])) {
